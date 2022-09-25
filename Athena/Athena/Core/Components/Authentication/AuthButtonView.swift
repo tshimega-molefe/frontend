@@ -13,10 +13,10 @@ import SwiftUI
 
 struct AuthButtonView: View {
     let buttonLabel: String
-    let action: (() -> Void)
+    let clicked: (() -> Void)
     var body: some View {
         HStack {
-            Button(action: action) {
+            Button(action: clicked) {
                 Text(buttonLabel)
                     .font(.custom(FontsManager.Poppins.semiBold, size: 16))
                     .foregroundColor(.white)
@@ -24,7 +24,7 @@ struct AuthButtonView: View {
                     .background(Color.theme.red)
                     .cornerRadius(15)
             }
-            .shadow(color: .gray.opacity(0.5), radius: 8, x: 0, y: 0)
+            .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
         }
         .padding(.horizontal, 30)
     }

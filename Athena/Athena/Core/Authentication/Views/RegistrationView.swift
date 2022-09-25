@@ -11,6 +11,7 @@ struct RegistrationView: View {
     @State private var username = ""
     @State private var email = ""
     @State private var password = ""
+    @State private var checked = false
     
     var body: some View {
         ZStack {
@@ -38,10 +39,32 @@ struct RegistrationView: View {
                 }
                 .padding(.horizontal, 30)
                 
-                AuthButtonView(buttonLabel: "Next", action: {
+                HStack (alignment: .center) {
+                    CheckBoxView(checked: $checked)
+                    
+                    Text("I agree to the")
+                        .font(.custom(FontsManager.Poppins.regular, size: 15))
+                        .foregroundColor(Color.theme.grey)
+                    
+                    
+                    NavigationLink {
+                        Text("Terms and Conditions")
+                        
+                    } label: {
+                        Text("Terms & Conditions")
+                            .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                            .foregroundColor(Color.theme.accent)
+                            .underline()
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal, 30)
+                .padding(.top, 10)
+                
+                AuthButtonView(buttonLabel: "Next") {
                     print("DEBUG: Handle create account..")
-                })
-                    .padding(.top, 30)
+                }
+                    .padding(.top, 45)
                 
                 Spacer()
             }

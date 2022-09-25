@@ -10,6 +10,7 @@
 		9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABB928E09A3100437D38 /* CustomInputField.swift */; };
 		9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */; };
 		9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBE28E0E11200437D38 /* AuthButtonView.swift */; };
+		9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABC228E0EB8300437D38 /* CheckBoxView.swift */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576893E28E0644F009FDCE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893D28E0644F009FDCE2 /* ContentView.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		9522ABB928E09A3100437D38 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		9522ABBE28E0E11200437D38 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
+		9522ABC228E0EB8300437D38 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893D28E0644F009FDCE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				9522ABBB28E0AA2900437D38 /* Authentication */,
 				9522ABB928E09A3100437D38 /* CustomInputField.swift */,
+				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				9576893E28E0644F009FDCE2 /* ContentView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
+				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
