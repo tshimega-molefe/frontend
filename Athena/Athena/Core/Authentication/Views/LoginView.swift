@@ -13,52 +13,61 @@ struct LoginView: View {
     
     var body: some View {
 //        parent container
-        VStack {
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
             
-//            header view
-            VStack(alignment: .center) {
+            VStack {
                 
-                Image("login")
-                    .padding(/*@START_MENU_TOKEN@*/.top, 10.0/*@END_MENU_TOKEN@*/)
+    //            header view
+                VStack(alignment: .center) {
                     
-                
-                Text("Log In")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color("PrimaryTextColor"))
-                    .padding(.top, -2.0)
-            }
-            
-            VStack (spacing: 10) {
-                TextField("Enter your email", text: $email)
-                    .frame(height: 67)
-                    .background(Color.theme.pink)
-                    .cornerRadius(15)
-                
-                TextField("Enter your password", text: $password)
-                    .frame(height: 67)
-                    .background(Color.theme.pink)
-                    .cornerRadius(15)
-            }
-            .padding(.horizontal, 30)
-            .padding(.top, 64)
-            
-            HStack {
-                Spacer()
-                
-                NavigationLink {
-                    Text("Reset Password")
-                } label: {
-                    Text("Forgot Password?")
-                        .font(.caption)
+                    Image("login")
+                        .padding(/*@START_MENU_TOKEN@*/.top, 10.0/*@END_MENU_TOKEN@*/)
+                        
+                    
+                    Text("Log In")
+                        .font(.custom(FontsManager.Poppins.black, size: 36))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color.theme.accent)
-                        .padding(.top)
-                        .padding(.trailing, 30)
+                        .foregroundColor(Color("SecondaryTextColor"))
+                        .padding(.top, -2.0)
                 }
+                
+                VStack (spacing: 10) {
+                    TextField("Enter your email", text: $email)
+                        .font(.custom(FontsManager.Poppins.light, size: 15))
+                        .foregroundColor(Color.theme.accent)
+                        .padding(.leading)
+                        .frame(height: 67)
+                        .background(Color.theme.pink)
+                        .cornerRadius(15)
+                    
+                    TextField("Enter your password", text: $password)
+                        .font(.custom(FontsManager.Poppins.light, size: 15))
+                        .padding(.leading)
+                        .frame(height: 67)
+                        .background(Color.theme.pink)
+                        .cornerRadius(15)
+                }
+                .padding(.horizontal, 30)
+                .padding(.top, 64)
+                
+                HStack {
+                    Spacer()
+                    
+                    NavigationLink {
+                        Text("Reset Password")
+                    } label: {
+                        Text("Forgot Password?")
+                            .font(.custom(FontsManager.Poppins.regular, size: 15))
+                            .foregroundColor(Color.theme.accent)
+                            .padding(.top)
+                            .padding(.trailing, 30)
+                    }
+                }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
     }
 }
