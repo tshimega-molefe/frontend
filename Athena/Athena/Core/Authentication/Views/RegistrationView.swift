@@ -9,7 +9,21 @@ import SwiftUI
 
 struct RegistrationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+//            UIView Background Color
+                        
+            Color.theme.background
+                .edgesIgnoringSafeArea(.all)
+                        
+//            Parent VStack
+            
+            VStack {
+                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account with email")
+                
+                Spacer()
+            }
+        }
     }
 }
 

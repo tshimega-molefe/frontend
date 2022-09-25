@@ -24,20 +24,9 @@ struct LoginView: View {
             
             VStack {
                 
-    //            Authentication Header VStack
+    //            AuthHeaderView
                 
-                VStack(alignment: .center) {
-                    
-                    Image("login")
-                        .padding(/*@START_MENU_TOKEN@*/.top, 10.0/*@END_MENU_TOKEN@*/)
-                        
-                    
-                    Text("Log In")
-                        .font(.custom(FontsManager.Poppins.black, size: 36))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("SecondaryTextColor"))
-                        .padding(.top, -2.0)
-                }
+                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "login"), authLabel: "Log in")
                 
 //                Authentication TextField VStack
                 

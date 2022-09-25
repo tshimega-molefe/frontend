@@ -21,6 +21,8 @@ struct CustomInputField: View {
                         .foregroundColor(Color.theme.grey)
                 }
                 TextField("", text: $text)
+                    .font(.custom(FontsManager.Poppins.regular, size: 15))
+                    .foregroundColor(Color.theme.primaryText)
             }
             .accentColor(Color.theme.accent)
             .padding(.leading)
