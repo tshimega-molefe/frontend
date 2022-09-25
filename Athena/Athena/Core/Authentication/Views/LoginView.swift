@@ -12,14 +12,20 @@ struct LoginView: View {
     @State private var password = ""
     
     var body: some View {
-//        parent container
+        
         ZStack {
+            
+//            UIView Background Color
+            
             Color.theme.background
                 .ignoresSafeArea()
             
+//            Parent VStack
+            
             VStack {
                 
-    //            header view
+    //            Authentication Header VStack
+                
                 VStack(alignment: .center) {
                     
                     Image("login")
@@ -32,6 +38,8 @@ struct LoginView: View {
                         .foregroundColor(Color("SecondaryTextColor"))
                         .padding(.top, -2.0)
                 }
+                
+//                Authentication TextField VStack
                 
                 VStack (spacing: 10) {
                     TextField("Enter your email", text: $email)
@@ -52,6 +60,8 @@ struct LoginView: View {
                 .padding(.horizontal, 30)
                 .padding(.top, 64)
                 
+//                "Forgot Password?" HStack
+                
                 HStack {
                     Spacer()
                     
@@ -66,7 +76,30 @@ struct LoginView: View {
                     }
                 }
                 
+                Button {
+                    print("Log in here..")
+                } label: {
+                    Text("Log In")
+                        .font(.custom(FontsManager.Poppins.semiBold, size: 16))
+                        .foregroundColor(.white)
+                        .frame(width: 368, height: 67)
+                        .background(Color.theme.red)
+                        .cornerRadius(15)
+                }
+                .shadow(color: .red.opacity(0.2), radius: 4, x: 0, y: 0)
+
+                
                 Spacer()
+                
+                NavigationLink {
+                    RegistrationView()
+                        .navigationBarHidden(true)
+                } label: {
+                    Text("Don't have an account?")
+                        .font(.custom(FontsManager.Poppins.regular, size: 15))
+                        .foregroundColor(Color.theme.secondaryText)
+                }
+
             }
         }
     }
