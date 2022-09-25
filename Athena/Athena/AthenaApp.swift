@@ -11,7 +11,10 @@ import SwiftUI
 struct AthenaApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationView {
+//                ContentView()
+                LoginView()
+            }
         }
     }
 }

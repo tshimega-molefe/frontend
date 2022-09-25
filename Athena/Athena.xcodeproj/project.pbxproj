@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABB928E09A3100437D38 /* CustomInputField.swift */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576893E28E0644F009FDCE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893D28E0644F009FDCE2 /* ContentView.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9522ABB928E09A3100437D38 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893D28E0644F009FDCE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9522ABB828E09A1B00437D38 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9522ABB928E09A3100437D38 /* CustomInputField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9576892F28E0644F009FDCE2 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +157,7 @@
 		9576894C28E0651C009FDCE2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9522ABB828E09A1B00437D38 /* Components */,
 				9576895028E065D4009FDCE2 /* Authentication */,
 			);
 			path = Core;
@@ -304,6 +315,7 @@
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				9576893E28E0644F009FDCE2 /* ContentView.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
+				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 			);

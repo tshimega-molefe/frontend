@@ -18,7 +18,7 @@ struct LoginView: View {
 //            UIView Background Color
             
             Color.theme.background
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
             
 //            Parent VStack
             
@@ -42,20 +42,11 @@ struct LoginView: View {
 //                Authentication TextField VStack
                 
                 VStack (spacing: 10) {
-                    TextField("Enter your email", text: $email)
-                        .font(.custom(FontsManager.Poppins.light, size: 15))
-                        .foregroundColor(Color.theme.accent)
-                        .padding(.leading)
-                        .frame(height: 67)
-                        .background(Color.theme.pink)
-                        .cornerRadius(15)
+                    CustomInputField(placeholderText: "Enter your email",
+                                     text: $email)
                     
-                    TextField("Enter your password", text: $password)
-                        .font(.custom(FontsManager.Poppins.light, size: 15))
-                        .padding(.leading)
-                        .frame(height: 67)
-                        .background(Color.theme.pink)
-                        .cornerRadius(15)
+                    CustomInputField(placeholderText: "Enter your password",
+                                     text: $password)
                 }
                 .padding(.horizontal, 30)
                 .padding(.top, 64)
@@ -87,7 +78,7 @@ struct LoginView: View {
                         .background(Color.theme.red)
                         .cornerRadius(15)
                 }
-                .shadow(color: .red.opacity(0.2), radius: 4, x: 0, y: 0)
+                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 0)
                 
 
                 
@@ -109,7 +100,6 @@ struct LoginView: View {
             }
         }
         .navigationBarHidden(true)
-        .statusBarHidden(true)
     }
 }
 
