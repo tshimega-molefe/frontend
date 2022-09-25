@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @State private var username = ""
+    @State private var email = ""
+    @State private var password = ""
+    
     var body: some View {
         ZStack {
             
@@ -19,7 +23,25 @@ struct RegistrationView: View {
 //            Parent VStack
             
             VStack {
-                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account with email")
+                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account")
+                
+                //                Authentication TextField VStack
+                
+                
+                VStack (spacing: 10) {
+                    CustomInputField(placeholderText: "Username",
+                                     text: $username)
+                    CustomInputField(placeholderText: "Email",
+                                     text: $email)
+                    CustomInputField(placeholderText: "Password",
+                                     text: $password)
+                }
+                .padding(.horizontal, 30)
+                
+                AuthButtonView(buttonLabel: "Next", action: {
+                    print("DEBUG: Handle create account..")
+                })
+                    .padding(.top, 30)
                 
                 Spacer()
             }

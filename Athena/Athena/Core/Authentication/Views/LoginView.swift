@@ -31,10 +31,10 @@ struct LoginView: View {
 //                Authentication TextField VStack
                 
                 VStack (spacing: 10) {
-                    CustomInputField(placeholderText: "Enter your email",
+                    CustomInputField(placeholderText: "Username",
                                      text: $email)
                     
-                    CustomInputField(placeholderText: "Enter your password",
+                    CustomInputField(placeholderText: "Password",
                                      text: $password)
                 }
                 .padding(.horizontal, 30)
@@ -56,18 +56,9 @@ struct LoginView: View {
                     }
                 }
                 
-                Button {
-                    print("DEBUG: Handle log In here..")
+                AuthButtonView(buttonLabel: "Log in") {
+                    print("DEBUG: Handle log in..")
                 }
-            label: {
-                    Text("Log In")
-                        .font(.custom(FontsManager.Poppins.semiBold, size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 330, height: 67)
-                        .background(Color.theme.red)
-                        .cornerRadius(15)
-                }
-                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 0)
                 
 
                 
