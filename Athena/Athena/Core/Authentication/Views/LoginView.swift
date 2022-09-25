@@ -77,16 +77,18 @@ struct LoginView: View {
                 }
                 
                 Button {
-                    print("Log in here..")
-                } label: {
+                    print("DEBUG: Handle log In here..")
+                }
+            label: {
                     Text("Log In")
                         .font(.custom(FontsManager.Poppins.semiBold, size: 16))
                         .foregroundColor(.white)
-                        .frame(width: 368, height: 67)
+                        .frame(width: 330, height: 67)
                         .background(Color.theme.red)
                         .cornerRadius(15)
                 }
                 .shadow(color: .red.opacity(0.2), radius: 4, x: 0, y: 0)
+                
 
                 
                 Spacer()
@@ -97,11 +99,17 @@ struct LoginView: View {
                 } label: {
                     Text("Don't have an account?")
                         .font(.custom(FontsManager.Poppins.regular, size: 15))
-                        .foregroundColor(Color.theme.secondaryText)
+                        .foregroundColor(Color.theme.grey)
+                    
+                    Text("Sign Up")
+                        .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                        .foregroundColor(Color.theme.accent)
+                        .underline()
                 }
-
             }
         }
+        .navigationBarHidden(true)
+        .statusBarHidden(true)
     }
 }
 

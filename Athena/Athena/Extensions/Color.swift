@@ -35,6 +35,7 @@ struct ColorTheme {
     
     let primaryText = Color("PrimaryTextColor")
     let secondaryText = Color("SecondaryTextColor")
+    let grey = Color("GreyColor")
     
 //    TextField Color
     
