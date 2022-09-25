@@ -59,16 +59,26 @@ struct RegistrationView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 30)
-                .padding(.top, 10)
+                .padding(.top)
                 
-                AuthButtonView(buttonLabel: "Next") {
-                    print("DEBUG: Handle create account..")
+                NavigationLink {
+                    Text("RegistrationViewTwo")
+                } label: {
+                    Text("Next")
+                        .font(.custom(FontsManager.Poppins.semiBold, size: 16))
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
+                        .background(Color.theme.red)
+                        .cornerRadius(15)
                 }
-                    .padding(.top, 45)
+                .padding(.horizontal, 30)
+                .padding(.top, 35)
                 
                 Spacer()
             }
         }
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
 }
 
