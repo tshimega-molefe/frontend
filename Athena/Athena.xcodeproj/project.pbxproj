@@ -39,6 +39,8 @@
 		95E6AEE228E07BC8002DC84A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AECF28E07BC8002DC84A /* Poppins-Medium.ttf */; };
 		95E6AEE328E07BC8002DC84A /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AED028E07BC8002DC84A /* Poppins-ExtraBoldItalic.ttf */; };
 		95E6AEE628E07D24002DC84A /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6AEE528E07D24002DC84A /* FontsManager.swift */; };
+		95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC4128E1C56900ABE5CA /* dismissKeyboard.swift */; };
+		95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC4328E1CBC300ABE5CA /* SecondRegistration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		95E6AED028E07BC8002DC84A /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEE428E07C21002DC84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E6AEE528E07D24002DC84A /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		95FCEC4128E1C56900ABE5CA /* dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dismissKeyboard.swift; sourceTree = "<group>"; };
+		95FCEC4328E1CBC300ABE5CA /* SecondRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegistration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9576895728E068A6009FDCE2 /* Color.swift */,
+				95FCEC4128E1C56900ABE5CA /* dismissKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				9576895328E065F6009FDCE2 /* LoginView.swift */,
 				9576895528E06608009FDCE2 /* RegistrationView.swift */,
 				957E702128E130AC003E8A67 /* WelcomeView.swift */,
+				95FCEC4328E1CBC300ABE5CA /* SecondRegistration.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,11 +338,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E6AEE628E07D24002DC84A /* FontsManager.swift in Sources */,
+				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				9576893E28E0644F009FDCE2 /* ContentView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
+				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
 				957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,

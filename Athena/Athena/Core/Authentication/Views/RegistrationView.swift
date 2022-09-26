@@ -43,13 +43,12 @@ struct RegistrationView: View {
                     
                     HStack (alignment: .center) {
                         CheckBoxView(checked: $checked)
+//                        Check bool state of checked variable in logic, before enabling the user to proceed to                         the next UIView Controller
                         
-                        Text("Accept:")
+                        Text("I agree to the")
                             .font(.custom(FontsManager.Poppins.regular, size: 15))
                             .foregroundColor(Color.theme.grey)
 
-                        Spacer()
-                        
                         NavigationLink {
                             Text("Terms & Conditions")
                             
@@ -59,34 +58,25 @@ struct RegistrationView: View {
                                 .foregroundColor(Color.theme.accent)
                                 .underline()
                         }
+                        Spacer()
                     }
                     .padding(.horizontal, 30)
                     .padding(.top)
-                    
-                    HStack (alignment: .center) {
-                        Spacer()
-                        NavigationLink {
-                            Text("Privacy Policy")
-                            
-                        } label: {
-                            Text("and ")
-                                .font(.custom(FontsManager.Poppins.regular, size: 15))
-                                .foregroundColor(Color.theme.grey)
-                            
-                            +
-                            
-                            Text("Privacy Policy")
-                                .font(.custom(FontsManager.Poppins.semiBold, size: 15))
-                                .foregroundColor(Color.theme.accent)
-                                .underline()
-                        }
-                    }
-                    .padding(.horizontal, 30)
 
                     
-                    AuthButtonView(buttonLabel: "Next") {
-                        print("DEBUG: Handle next registration view...")
+                    NavigationLink {
+                        SecondRegistration()
+                    } label: {
+                        Text("Next")
+                            .font(.custom(FontsManager.Poppins.semiBold, size: 16))
+                            .foregroundColor(.white)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
+                            .background(Color.theme.red)
+                            .cornerRadius(15)
+
                     }
+                    .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
+                    .padding(.horizontal, 30)
                     .padding(.top, 40)
                     
                     Spacer()
@@ -111,6 +101,8 @@ struct RegistrationView: View {
                 .navigationBarBackButtonHidden(true)
             }
             
+        }.onTapGesture {
+            dismissKeyboard()
         }
     }
 }

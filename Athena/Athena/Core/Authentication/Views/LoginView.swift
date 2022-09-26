@@ -44,6 +44,7 @@ struct LoginView: View {
                     
                     HStack (alignment: .center){
                         CheckBoxView(checked: $checked)
+//                        Check bool state of checked variable in logic, before enabling the user to proceed to                         the next UIView Controller
                         
                         Text("Remember Me")
                             .font(.custom(FontsManager.Poppins.regular, size: 15))
@@ -65,7 +66,7 @@ struct LoginView: View {
                     
 //                    Log In Button
                     
-                    AuthButtonView(buttonLabel: "Log in") {
+                    AuthButtonView(buttonLabel: "Log In") {
                         print("DEBUG: Handle log in..")
                     }
                     .padding(.top, 40)
@@ -94,6 +95,9 @@ struct LoginView: View {
                         }
                     }
                 }
+            }
+            .onTapGesture {
+                dismissKeyboard()
             }
         }
     }
