@@ -63,6 +63,8 @@ struct LoginView: View {
                     .padding(.horizontal, 30)
                     .padding(.top)
                     
+//                    Log In Button
+                    
                     AuthButtonView(buttonLabel: "Log in") {
                         print("DEBUG: Handle log in..")
                     }
@@ -70,6 +72,8 @@ struct LoginView: View {
                     
                     
                     Spacer()
+                    
+//                    Don't have an account button
                     
                     NavigationLink {
                             RegistrationView()

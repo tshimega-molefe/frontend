@@ -18,6 +18,7 @@
 		9576895428E065F6009FDCE2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895328E065F6009FDCE2 /* LoginView.swift */; };
 		9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895528E06608009FDCE2 /* RegistrationView.swift */; };
 		9576895828E068A6009FDCE2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895728E068A6009FDCE2 /* Color.swift */; };
+		957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E702128E130AC003E8A67 /* WelcomeView.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -53,6 +54,7 @@
 		9576895328E065F6009FDCE2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9576895528E06608009FDCE2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9576895728E068A6009FDCE2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		957E702128E130AC003E8A67 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				9576895328E065F6009FDCE2 /* LoginView.swift */,
 				9576895528E06608009FDCE2 /* RegistrationView.swift */,
+				957E702128E130AC003E8A67 /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
+				957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
