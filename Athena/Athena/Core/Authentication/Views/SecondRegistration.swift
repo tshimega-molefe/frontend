@@ -42,7 +42,7 @@ struct SecondRegistration: View {
                     
                     HStack (alignment: .center) {
                         CheckBoxView(checked: $checked)
-//                        Check bool state of checked variable in logic, before enabling the user to proceed to                         the next UIView Controller
+//                        Check bool state of checked variable in logic, before enabling the user to proceed to the next UIView Controller
                         
                         Text("I have read the")
                             .font(.custom(FontsManager.Poppins.regular, size: 15))
