@@ -12,73 +12,87 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var checked = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ZStack {
-            
-//            UIView Background Color
-                        
-            Color.theme.background
-                .edgesIgnoringSafeArea(.all)
-                        
-//            Parent VStack
-            
-            VStack {
-                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account")
+        NavigationView {
+            ZStack {
                 
-                //                Authentication TextField VStack
+                //            UIView Background Color
                 
+                Color.theme.background
+                    .edgesIgnoringSafeArea(.all)
                 
-                VStack (spacing: 10) {
-                    CustomInputField(placeholderText: "Username",
-                                     text: $username)
-                    CustomInputField(placeholderText: "Email",
-                                     text: $email)
-                    CustomInputField(placeholderText: "Password",
-                                     text: $password)
-                }
-                .padding(.horizontal, 30)
+                //            Parent VStack
                 
-                HStack (alignment: .center) {
-                    CheckBoxView(checked: $checked)
+                VStack {
+                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account")
                     
-                    Text("I agree to the")
-                        .font(.custom(FontsManager.Poppins.regular, size: 15))
-                        .foregroundColor(Color.theme.grey)
+                    //                Authentication TextField VStack
                     
                     
-                    NavigationLink {
-                        Text("Terms and Conditions")
-                        
-                    } label: {
-                        Text("Terms & Conditions")
-                            .font(.custom(FontsManager.Poppins.semiBold, size: 15))
-                            .foregroundColor(Color.theme.accent)
-                            .underline()
+                    VStack (spacing: 10) {
+                        CustomInputField(placeholderText: "Username",
+                                         text: $username)
+                        CustomInputField(placeholderText: "Email",
+                                         text: $email)
+                        CustomInputField(placeholderText: "Password",
+                                         text: $password)
                     }
+                    .padding(.horizontal, 30)
+                    
+                    HStack (alignment: .center) {
+                        CheckBoxView(checked: $checked)
+                        
+                        Text("I agree to the")
+                            .font(.custom(FontsManager.Poppins.regular, size: 15))
+                            .foregroundColor(Color.theme.grey)
+                        
+                        
+                        NavigationLink {
+                            Text("Terms & Conditions")
+                            
+                        } label: {
+                            Text("Terms & Conditions")
+                                .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                                .foregroundColor(Color.theme.accent)
+                                .underline()
+                        }
+                        
+                        Spacer()
+                        
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.top)
+                    
+                    AuthButtonView(buttonLabel: "Next") {
+                        print("DEBUG: Handle next registration view...")
+                    }
+                    .padding(.top, 40)
+                    
                     Spacer()
+                    
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        HStack {
+                            Text("Already have an account? ")
+                                .font(.custom(FontsManager.Poppins.regular, size: 15))
+                                .foregroundColor(Color.theme.grey)
+                            +
+                            
+                            Text("Log in")
+                                .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                                .foregroundColor(Color.theme.accent)
+                                .underline()
+                        }
+                    }
                 }
-                .padding(.horizontal, 30)
-                .padding(.top)
-                
-                NavigationLink {
-                    Text("RegistrationViewTwo")
-                } label: {
-                    Text("Next")
-                        .font(.custom(FontsManager.Poppins.semiBold, size: 16))
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
-                        .background(Color.theme.red)
-                        .cornerRadius(15)
-                }
-                .padding(.horizontal, 30)
-                .padding(.top, 35)
-                
-                Spacer()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             }
+            
         }
-        .navigationTitle("")
-        .navigationBarHidden(true)
     }
 }
 
