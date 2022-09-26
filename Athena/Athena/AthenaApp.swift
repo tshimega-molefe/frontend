@@ -13,7 +13,7 @@ struct AthenaApp: App {
         WindowGroup {
             NavigationView {
 //                ContentView()
-                LoginView()
+                WelcomeView()
             }
         }
     }

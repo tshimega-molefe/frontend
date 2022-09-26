@@ -21,16 +21,18 @@ struct WelcomeView: View {
             VStack {
                 //            AuthHeaderView
                 
-                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "welcome"), authLabel: "")
+              Image("welcome")
+                    .padding(.top, 30)
+                
                 Text("Get help when you need it")
-                    .font(.custom(FontsManager.Poppins.semiBold, size: 26))
+                    .font(.custom(FontsManager.Poppins.semiBold, size: 28))
                     .foregroundColor(Color.theme.secondaryText)
                     .padding(.top, 30)
                 
                 Text("Your own A.I. security assistant")
                     .font(.custom(FontsManager.Poppins.regular, size: 20))
                     .foregroundColor(Color.theme.grey)
-                    .padding(.top, 2)
+                    .padding(.top, 3)
                 
                 Spacer()
                     
