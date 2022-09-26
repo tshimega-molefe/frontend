@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var checked = false
     
     var body: some View {
             ZStack {
@@ -41,7 +42,13 @@ struct LoginView: View {
                     
                     //                "Forgot Password?" HStack
                     
-                    HStack {
+                    HStack (alignment: .center){
+                        CheckBoxView(checked: $checked)
+                        
+                        Text("Remember Me")
+                            .font(.custom(FontsManager.Poppins.regular, size: 15))
+                            .foregroundColor(Color.theme.grey)
+                        
                         Spacer()
                         
                         NavigationLink {
@@ -54,11 +61,12 @@ struct LoginView: View {
                         }
                     }
                     .padding(.horizontal, 30)
+                    .padding(.top)
                     
                     AuthButtonView(buttonLabel: "Log in") {
                         print("DEBUG: Handle log in..")
                     }
-                    .padding(.top, 10)
+                    .padding(.top, 40)
                     
                     
                     Spacer()

@@ -44,10 +44,11 @@ struct RegistrationView: View {
                     HStack (alignment: .center) {
                         CheckBoxView(checked: $checked)
                         
-                        Text("I agree to the")
+                        Text("Accept:")
                             .font(.custom(FontsManager.Poppins.regular, size: 15))
                             .foregroundColor(Color.theme.grey)
-                        
+
+                        Spacer()
                         
                         NavigationLink {
                             Text("Terms & Conditions")
@@ -58,12 +59,30 @@ struct RegistrationView: View {
                                 .foregroundColor(Color.theme.accent)
                                 .underline()
                         }
-                        
-                        Spacer()
-                        
                     }
                     .padding(.horizontal, 30)
                     .padding(.top)
+                    
+                    HStack (alignment: .center) {
+                        Spacer()
+                        NavigationLink {
+                            Text("Privacy Policy")
+                            
+                        } label: {
+                            Text("and ")
+                                .font(.custom(FontsManager.Poppins.regular, size: 15))
+                                .foregroundColor(Color.theme.grey)
+                            
+                            +
+                            
+                            Text("Privacy Policy")
+                                .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                                .foregroundColor(Color.theme.accent)
+                                .underline()
+                        }
+                    }
+                    .padding(.horizontal, 30)
+
                     
                     AuthButtonView(buttonLabel: "Next") {
                         print("DEBUG: Handle next registration view...")
