@@ -37,7 +37,7 @@ struct MainTabView: View {
                     }
                     .tabItem {
                         Image(systemName: "cross.circle")
-                        Text("Press for help")
+                        Text("Help")
                     }.tag(2)
                 SearchView()
                     .onTapGesture {

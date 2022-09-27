@@ -75,17 +75,17 @@ struct HelpButton: View {
     var body: some View {
         ZStack{
             PinkRing()
-                .shadow(color: Color.theme.red.opacity(0.30), radius: 50)
-                .rotation3DEffect(Angle(degrees: 11), axis: (x: 10, y: 0, z: 0))
+                .shadow(color: Color.theme.red.opacity(0.40), radius: 50)
+                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
                 .scaleEffect(tap ? 1.0125 : 1)
                 
                 
             RedRing()
                 .scaleEffect(tap ? 1.0125 : 1)
-                .rotation3DEffect(Angle(degrees: 11), axis: (x: 10, y: 0, z: 0))
+                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
             HelpText()
                 .scaleEffect(tap ? 1.0125 : 1)
-                .rotation3DEffect(Angle(degrees: 11), axis: (x: 10, y: 0, z: 0))
+                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
                 
                 .gesture(
                     LongPressGesture().onChanged { value in
