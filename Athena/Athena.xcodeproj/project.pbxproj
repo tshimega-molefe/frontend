@@ -43,10 +43,10 @@
 		95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC4528E1D7F700ABE5CA /* AuthViewModel.swift */; };
 		95FCEC4C28E1DBF000ABE5CA /* PressForHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC4B28E1DBF000ABE5CA /* PressForHelpView.swift */; };
 		95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC4E28E1DDDB00ABE5CA /* MainTabView.swift */; };
-		95FCEC5528E1DFA700ABE5CA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5428E1DFA700ABE5CA /* MapView.swift */; };
-		95FCEC5728E1DFB400ABE5CA /* AresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5628E1DFB400ABE5CA /* AresView.swift */; };
-		95FCEC5928E1DFC600ABE5CA /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5828E1DFC600ABE5CA /* DirectoryView.swift */; };
-		95FCEC5B28E1DFD000ABE5CA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5A28E1DFD000ABE5CA /* ProfileView.swift */; };
+		95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5428E1DFA700ABE5CA /* StatusView.swift */; };
+		95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */; };
+		95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5828E1DFC600ABE5CA /* SearchView.swift */; };
+		95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */; };
 		95FCEC5F28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,10 +89,10 @@
 		95FCEC4528E1D7F700ABE5CA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = Athena/Core/Authentication/Views/AuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		95FCEC4B28E1DBF000ABE5CA /* PressForHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressForHelpView.swift; sourceTree = "<group>"; };
 		95FCEC4E28E1DDDB00ABE5CA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		95FCEC5428E1DFA700ABE5CA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		95FCEC5628E1DFB400ABE5CA /* AresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AresView.swift; sourceTree = "<group>"; };
-		95FCEC5828E1DFC600ABE5CA /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
-		95FCEC5A28E1DFD000ABE5CA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		95FCEC5428E1DFA700ABE5CA /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
+		95FCEC5828E1DFC600ABE5CA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaMapViewRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,11 +195,11 @@
 			isa = PBXGroup;
 			children = (
 				9522ABB828E09A1B00437D38 /* Components */,
-				95FCEC5128E1DEC800ABE5CA /* Map */,
-				95FCEC5028E1DEC500ABE5CA /* Ares */,
+				95FCEC5128E1DEC800ABE5CA /* Status */,
+				95FCEC5028E1DEC500ABE5CA /* Security */,
 				95FCEC4828E1DBB000ABE5CA /* PressForHelp */,
-				95FCEC5328E1DF4000ABE5CA /* Directory */,
-				95FCEC5228E1DF1A00ABE5CA /* Profile */,
+				95FCEC5328E1DF4000ABE5CA /* Search */,
+				95FCEC5228E1DF1A00ABE5CA /* Settings */,
 				95FCEC4D28E1DDCC00ABE5CA /* MainTab */,
 				9576895028E065D4009FDCE2 /* Authentication */,
 			);
@@ -308,43 +308,43 @@
 			path = MainTab;
 			sourceTree = "<group>";
 		};
-		95FCEC5028E1DEC500ABE5CA /* Ares */ = {
+		95FCEC5028E1DEC500ABE5CA /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC5628E1DFB400ABE5CA /* AresView.swift */,
+				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
 			);
-			path = Ares;
+			path = Security;
 			sourceTree = "<group>";
 		};
-		95FCEC5128E1DEC800ABE5CA /* Map */ = {
+		95FCEC5128E1DEC800ABE5CA /* Status */ = {
 			isa = PBXGroup;
 			children = (
 				95FCEC5D28E1F62000ABE5CA /* ViewModels */,
 				95FCEC5C28E1F61A00ABE5CA /* Views */,
 			);
-			path = Map;
+			path = Status;
 			sourceTree = "<group>";
 		};
-		95FCEC5228E1DF1A00ABE5CA /* Profile */ = {
+		95FCEC5228E1DF1A00ABE5CA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC5A28E1DFD000ABE5CA /* ProfileView.swift */,
+				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
 			);
-			path = Profile;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		95FCEC5328E1DF4000ABE5CA /* Directory */ = {
+		95FCEC5328E1DF4000ABE5CA /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC5828E1DFC600ABE5CA /* DirectoryView.swift */,
+				95FCEC5828E1DFC600ABE5CA /* SearchView.swift */,
 			);
-			path = Directory;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		95FCEC5C28E1F61A00ABE5CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC5428E1DFA700ABE5CA /* MapView.swift */,
+				95FCEC5428E1DFA700ABE5CA /* StatusView.swift */,
 				95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */,
 			);
 			path = Views;
@@ -450,15 +450,15 @@
 				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
-				95FCEC5728E1DFB400ABE5CA /* AresView.swift in Sources */,
+				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
-				95FCEC5528E1DFA700ABE5CA /* MapView.swift in Sources */,
+				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */,
-				95FCEC5B28E1DFD000ABE5CA /* ProfileView.swift in Sources */,
-				95FCEC5928E1DFC600ABE5CA /* DirectoryView.swift in Sources */,
+				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
+				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				95FCEC5F28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift in Sources */,
 				95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */,

@@ -40,5 +40,6 @@ struct ColorTheme {
 //    TextField Color
     
     let pink = Color("PinkColor")
+    let pinkRing = Color("PinkRing")
 
 }

@@ -15,10 +15,7 @@ struct LoginView: View {
     var body: some View {
             ZStack {
                 
-                //            UIView Background Color
-                
-                Color.theme.background
-                    .edgesIgnoringSafeArea(.all)
+                Color.theme.background.edgesIgnoringSafeArea(.all)
                 
                 //            Parent VStack
                 
