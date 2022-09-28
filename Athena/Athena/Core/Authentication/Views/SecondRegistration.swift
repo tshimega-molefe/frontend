@@ -14,7 +14,6 @@ struct SecondRegistration: View {
     @State private var checked = false
 
     var body: some View {
-        NavigationView {
             ZStack {
                 
                 //            UIView Background Color
@@ -71,8 +70,6 @@ struct SecondRegistration: View {
             
                 }
             }
-            
-        }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

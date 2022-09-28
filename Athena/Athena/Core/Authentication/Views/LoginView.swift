@@ -23,7 +23,7 @@ struct LoginView: View {
                     
                     //            AuthHeaderView
                     
-                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "login"), authLabel: "Log in")
+                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "login"), authLabel: "Log In")
                     
                     //                Authentication TextField VStack
                     
@@ -40,9 +40,9 @@ struct LoginView: View {
                     //                "Forgot Password?" HStack
                     
                     HStack (alignment: .center){
-                        CheckBoxView(checked: $checked)
-//                        Check bool state of checked variable in logic, before enabling the user to proceed to                         the next UIView Controller
                         
+                        CheckBoxView(checked: $checked)
+
                         Text("Remember Me")
                             .font(.custom(FontsManager.Poppins.regular, size: 15))
                             .foregroundColor(Color.theme.grey)
@@ -55,13 +55,13 @@ struct LoginView: View {
                             Text("Forgot Password?")
                                 .font(.custom(FontsManager.Poppins.regular, size: 15))
                                 .foregroundColor(Color.theme.accent)
-
+                            
                         }
                     }
                     .padding(.horizontal, 30)
                     .padding(.top)
                     
-//                    Log In Button
+                    //                    Log In Button
                     
                     AuthButtonView(buttonLabel: "Log In") {
                         print("DEBUG: Handle log in..")
@@ -71,17 +71,15 @@ struct LoginView: View {
                     
                     Spacer()
                     
-//                    Don't have an account button
+                    //                    Don't have an account button
                     
                     NavigationLink {
-                            RegistrationView()
-                                .navigationBarBackButtonHidden(true)
-                                .navigationBarHidden(true)
-                        } label: {
+                        RegistrationView()
+                    } label: {
                         HStack {
-                                Text("Don't have an account? ")
-                                    .font(.custom(FontsManager.Poppins.regular, size: 15))
-                                    .foregroundColor(Color.theme.grey)
+                            Text("Don't have an account? ")
+                                .font(.custom(FontsManager.Poppins.regular, size: 15))
+                                .foregroundColor(Color.theme.grey)
                             
                             +
                             
@@ -93,6 +91,9 @@ struct LoginView: View {
                     }
                 }
             }
+            .navigationTitle("Log In")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 dismissKeyboard()
             }

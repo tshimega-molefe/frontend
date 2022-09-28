@@ -15,7 +15,6 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
             ZStack {
                 
                 //            UIView Background Color
@@ -26,7 +25,7 @@ struct RegistrationView: View {
                 //            Parent VStack
                 
                 VStack {
-                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create account")
+                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "register"), authLabel: "Create Account")
                     
                     //                Authentication TextField VStack
                     
@@ -97,11 +96,12 @@ struct RegistrationView: View {
                         }
                     }
                 }
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
+                
             }
-            
-        }.onTapGesture {
+            .navigationTitle("Create Account")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .onTapGesture {
             dismissKeyboard()
         }
     }
