@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject var userAuth = AuthViewModel()
     
     @State private var username = ""
     @State private var password = ""
+    
     
     
     
@@ -72,7 +74,12 @@ struct LoginView: View {
                     //                    Log In Button
                     
                     AuthButtonView(buttonLabel: "Log In") {
-                        print("DEBUG: Handle log in..")
+//                        Run checkLogin Function from AuthViewModel
+                        if(self.username.isEmpty || self.password.isEmpty){
+                            self.isEmptyField = true
+                        } else {
+                            self.userAuth.checkLogin(password: self.password, username: self.username)
+                        }
                     }
                     .padding(.top, 40)
                     

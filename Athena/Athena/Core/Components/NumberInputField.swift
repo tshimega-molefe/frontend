@@ -10,6 +10,7 @@ import SwiftUI
 struct NumberInputField: View {
     let placeholderText: String
     @Binding var text: String
+    @State private var isEmptyField = false
     
     var body: some View {
         VStack {
@@ -31,6 +32,12 @@ struct NumberInputField: View {
             .frame(height: 67)
             .background(Color.theme.pink)
             .cornerRadius(15)
+            
+            if(self.isEmptyField){
+                Text("Phone number is required")
+                    .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                    .foregroundColor(.red)
+            }
         }
     }
 }

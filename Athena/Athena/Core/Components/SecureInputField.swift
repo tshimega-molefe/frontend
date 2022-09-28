@@ -11,6 +11,7 @@ struct SecureInputField: View {
     let placeholderText: String
     @Binding var text: String
     @StateObject var userAuth = AuthViewModel()
+    @State private var isEmptyField = false
     
     var body: some View {
         VStack(alignment: .trailing){
@@ -32,11 +33,18 @@ struct SecureInputField: View {
             .background(Color.theme.pink)
             .cornerRadius(15)
             
-            if(!self.userAuth.isCorrect){
-                Text("Username or password is incorrect")
+//            if(!self.userAuth.isCorrect){
+//                Text("Password is incorrect")
+//                    .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+//                    .foregroundColor(.red)
+//            }
+            
+            if(self.isEmptyField){
+                Text("Password is required")
                     .font(.custom(FontsManager.Poppins.semiBold, size: 15))
                     .foregroundColor(.red)
             }
+            
         }
     }
 }
