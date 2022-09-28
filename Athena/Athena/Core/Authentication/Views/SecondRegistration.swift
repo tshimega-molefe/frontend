@@ -34,7 +34,7 @@ struct SecondRegistration: View {
                                          text: $firstName)
                         CustomInputField(placeholderText: "Last name",
                                          text: $lastName)
-                        CustomInputField(placeholderText: "Phone number",
+                        NumberInputField(placeholderText: "Phone number",
                                          text: $cell)
                     }
                     .padding(.horizontal, 30)

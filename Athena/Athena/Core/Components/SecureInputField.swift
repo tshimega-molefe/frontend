@@ -1,18 +1,19 @@
 //
-//  CustomInputField.swift
+//  SecureInputField.swift
 //  Athena
 //
-//  Created by Tshimega Belmont on 2022/09/25.
+//  Created by Tshimega Belmont on 2022/09/28.
 //
 
 import SwiftUI
 
-struct CustomInputField: View {
+struct SecureInputField: View {
     let placeholderText: String
     @Binding var text: String
+    @StateObject var userAuth = AuthViewModel()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .trailing){
             
             ZStack(alignment: .leading) {
                 if text.isEmpty {
@@ -20,7 +21,7 @@ struct CustomInputField: View {
                         .font(.custom(FontsManager.Poppins.light, size: 15))
                         .foregroundColor(Color.theme.grey)
                 }
-                TextField("", text: $text)
+                SecureField("", text: $text)
                     .font(.custom(FontsManager.Poppins.regular, size: 15))
                     .foregroundColor(Color.theme.primaryText)
                     .textInputAutocapitalization(.never)
@@ -30,12 +31,18 @@ struct CustomInputField: View {
             .frame(height: 67)
             .background(Color.theme.pink)
             .cornerRadius(15)
+            
+            if(!self.userAuth.isCorrect){
+                Text("Username or password is incorrect")
+                    .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                    .foregroundColor(.red)
+            }
         }
     }
 }
 
-struct CustomInputField_Previews: PreviewProvider {
+struct SecureInputField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomInputField(placeholderText: "Email", text: .constant(""))
+        SecureInputField(placeholderText: "Password", text: .constant(""))
     }
 }

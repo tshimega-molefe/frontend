@@ -1,13 +1,13 @@
 //
-//  CustomInputField.swift
+//  NumberInputField.swift
 //  Athena
 //
-//  Created by Tshimega Belmont on 2022/09/25.
+//  Created by Tshimega Belmont on 2022/09/28.
 //
 
 import SwiftUI
 
-struct CustomInputField: View {
+struct NumberInputField: View {
     let placeholderText: String
     @Binding var text: String
     
@@ -23,6 +23,7 @@ struct CustomInputField: View {
                 TextField("", text: $text)
                     .font(.custom(FontsManager.Poppins.regular, size: 15))
                     .foregroundColor(Color.theme.primaryText)
+                    .keyboardType(.numberPad)
                     .textInputAutocapitalization(.never)
             }
             .accentColor(Color.theme.accent)
@@ -34,8 +35,9 @@ struct CustomInputField: View {
     }
 }
 
-struct CustomInputField_Previews: PreviewProvider {
+struct NumberInputField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomInputField(placeholderText: "Email", text: .constant(""))
+        NumberInputField(placeholderText: "Phone number", text: .constant(""))
     }
 }
+

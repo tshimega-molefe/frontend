@@ -35,7 +35,8 @@ struct RegistrationView: View {
                                          text: $username)
                         CustomInputField(placeholderText: "Email",
                                          text: $email)
-                        CustomInputField(placeholderText: "Password",
+                        .keyboardType(.emailAddress)
+                        SecureInputField(placeholderText: "Password",
                                          text: $password)
                     }
                     .padding(.horizontal, 30)

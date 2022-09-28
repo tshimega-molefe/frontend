@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct AthenaApp: App {
+    
+    @StateObject var userAuth = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 MainTabView()
+                    .environmentObject(userAuth)
             }
         }
     }

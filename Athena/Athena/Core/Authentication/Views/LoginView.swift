@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
+    
+    @State private var username = ""
     @State private var password = ""
+    
+    
+    
+//  MARK: - Properties
+    
+    
+    @State private var isEmptyField = false
     @State private var checked = false
     
     var body: some View {
@@ -29,9 +37,9 @@ struct LoginView: View {
                     
                     VStack (spacing: 10) {
                         CustomInputField(placeholderText: "Username",
-                                         text: $email)
+                                         text: $username)
                         
-                        CustomInputField(placeholderText: "Password",
+                        SecureInputField(placeholderText: "Password",
                                          text: $password)
                     }
                     .padding(.horizontal, 30)
@@ -100,8 +108,14 @@ struct LoginView: View {
         }
     }
 
+// MARK: Lifecyle
+
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
     }
 }
+
+// MARK: Extensions
+
+
