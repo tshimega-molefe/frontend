@@ -16,14 +16,11 @@ class AuthViewModel: ObservableObject {
     @Published var isCorrect : Bool = true
     
     
-    @Published var isLoggedIn : Bool = false {
-        didSet {
-            didChange.send(self)
-        }
-    }
+    @Published var isLoggedIn = false 
+    
     
     func checkLogin(password: String, username: String) {
-        guard let url = URL(string: "http://localhost:8000/api/login") else { return }
+        guard let url = URL(string: "http://localhost:8000/api/users/login/") else { return }
         
         let body : [String: String] = ["password": password, "username": username]
         
@@ -37,24 +34,25 @@ class AuthViewModel: ObservableObject {
         
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
+
             guard let data = data, error == nil else { return }
             
 //            decode data
-            let result = try? JSONDecoder().decode(UserLogin.self, from: data)
-            
+            let result = try? JSONDecoder().decode(User.self, from: data)
+            print("RESULT: \(result)")
             if let result = result {
                 DispatchQueue.main.async {
-                    if(result.success) {
-                        self.isLoggedIn = true
-                    }
+                    self.isLoggedIn = true
                 }
             } else {
                 DispatchQueue.main.async {
                     self.isCorrect = false
                 }
             }
-            
-            
         }.resume()
     }
+    
+//    func login(withUsername username: String, password: String) {
+//        print("DEBUG: Login with email \(email)")
+//    }
 }

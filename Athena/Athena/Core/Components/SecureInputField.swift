@@ -10,7 +10,7 @@ import SwiftUI
 struct SecureInputField: View {
     let placeholderText: String
     @Binding var text: String
-    @StateObject var userAuth = AuthViewModel()
+//    @StateObject var userAuth = AuthViewModel()
     @State private var isEmptyField = false
     
     var body: some View {

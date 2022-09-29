@@ -8,13 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct UserLogin: Codable, Identifiable {
-    let id = UUID()
-    let success: Bool
-    let token: String
-    let expires: Int
-    let currentUser: Int
-    let user: String
-    let role: Int
-    let isVerified: Int
+struct User: Codable {
+    let access: String
+    let refresh: String
+    var name: String?
 }

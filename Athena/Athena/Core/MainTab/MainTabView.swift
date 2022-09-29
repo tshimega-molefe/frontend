@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedIndex = 2
-    @EnvironmentObject var userAuth: AuthViewModel
+    @StateObject var userAuth: AuthViewModel
     
 //  MARK: - Properties
     
@@ -17,7 +17,7 @@ struct MainTabView: View {
     var body: some View {
 //            no user logged in
         if !userAuth.isLoggedIn {
-            return AnyView(LoginView())
+            return AnyView(LoginView(userAuth: userAuth))
         } else {
 //             have a logged in user (add animation to configuring the maintabview at later date)
             return AnyView(mainInterfaceView)
@@ -25,11 +25,11 @@ struct MainTabView: View {
     }
 }
 
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
-    }
-}
+//struct MainTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainTabView(userAuth: userAuth)
+//    }
+//}
 
 //  MARK: Lifecycle
 

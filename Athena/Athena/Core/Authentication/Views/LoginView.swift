@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var userAuth = AuthViewModel()
+    @ObservedObject var userAuth: AuthViewModel
     
     @State private var username = ""
     @State private var password = ""
@@ -73,15 +73,26 @@ struct LoginView: View {
                     
                     //                    Log In Button
                     
-                    AuthButtonView(buttonLabel: "Log In") {
-//                        Run checkLogin Function from AuthViewModel
+//                    AuthButtonView(buttonLabel: "Log In", clicked: {
+////           Run checkLogin Function from AuthViewModel
+//
+//                    })
+//                    .padding(.top, 40)
+                    
+                    Button (action:
+                                {
                         if(self.username.isEmpty || self.password.isEmpty){
+                            print("got empty fields")
                             self.isEmptyField = true
-                        } else {
+                                } else {
+                                    print("got here")
                             self.userAuth.checkLogin(password: self.password, username: self.username)
-                        }
+                
+                                }
+                                }
+                    ) {
+                        Text("Log In")
                     }
-                    .padding(.top, 40)
                     
                     
                     Spacer()
@@ -117,11 +128,11 @@ struct LoginView: View {
 
 // MARK: Lifecyle
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        print("Stop ur shit")
+//    }
+//}
 
 // MARK: Extensions
 

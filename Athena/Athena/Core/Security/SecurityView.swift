@@ -10,7 +10,7 @@ import SwiftUI
 struct SecurityView: View {
     var body: some View {
         ZStack {
-            Color.theme.background.edgesIgnoringSafeArea(.all)
+            Color.theme.background.edgesIgnoringSafeArea(.top)
             Text("Security Services")
         }
     }
