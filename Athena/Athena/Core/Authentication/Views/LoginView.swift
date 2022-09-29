@@ -73,14 +73,7 @@ struct LoginView: View {
                     
                     //                    Log In Button
                     
-//                    AuthButtonView(buttonLabel: "Log In", clicked: {
-////           Run checkLogin Function from AuthViewModel
-//
-//                    })
-//                    .padding(.top, 40)
-                    
-                    Button (action:
-                                {
+                    AuthButtonView(buttonLabel: "Log In") {
                         if(self.username.isEmpty || self.password.isEmpty){
                             print("got empty fields")
                             self.isEmptyField = true
@@ -89,11 +82,8 @@ struct LoginView: View {
                             self.userAuth.checkLogin(password: self.password, username: self.username)
                 
                                 }
-                                }
-                    ) {
-                        Text("Log In")
                     }
-                    
+                    .padding(.top, 40)
                     
                     Spacer()
                     

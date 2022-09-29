@@ -51,8 +51,4 @@ class AuthViewModel: ObservableObject {
             }
         }.resume()
     }
-    
-//    func login(withUsername username: String, password: String) {
-//        print("DEBUG: Login with email \(email)")
-//    }
 }
