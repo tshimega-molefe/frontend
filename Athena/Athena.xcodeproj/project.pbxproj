@@ -203,12 +203,12 @@
 			isa = PBXGroup;
 			children = (
 				9522ABB828E09A1B00437D38 /* Components */,
+				95FCEC4D28E1DDCC00ABE5CA /* MainTab */,
 				95FCEC5128E1DEC800ABE5CA /* Status */,
 				95FCEC5028E1DEC500ABE5CA /* Security */,
 				95FCEC4828E1DBB000ABE5CA /* PressForHelp */,
 				95FCEC5328E1DF4000ABE5CA /* Search */,
 				95FCEC5228E1DF1A00ABE5CA /* Settings */,
-				95FCEC4D28E1DDCC00ABE5CA /* MainTab */,
 				9576895028E065D4009FDCE2 /* Authentication */,
 			);
 			path = Core;

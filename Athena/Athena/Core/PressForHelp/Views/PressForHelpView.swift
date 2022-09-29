@@ -41,7 +41,7 @@ struct HelpText: View {
                 .foregroundColor(Color.theme.primaryText)
         }
         .frame(width: 248, height: 248)
-        .background(Color.theme.background)
+        .background(Color.theme.button)
         .clipShape(Circle())
     }
 }
@@ -76,16 +76,16 @@ struct HelpButton: View {
         ZStack{
             PinkRing()
                 .shadow(color: Color.theme.red.opacity(0.40), radius: 50)
-                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
+                .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: 0, z: 0))
                 .scaleEffect(tap ? 1.0125 : 1)
                 
                 
             RedRing()
                 .scaleEffect(tap ? 1.0125 : 1)
-                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
+                .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: 0, z: 0))
             HelpText()
                 .scaleEffect(tap ? 1.0125 : 1)
-                .rotation3DEffect(Angle(degrees: 10.5), axis: (x: 10, y: 0, z: 0))
+                .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: 0, z: 0))
                 
                 .gesture(
                     LongPressGesture().onChanged { value in

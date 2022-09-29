@@ -22,10 +22,10 @@
       "color" : {
         "color-space" : "srgb",
         "components" : {
-          "alpha" : "0.900",
-          "blue" : "0.008",
-          "green" : "0.008",
-          "red" : "0.243"
+          "alpha" : "1.000",
+          "blue" : "0x00",
+          "green" : "0x00",
+          "red" : "0x00"
         }
       },
       "idiom" : "universal"

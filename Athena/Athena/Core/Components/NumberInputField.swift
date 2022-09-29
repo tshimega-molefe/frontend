@@ -24,7 +24,7 @@ struct NumberInputField: View {
                 TextField("", text: $text)
                     .font(.custom(FontsManager.Poppins.regular, size: 15))
                     .foregroundColor(Color.theme.primaryText)
-                    .keyboardType(.numberPad)
+                    .keyboardType(.phonePad)
                     .textInputAutocapitalization(.never)
             }
             .accentColor(Color.theme.accent)

@@ -12,15 +12,11 @@ struct LoginView: View {
     
     @State private var username = ""
     @State private var password = ""
-    
-    
-    
-    
-//  MARK: - Properties
-    
-    
+
     @State private var isEmptyField = false
     @State private var checked = false
+    
+    //  MARK: - Properties
     
     var body: some View {
             ZStack {
@@ -75,10 +71,10 @@ struct LoginView: View {
                     
                     AuthButtonView(buttonLabel: "Log In") {
                         if(self.username.isEmpty || self.password.isEmpty){
-                            print("got empty fields")
+                            print("DEBUG: Form has empty fields")
                             self.isEmptyField = true
                                 } else {
-                                    print("got here")
+                                    print("DEBUG: Successfully Logged In User")
                             self.userAuth.checkLogin(password: self.password, username: self.username)
                 
                                 }
@@ -117,12 +113,6 @@ struct LoginView: View {
     }
 
 // MARK: Lifecyle
-
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        print("Stop ur shit")
-//    }
-//}
 
 // MARK: Extensions
 

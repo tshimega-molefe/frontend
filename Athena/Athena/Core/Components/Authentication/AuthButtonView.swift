@@ -19,7 +19,7 @@ struct AuthButtonView: View {
                     .background(Color.theme.red)
                     .cornerRadius(15)
             }
-            .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
+            .shadow(color: .gray.opacity(0.15), radius: 2.5, x: 0, y: 0)
             .padding(.horizontal, 30)
         
     }

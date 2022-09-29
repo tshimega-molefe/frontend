@@ -41,5 +41,9 @@ struct ColorTheme {
     
     let pink = Color("PinkColor")
     let pinkRing = Color("PinkRing")
+    
+//    Button Color
+    
+    let button = Color("ButtonColor")
 
 }
