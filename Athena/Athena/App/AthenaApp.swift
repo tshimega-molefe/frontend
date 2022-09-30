@@ -16,8 +16,8 @@ struct AthenaApp: App {
         WindowGroup {
             NavigationView {
                 MainTabView()
-                    .environmentObject(userAuth)
             }
+            .environmentObject(userAuth)
         }
     }
 }

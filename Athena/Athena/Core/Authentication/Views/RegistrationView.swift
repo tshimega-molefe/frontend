@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     @State private var username = ""
     @State private var email = ""
     @State private var password = ""
@@ -68,7 +70,7 @@ struct RegistrationView: View {
 
                     if (self.username.isEmpty || self.email.isEmpty || self.password.isEmpty || !self.checked) {
                         AuthButtonView(buttonLabel: "Incomplete Form") {
-                            print("DEBUG: There is missing information in either of the create account fields..")
+                            userAuth.register(withUsername: <#T##String#>, password: <#T##String#>, fullname: <#T##String#>, email: <#T##String#>)
                         }
                         .padding(.top, 40)
                     } else {
