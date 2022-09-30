@@ -69,24 +69,25 @@ struct RegistrationView: View {
                     .padding(.top)
 
                     if (self.username.isEmpty || self.email.isEmpty || self.password.isEmpty || !self.checked) {
-                        AuthButtonView(buttonLabel: "Incomplete Form") {
-                            userAuth.register(withUsername: <#T##String#>, password: <#T##String#>, fullname: <#T##String#>, email: <#T##String#>)
-                        }
-                        .padding(.top, 40)
+                        IncompleteFormButton()
                     } else {
-                        NextButton()
-                            .scaleEffect(tap ? 1.0125 : 1)
-                            .gesture(
-                                LongPressGesture().onChanged { value in
-                                    self.tap = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        self.tap = false
-                                    }
-                                }
-                                    .onEnded { value in
-                                        self.press.toggle()
-                                    }
-                            )
+                        NavigationLink(destination: SecondRegistration().onAppear {
+                            
+                            userAuth.registerUser(withUsername: username, email: email, password: password)
+                            
+                        })
+                        {
+                            Text("Next")
+                                .font(.custom(FontsManager.Poppins.semiBold, size: 16))
+                                .foregroundColor(.white)
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
+                                .background(Color.theme.red)
+                                .cornerRadius(15)
+                        }
+                        
+                        .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
+                        .padding(.horizontal, 30)
+                        .padding(.top, 40)
                     }
                     
                     Spacer()
@@ -124,24 +125,22 @@ struct RegistrationView_Previews: PreviewProvider {
     }
 }
 
-
-struct NextButton: View {
+struct IncompleteFormButton: View {
     var body: some View {
-        NavigationLink {
-            SecondRegistration()
+        Button {
+            print("DEBUG: There is missing information in either of the create account fields..")
         } label: {
-            Text("Next")
+            Text("Incomplete Form")
                 .font(.custom(FontsManager.Poppins.semiBold, size: 16))
                 .foregroundColor(.white)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
                 .background(Color.theme.red)
                 .cornerRadius(15)
-            
         }
         
         .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
         .padding(.horizontal, 30)
         .padding(.top, 40)
-        
     }
+    
 }

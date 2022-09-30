@@ -74,9 +74,7 @@ struct LoginView: View {
                             print("DEBUG: There is missing information in either of the log in fields..")
                             self.isEmptyField = true
                                 } else {
-                                    userAuth.login(withUsername: username, password: password)
-                            self.userAuth.checkLogin(password: self.password, username: self.username)
-                
+                            self.userAuth.loginUser(password: self.password, username: self.username)
                                 }
                     }
                     .padding(.top, 40)

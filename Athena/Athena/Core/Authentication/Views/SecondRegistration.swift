@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SecondRegistration: View {
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var cell = ""
@@ -70,7 +72,9 @@ struct SecondRegistration: View {
 
                     } else {
                         AuthButtonView(buttonLabel: "Create Account") {
-                            print("DEBUG: Handle create account..")
+                            userAuth.updateUser(withFirstName: firstName,
+                                                lastName: lastName,
+                                                cellNumber: cell)
                         }
                         .padding(.top, 40)
                     }
@@ -98,7 +102,7 @@ struct SecondRegistration_Previews: PreviewProvider {
 struct IncompleteButton: View {
     var body: some View {
         Button {
-            print("DEBUG: Handle incomplete form..")
+            print("DEBUG: There is missing information in either of your details fields..")
         } label: {
             Text("Incomplete Form")
                 .font(.custom(FontsManager.Poppins.semiBold, size: 16))

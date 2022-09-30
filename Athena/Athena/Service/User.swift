@@ -9,7 +9,11 @@ import Foundation
 import SwiftUI
 
 struct User: Codable {
+    let success: Bool?
     let access: String
     let refresh: String
-    var name: String?
+    let firstName: String?
+    let lastName: String?
+    let phoneNumber: String?
+    
 }

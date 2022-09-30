@@ -19,7 +19,7 @@ class AuthViewModel: ObservableObject {
     @Published var isLoggedIn = false 
     
     
-    func checkLogin(password: String, username: String) {
+    func loginUser(password: String, username: String) {
         guard let url = URL(string: "http://localhost:8000/api/users/login/") else { return }
         
         let body : [String: String] = ["password": password, "username": username]
@@ -39,10 +39,12 @@ class AuthViewModel: ObservableObject {
             
 //            decode data
             let result = try? JSONDecoder().decode(User.self, from: data)
-            print("DEBUG: HTTP result is \(result)")
+            
             if let result = result {
+                print("DEBUG: HTTP post result is \(result)")
+                
                 DispatchQueue.main.async {
-                    self.isLoggedIn = true
+                        self.isLoggedIn = true
                 }
             } else {
                 DispatchQueue.main.async {
@@ -50,16 +52,16 @@ class AuthViewModel: ObservableObject {
                 }
             }
         }.resume()
+        
+        print("DEBUG: Logged in user with username \(username) and password \(password)")
     }
     
-    
-    
-    func login(withUsername username: String, password: String) {
-        print("DEBUG: Log In with username \(username)")
-    }
-    
-    func register(withUsername username: String, password: String, email: String) {
+    func registerUser(withUsername username: String, email: String, password: String) {
         print("DEBUG: Create Account with username \(username) & email \(email)")
+    }
+    
+    func updateUser(withFirstName firstname: String, lastName: String, cellNumber: String) {
+        print("DEBUG: User Firstname is \(firstname), Lastname is \(lastName), and Phone number is \(cellNumber).")
     }
     
 }
