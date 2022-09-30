@@ -9,10 +9,7 @@ import SwiftUI
 
 struct StatusView: View {
     var body: some View {
-        ZStack {
-            Color.theme.background.edgesIgnoringSafeArea(.all)
-            AthenaMapViewRepresentable().edgesIgnoringSafeArea(.top)
-        }
+        AthenaMapViewRepresentable().edgesIgnoringSafeArea(.top)
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var userAuth: AuthViewModel
+    @EnvironmentObject var userAuth: AuthViewModel
     
     @State private var username = ""
     @State private var password = ""
@@ -74,7 +74,7 @@ struct LoginView: View {
                             print("DEBUG: Form has empty fields")
                             self.isEmptyField = true
                                 } else {
-                                    print("DEBUG: Successfully Logged In User")
+                                    userAuth.login(withUsername: username, password: password)
                             self.userAuth.checkLogin(password: self.password, username: self.username)
                 
                                 }

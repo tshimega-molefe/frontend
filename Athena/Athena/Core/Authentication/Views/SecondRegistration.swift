@@ -12,6 +12,9 @@ struct SecondRegistration: View {
     @State private var lastName = ""
     @State private var cell = ""
     @State private var checked = false
+    @State private var isEmptyField = false
+    @State var tap = false
+    @State var press = false
 
     var body: some View {
             ZStack {
@@ -60,12 +63,20 @@ struct SecondRegistration: View {
                     }
                     .padding(.horizontal, 30)
                     .padding(.top)
+                    
+                    if (self.firstName.isEmpty || self.lastName.isEmpty || self.cell.isEmpty || !self.checked)
+                    {
+                        IncompleteButton()
 
+                    } else {
+                        AuthButtonView(buttonLabel: "Create Account") {
+                            print("DEBUG: Handle create account..")
+                        }
+                        .padding(.top, 40)
+                    }
                     
-                    AuthButtonView(buttonLabel: "Create Account") {
-                        print("DEBUG: Handle create account..")
-                    }.padding(.top, 40)
                     
+
                     Spacer()
             
                 }
@@ -81,5 +92,25 @@ struct SecondRegistration: View {
 struct SecondRegistration_Previews: PreviewProvider {
     static var previews: some View {
         SecondRegistration()
+    }
+}
+
+struct IncompleteButton: View {
+    var body: some View {
+        Button {
+            print("DEBUG: Handle incomplete form..")
+        } label: {
+            Text("Incomplete Form")
+                .font(.custom(FontsManager.Poppins.semiBold, size: 16))
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
+                .background(Color.theme.red)
+                .cornerRadius(15)
+            
+        }
+        
+        .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
+        .padding(.horizontal, 30)
+        .padding(.top, 40)
     }
 }

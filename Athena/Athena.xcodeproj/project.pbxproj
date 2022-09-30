@@ -17,7 +17,6 @@
 		9576895428E065F6009FDCE2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895328E065F6009FDCE2 /* LoginView.swift */; };
 		9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895528E06608009FDCE2 /* RegistrationView.swift */; };
 		9576895828E068A6009FDCE2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895728E068A6009FDCE2 /* Color.swift */; };
-		957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E702128E130AC003E8A67 /* WelcomeView.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
@@ -65,7 +64,6 @@
 		9576895328E065F6009FDCE2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9576895528E06608009FDCE2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9576895728E068A6009FDCE2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		957E702128E130AC003E8A67 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 			children = (
 				9576895328E065F6009FDCE2 /* LoginView.swift */,
 				9576895528E06608009FDCE2 /* RegistrationView.swift */,
-				957E702128E130AC003E8A67 /* WelcomeView.swift */,
 				95FCEC4328E1CBC300ABE5CA /* SecondRegistration.swift */,
 			);
 			path = Views;
@@ -467,7 +464,6 @@
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
-				957E702228E130AC003E8A67 /* WelcomeView.swift in Sources */,
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
