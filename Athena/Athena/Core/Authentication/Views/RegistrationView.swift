@@ -68,7 +68,7 @@ struct RegistrationView: View {
 
                     if (self.username.isEmpty || self.email.isEmpty || self.password.isEmpty || !self.checked) {
                         AuthButtonView(buttonLabel: "Incomplete Form") {
-                            print("DEBUG: Handle incomplete form")
+                            print("DEBUG: There is missing information in either of the create account fields..")
                         }
                         .padding(.top, 40)
                     } else {
@@ -98,7 +98,7 @@ struct RegistrationView: View {
                                 .foregroundColor(Color.theme.grey)
                             +
                             
-                            Text("Log in")
+                            Text("Log In")
                                 .font(.custom(FontsManager.Poppins.semiBold, size: 15))
                                 .foregroundColor(Color.theme.accent)
                                 .underline()

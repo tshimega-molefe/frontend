@@ -71,7 +71,7 @@ struct LoginView: View {
                     
                     AuthButtonView(buttonLabel: "Log In") {
                         if(self.username.isEmpty || self.password.isEmpty){
-                            print("DEBUG: Form has empty fields")
+                            print("DEBUG: There is missing information in either of the log in fields..")
                             self.isEmptyField = true
                                 } else {
                                     userAuth.login(withUsername: username, password: password)

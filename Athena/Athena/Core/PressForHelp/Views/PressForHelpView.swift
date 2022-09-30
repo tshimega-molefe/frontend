@@ -90,6 +90,7 @@ struct HelpButton: View {
                 .gesture(
                     LongPressGesture().onChanged { value in
                         self.tap = true
+                        print("DEBUG: Handle press for help..")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             self.tap = false
                         }

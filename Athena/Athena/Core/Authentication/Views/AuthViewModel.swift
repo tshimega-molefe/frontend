@@ -39,7 +39,7 @@ class AuthViewModel: ObservableObject {
             
 //            decode data
             let result = try? JSONDecoder().decode(User.self, from: data)
-            print("RESULT: \(result)")
+            print("DEBUG: HTTP result is \(result)")
             if let result = result {
                 DispatchQueue.main.async {
                     self.isLoggedIn = true
