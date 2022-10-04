@@ -17,9 +17,11 @@
 		9576895428E065F6009FDCE2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895328E065F6009FDCE2 /* LoginView.swift */; };
 		9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895528E06608009FDCE2 /* RegistrationView.swift */; };
 		9576895828E068A6009FDCE2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895728E068A6009FDCE2 /* Color.swift */; };
-		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
+		9590D4CA28E4D7DD00617C64 /* Athena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* Athena.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
+		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
+		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -49,7 +51,7 @@
 		95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */; };
 		95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5828E1DFC600ABE5CA /* SearchView.swift */; };
 		95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */; };
-		95FCEC5F28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */; };
+		95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCEC5E28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,9 +66,11 @@
 		9576895328E065F6009FDCE2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9576895528E06608009FDCE2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9576895728E068A6009FDCE2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
+		9590D4C928E4D7DD00617C64 /* Athena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Athena.swift; path = Athena/Service/Athena.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
+		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		95FCEC5828E1DFC600ABE5CA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaMapViewRepresentable.swift; sourceTree = "<group>"; };
+		95FCEC5E28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMapViewRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 		9576894A28E06518009FDCE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				95A56BC528EC512200BC1C2E /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -243,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC4528E1D7F700ABE5CA /* AuthViewModel.swift */,
-				9590D4C928E4D7DD00617C64 /* User.swift */,
+				9590D4C928E4D7DD00617C64 /* Athena.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
+				95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -351,7 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC5428E1DFA700ABE5CA /* StatusView.swift */,
-				95FCEC5E28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift */,
+				95FCEC5E28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,21 +465,23 @@
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
 				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
+				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
+				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
-				95FCEC5F28E1F64A00ABE5CA /* AthenaMapViewRepresentable.swift in Sources */,
+				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */,
 				95FCEC4C28E1DBF000ABE5CA /* PressForHelpView.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,
-				9590D4CA28E4D7DD00617C64 /* User.swift in Sources */,
+				9590D4CA28E4D7DD00617C64 /* Athena.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

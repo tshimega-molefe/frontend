@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StatusView: View {
     var body: some View {
-        AthenaMapViewRepresentable().edgesIgnoringSafeArea(.top)
+        StatusMapViewRepresentable().edgesIgnoringSafeArea(.top)
     }
 }
 
