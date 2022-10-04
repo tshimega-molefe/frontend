@@ -47,6 +47,8 @@ extension SecurityMapViewRepresentable {
                 ,span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
             )
             
+            
+        
             parent.mapView.setRegion(region, animated: true)
         }
         

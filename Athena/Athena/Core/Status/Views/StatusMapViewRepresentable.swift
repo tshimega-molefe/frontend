@@ -16,10 +16,8 @@ struct StatusMapViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isRotateEnabled = false
-        mapView.isPitchEnabled = true
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .followWithHeading
-        
+        mapView.userTrackingMode = .follow       
         return mapView
     }
     
@@ -48,6 +46,9 @@ extension StatusMapViewRepresentable {
                 ,span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
             )
             
+            let camera = MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), fromDistance: 7500, pitch: 45, heading: 0)
+            
+            parent.mapView.setCamera(camera, animated: true)
             parent.mapView.setRegion(region, animated: true)
         }
         
