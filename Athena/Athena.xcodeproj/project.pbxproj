@@ -17,10 +17,12 @@
 		9576895428E065F6009FDCE2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895328E065F6009FDCE2 /* LoginView.swift */; };
 		9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895528E06608009FDCE2 /* RegistrationView.swift */; };
 		9576895828E068A6009FDCE2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895728E068A6009FDCE2 /* Color.swift */; };
+		9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D52D28ED873100DC1557 /* StatusLocationManager.swift */; };
+		9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
-		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
+		95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */; };
 		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
@@ -66,10 +68,12 @@
 		9576895328E065F6009FDCE2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9576895528E06608009FDCE2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9576895728E068A6009FDCE2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9588D52D28ED873100DC1557 /* StatusLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLocationManager.swift; sourceTree = "<group>"; };
+		9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
-		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLocationManager.swift; sourceTree = "<group>"; };
 		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -156,11 +160,11 @@
 		9576893A28E0644F009FDCE2 /* Athena */ = {
 			isa = PBXGroup;
 			children = (
-				9576894B28E0651A009FDCE2 /* Extensions */,
 				9576894D28E0651E009FDCE2 /* App */,
 				9576894C28E0651C009FDCE2 /* Core */,
-				9576894928E06513009FDCE2 /* Model */,
+				9576894B28E0651A009FDCE2 /* Extensions */,
 				9576894A28E06518009FDCE2 /* Managers */,
+				9576894928E06513009FDCE2 /* Model */,
 				95FCEC4728E1DB2800ABE5CA /* Service */,
 				95E6AEBD28E07B78002DC84A /* Fonts */,
 				9576893F28E06450009FDCE2 /* Assets.xcassets */,
@@ -188,7 +192,8 @@
 		9576894A28E06518009FDCE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				95A56BC528EC512200BC1C2E /* LocationManager.swift */,
+				9588D52D28ED873100DC1557 /* StatusLocationManager.swift */,
+				95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				95FCEC4D28E1DDCC00ABE5CA /* MainTab */,
 				95FCEC5128E1DEC800ABE5CA /* Status */,
 				95FCEC5028E1DEC500ABE5CA /* Security */,
+				9588D53028ED8C8A00DC1557 /* LocationSearch */,
 				95FCEC4828E1DBB000ABE5CA /* PressForHelp */,
 				95FCEC5328E1DF4000ABE5CA /* Search */,
 				95FCEC5228E1DF1A00ABE5CA /* Settings */,
@@ -251,6 +257,46 @@
 				9590D4C928E4D7DD00617C64 /* User.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9588D53028ED8C8A00DC1557 /* LocationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				9588D53328ED8D7900DC1557 /* ViewModel */,
+				9588D53428ED8D8B00DC1557 /* Views */,
+			);
+			path = LocationSearch;
+			sourceTree = "<group>";
+		};
+		9588D53128ED8D2800DC1557 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9588D53228ED8D2E00DC1557 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9588D53328ED8D7900DC1557 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9588D53428ED8D8B00DC1557 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		95E6AEBD28E07B78002DC84A /* Fonts */ = {
@@ -322,8 +368,8 @@
 		95FCEC5028E1DEC500ABE5CA /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
-				95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */,
+				9588D53128ED8D2800DC1557 /* ViewModels */,
+				9588D53228ED8D2E00DC1557 /* Views */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -357,7 +403,6 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC5428E1DFA700ABE5CA /* StatusView.swift */,
-				95FCEC5E28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,6 +410,7 @@
 		95FCEC5D28E1F62000ABE5CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				95FCEC5E28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -463,11 +509,13 @@
 				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
+				9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */,
 				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
-				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
+				95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */,
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
+				9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,

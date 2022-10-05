@@ -1,23 +1,24 @@
 //
-//  AthenaMapViewRepresentable.swift
+//  SecurityMapViewRepresentable.swift
 //  Athena
 //
-//  Created by Tshimega Belmont on 2022/09/26.
+//  Created by Tshimega Belmont on 2022/10/04.
 //
 
 import SwiftUI
 import MapKit
 
-struct StatusMapViewRepresentable: UIViewRepresentable {
+struct SecurityMapViewRepresentable: UIViewRepresentable {
 
     let mapView = MKMapView()
-    let locationManager = LocationManager()
+    let SecLocationManager = SecurityLocationManager()
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow       
+        mapView.userTrackingMode = .follow
+        
         return mapView
     }
     
@@ -30,12 +31,12 @@ struct StatusMapViewRepresentable: UIViewRepresentable {
     }
 }
 
-extension StatusMapViewRepresentable {
+extension SecurityMapViewRepresentable {
     
     class MapCoordinator: NSObject, MKMapViewDelegate {
-        let parent: StatusMapViewRepresentable
+        let parent: SecurityMapViewRepresentable
         
-        init(parent: StatusMapViewRepresentable) {
+        init(parent: SecurityMapViewRepresentable) {
             self.parent = parent
             super.init()
         }
@@ -43,15 +44,15 @@ extension StatusMapViewRepresentable {
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-                ,span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+                ,span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
             )
             
-            let camera = MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), fromDistance: 7500, pitch: 45, heading: 0)
             
-            parent.mapView.setCamera(camera, animated: true)
+        
             parent.mapView.setRegion(region, animated: true)
         }
         
     }
     
 }
+

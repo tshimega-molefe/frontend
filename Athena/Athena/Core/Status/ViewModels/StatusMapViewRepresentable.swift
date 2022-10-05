@@ -1,23 +1,24 @@
 //
-//  SecurityMapViewRepresentable.swift
+//  AthenaMapViewRepresentable.swift
 //  Athena
 //
-//  Created by Tshimega Belmont on 2022/10/04.
+//  Created by Tshimega Belmont on 2022/09/26.
 //
 
 import SwiftUI
 import MapKit
 
-struct SecurityMapViewRepresentable: UIViewRepresentable {
+struct StatusMapViewRepresentable: UIViewRepresentable {
 
     let mapView = MKMapView()
-    let locationManager = LocationManager()
+    let StatLocationManager = StatusLocationManager()
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
-        mapView.isRotateEnabled = false
+        mapView.isRotateEnabled = true
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        
         
         return mapView
     }
@@ -31,12 +32,12 @@ struct SecurityMapViewRepresentable: UIViewRepresentable {
     }
 }
 
-extension SecurityMapViewRepresentable {
+extension StatusMapViewRepresentable {
     
     class MapCoordinator: NSObject, MKMapViewDelegate {
-        let parent: SecurityMapViewRepresentable
+        let parent: StatusMapViewRepresentable
         
-        init(parent: SecurityMapViewRepresentable) {
+        init(parent: StatusMapViewRepresentable) {
             self.parent = parent
             super.init()
         }
@@ -44,15 +45,13 @@ extension SecurityMapViewRepresentable {
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-                ,span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+                ,span: MKCoordinateSpan(latitudeDelta: 0.0035, longitudeDelta: 0.0035)
             )
             
-            
-        
+
             parent.mapView.setRegion(region, animated: true)
         }
         
     }
     
 }
-
