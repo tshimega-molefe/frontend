@@ -39,6 +39,7 @@ struct LocationSearchActivationView: View {
                     Spacer()
                 }
             }
+            .padding(.leading, 10)
             
             Button {
                 print("DEBUG: Handle Security Detail...")
@@ -63,6 +64,7 @@ struct LocationSearchActivationView: View {
                     Spacer()
                 }
             }
+            .padding(.leading, 10)
 
         }
         .frame(width: UIScreen.main.bounds.width, height: 250)
