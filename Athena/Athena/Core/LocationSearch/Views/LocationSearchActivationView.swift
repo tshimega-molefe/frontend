@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LocationSearchActivationView: View {
+    @State private var showLocationSearchView = false
 
     var body: some View {
             
@@ -34,12 +35,15 @@ struct LocationSearchActivationView: View {
                     Text("Security Escort")
                         .foregroundColor(Color.theme.primaryText)
                         .font(.custom("Poppins-Medium", size: 18))
-                        .shadow(radius: 6)
+                        
                     
                     Spacer()
                 }
             }
             .padding(.leading, 10)
+            .onTapGesture {
+                showLocationSearchView.toggle()
+            }
             
             Button {
                 print("DEBUG: Handle Security Detail...")
@@ -59,7 +63,7 @@ struct LocationSearchActivationView: View {
                     Text("Security Detail")
                         .foregroundColor(Color.theme.primaryText)
                         .font(.custom("Poppins-Medium", size: 18))
-                        .shadow(radius: 6)
+                        
                     
                     Spacer()
                 }

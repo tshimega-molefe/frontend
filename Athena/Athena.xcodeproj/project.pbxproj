@@ -19,6 +19,8 @@
 		9576895828E068A6009FDCE2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576895728E068A6009FDCE2 /* Color.swift */; };
 		9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D52D28ED873100DC1557 /* StatusLocationManager.swift */; };
 		9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */; };
+		9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53928EDB47C00DC1557 /* LocationSearchView.swift */; };
+		9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
@@ -70,6 +72,8 @@
 		9576895728E068A6009FDCE2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9588D52D28ED873100DC1557 /* StatusLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLocationManager.swift; sourceTree = "<group>"; };
 		9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
+		9588D53928EDB47C00DC1557 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */,
+				9588D53928EDB47C00DC1557 /* LocationSearchView.swift */,
+				9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
 				9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */,
 				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
+				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */,
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
@@ -530,6 +537,7 @@
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,
 				9590D4CA28E4D7DD00617C64 /* User.swift in Sources */,
+				9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
