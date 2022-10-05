@@ -24,6 +24,7 @@ struct ColorTheme {
 //    Background Color
     
     let background = Color("BackgroundColor")
+    let lightGrey = Color("LightGreyColor")
     
 //    Warning Colors
     

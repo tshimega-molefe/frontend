@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SecurityView: View {
     var body: some View {
-        SecurityMapViewRepresentable().edgesIgnoringSafeArea(.top)
+        ZStack (alignment: .bottom) {
+            SecurityMapViewRepresentable().edgesIgnoringSafeArea(.top)
+            
+            LocationSearchActivationView()
+        }
     }
 }
 
