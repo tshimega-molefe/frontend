@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct LocationSearchResultsCell: View {
+    let title: String
+    let subtitle: String
+    
     var body: some View {
         HStack {
-            Image(systemName: "mappin.and.ellipse")
+            Image(systemName: "mappin.circle.fill")
                 .resizable()
                 .foregroundColor(Color.theme.accent)
                 .accentColor(Color.theme.background)
                 .frame(width: 28, height: 28)
             
             VStack (alignment: .leading, spacing: 4) {
-                Text("Starbucks Coffee")
+                Text(title)
                     .font(.custom("Poppins-Regular", size: 16))
                     .foregroundColor(Color.theme.primaryText)
-                Text("123 Main St, Cupertino CA ")
+                
+                Text(subtitle)
                     .font(.custom("Poppins-Light", size: 15))
                     .foregroundColor(.gray)
                 
@@ -35,6 +39,6 @@ struct LocationSearchResultsCell: View {
 
 struct LocationSearchResultsCell_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchResultsCell()
+        LocationSearchResultsCell(title: "Starbucks", subtitle: "123 M St")
     }
 }

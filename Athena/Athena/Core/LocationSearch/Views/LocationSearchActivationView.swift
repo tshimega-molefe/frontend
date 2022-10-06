@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LocationSearchActivationView: View {
-    @State private var showLocationSearchView = false
 
     var body: some View {
             
@@ -17,8 +16,8 @@ struct LocationSearchActivationView: View {
                     .foregroundColor(Color.theme.accent)
                     .font(.custom("Poppins-SemiBold", size: 20))
                 
-            Button {
-                print("DEBUG: Handle Security Escort...")
+            NavigationLink {
+                LocationSearchView()
             } label: {
                 HStack {
                     ZStack {
@@ -41,9 +40,6 @@ struct LocationSearchActivationView: View {
                 }
             }
             .padding(.leading, 10)
-            .onTapGesture {
-                showLocationSearchView.toggle()
-            }
             
             Button {
                 print("DEBUG: Handle Security Detail...")

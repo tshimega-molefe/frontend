@@ -11,12 +11,14 @@ import SwiftUI
 struct AthenaApp: App {
     
     @StateObject var userAuth = AuthViewModel()
+    @StateObject var locationViewModel = LocationSearchViewModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 MainTabView()
             }
+            .environmentObject(locationViewModel)
             .environmentObject(userAuth)
         }
     }

@@ -21,6 +21,8 @@
 		9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */; };
 		9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53928EDB47C00DC1557 /* LocationSearchView.swift */; };
 		9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */; };
+		958F830128EEEEA0000C0219 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830028EEEEA0000C0219 /* LocationSearchViewModel.swift */; };
+		958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830228EF1776000C0219 /* SecurityMapViewState.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
@@ -74,6 +76,8 @@
 		9588D53728ED8E6000DC1557 /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
 		9588D53928EDB47C00DC1557 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
+		958F830028EEEEA0000C0219 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		9576894928E06513009FDCE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				958F830228EF1776000C0219 /* SecurityMapViewState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 		9588D53328ED8D7900DC1557 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				958F830028EEEEA0000C0219 /* LocationSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -523,12 +529,14 @@
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */,
+				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
+				958F830128EEEEA0000C0219 /* LocationSearchViewModel.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */,

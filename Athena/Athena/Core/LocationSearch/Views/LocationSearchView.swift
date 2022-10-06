@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LocationSearchView: View {
     @State private var startLocationText = ""
-    @State private var destinationLocationText = ""
+    @EnvironmentObject var viewModel: LocationSearchViewModel
+    
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             // header view
@@ -35,13 +39,13 @@ struct LocationSearchView: View {
                     $startLocationText)
                     .frame(height: 32)
                     .font(.custom(FontsManager.Poppins.medium, size: 15))
-                    .foregroundColor(Color.theme.grey)
+                    .foregroundColor(Color.theme.primaryText)
                     .background(Color.theme.lightGrey)
                     .padding(.trailing)
                     .accentColor(Color.theme.accent)
                     
                     TextField("Where to?", text:
-                    $destinationLocationText)
+                    $viewModel.queryFragment)
                     .frame(height: 32)
                     .font(.custom(FontsManager.Poppins.medium, size: 15))
                     .foregroundColor(Color.theme.primaryText)
@@ -52,7 +56,7 @@ struct LocationSearchView: View {
                 
             }
             .padding(.horizontal)
-            .padding(.top, 64)
+            .padding(.top)
 
             Divider()
                 .padding(.vertical)
@@ -60,15 +64,23 @@ struct LocationSearchView: View {
             // list view
             ScrollView {
                 VStack (alignment: .leading) {
-                    ForEach(0 ..< 20, id: \.self) { _ in
-                        
-                        LocationSearchResultsCell()
-                        
+                    ForEach(viewModel.results, id: \.self) { result in
+                        LocationSearchResultsCell(title:
+                                                    result.title, subtitle:
+                                                    result.subtitle)
+                        .onTapGesture {
+                            viewModel.selectLocation(result)
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 }
             }
             
         }
+        .navigationTitle("Security Escort")
+        .navigationBarHidden(false)
+        .navigationBarBackButtonHidden(false)
+        .background(Color.theme.background)
     }
 }
 

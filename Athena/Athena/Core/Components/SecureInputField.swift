@@ -10,7 +10,7 @@ import SwiftUI
 struct SecureInputField: View {
     let placeholderText: String
     @Binding var text: String
-//    @StateObject var userAuth = AuthViewModel()
+
     @State private var isEmptyField = false
     
     var body: some View {
@@ -32,12 +32,7 @@ struct SecureInputField: View {
             .frame(height: 67)
             .background(Color.theme.pink)
             .cornerRadius(15)
-            
-//            if(!self.userAuth.isCorrect){
-//                Text("Password is incorrect")
-//                    .font(.custom(FontsManager.Poppins.semiBold, size: 15))
-//                    .foregroundColor(.red)
-//            }
+        
             
             if(self.isEmptyField){
                 Text("Password is required")

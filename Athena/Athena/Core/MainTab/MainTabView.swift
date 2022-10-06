@@ -19,6 +19,7 @@ struct MainTabView: View {
             if userAuth.isLoggedIn == true {
                 LoginView()
             } else {
+                // Open WebSocket with Access Token
                 mainInterfaceView
             }
         }
