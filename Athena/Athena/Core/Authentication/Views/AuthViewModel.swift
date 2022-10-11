@@ -16,16 +16,22 @@ class AuthViewModel: ObservableObject {
     @Published var password: String = ""
     
     
-    @Published var isCorrect : Bool = true
-    @Published var isLoggedIn = false 
+    
+    @Published var isAuthenticated: Bool = false
     
     
     func loginCitizen() {
         
+        let defaults = UserDefaults.standard
+        
         Webservice().login(username: username, password: password) { result in
             switch result {
             case .success(let access):
-                print(access)
+                defaults.set(access, forKey: "Bearer Token")
+                DispatchQueue.main.async {
+                    self.isAuthenticated = true
+                }
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -42,7 +48,7 @@ class AuthViewModel: ObservableObject {
     
     func logoutCitizen() {
         print("DEBUG: Logged out the current user...")
-        isLoggedIn = false
+        isAuthenticated = false
     }
     
     func fetchCitizen() {
