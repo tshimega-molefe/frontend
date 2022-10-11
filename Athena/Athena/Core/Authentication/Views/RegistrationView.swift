@@ -73,7 +73,7 @@ struct RegistrationView: View {
                     } else {
                         NavigationLink(destination: SecondRegistration().onAppear {
                             
-                            userAuth.registerUser(withUsername: username, email: email, password: password)
+                            userAuth.registerCitizen(withUsername: username, email: email, password: password)
                             
                         })
                         {

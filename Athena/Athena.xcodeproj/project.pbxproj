@@ -27,6 +27,7 @@
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
 		959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCB328F5873700F141CA /* ServiceRequestView.swift */; };
+		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
 		95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */; };
 		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
@@ -83,6 +84,7 @@
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
+		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLocationManager.swift; sourceTree = "<group>"; };
 		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		95FCEC4728E1DB2800ABE5CA /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				959FDCBA28F5A45B00F141CA /* Webservice.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */,
 				95FCEC4C28E1DBF000ABE5CA /* PressForHelpView.swift in Sources */,
+				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,

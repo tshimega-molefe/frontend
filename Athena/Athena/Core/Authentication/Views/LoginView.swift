@@ -9,9 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var userAuth: AuthViewModel
-    
-    @State private var username = ""
-    @State private var password = ""
 
     @State private var isEmptyField = false
     @State private var checked = false
@@ -35,10 +32,10 @@ struct LoginView: View {
                     
                     VStack (spacing: 10) {
                         CustomInputField(placeholderText: "Username",
-                                         text: $username)
+                                         text: $userAuth.username)
                         
                         SecureInputField(placeholderText: "Password",
-                                         text: $password)
+                                         text: $userAuth.password)
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 64)
@@ -70,11 +67,11 @@ struct LoginView: View {
                     //                    Log In Button
                     
                     AuthButtonView(buttonLabel: "Log In") {
-                        if(self.username.isEmpty || self.password.isEmpty){
+                        if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
                             print("DEBUG: There is missing information in either of the log in fields..")
                             self.isEmptyField = true
                                 } else {
-                            self.userAuth.loginUser(password: self.password, username: self.username)
+                            userAuth.loginCitizen()
                                 }
                     }
                     .padding(.top, 40)

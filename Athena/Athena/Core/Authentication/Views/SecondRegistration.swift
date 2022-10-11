@@ -72,7 +72,7 @@ struct SecondRegistration: View {
 
                     } else {
                         AuthButtonView(buttonLabel: "Create Account") {
-                            userAuth.updateUser(withFirstName: firstName,
+                            userAuth.updateCitizen(withFirstName: firstName,
                                                 lastName: lastName,
                                                 cellNumber: cell)
                         }

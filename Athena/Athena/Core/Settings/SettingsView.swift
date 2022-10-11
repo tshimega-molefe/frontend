@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     var body: some View {
         ZStack {
             Color.theme.background.edgesIgnoringSafeArea(.top)
-            Text("User Profile View")
+            
+            
+            AuthButtonView(buttonLabel: "Log Out") {
+                userAuth.logoutCitizen()
+            }
+
+            
         }
     }
 }

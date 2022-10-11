@@ -16,7 +16,7 @@ struct MainTabView: View {
 // Presentation logic
     var body: some View {
         Group {
-            if userAuth.isLoggedIn == true {
+            if !userAuth.isLoggedIn {
                 LoginView()
             } else {
                 // Open WebSocket with Access Token
