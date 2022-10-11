@@ -31,10 +31,11 @@ class AuthViewModel: ObservableObject {
         Webservice().login(username: username, password: password) { result in
             switch result {
             case .success(let access):
-                defaults.set(access, forKey: "Bearer Token")
+                defaults.set(access, forKey: "bearerToken")
                 print("DEBUG: Access token is \(access)")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
+                    self.selectedIndex = 2
                 }
                 
             case .failure(let error):
@@ -53,8 +54,12 @@ class AuthViewModel: ObservableObject {
     
     func logoutCitizen() {
         print("DEBUG: Logged out the current user...")
-        isAuthenticated = false
-        selectedIndex = 2
+       
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "bearerToken")
+        DispatchQueue.main.async {
+            self.isAuthenticated = false
+        }
         
     }
     

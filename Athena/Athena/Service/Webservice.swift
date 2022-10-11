@@ -30,6 +30,8 @@ struct LoginResponseBody: Codable {
 
 class Webservice {
     
+//    MARK: - LoginCitizen WebService
+    
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
         guard let url = URL(string: "http://localhost:8000/api/users/login/") else {
@@ -69,5 +71,21 @@ class Webservice {
         }
         task.resume()
     }
+    
+//    MARK: - RegisterCitizen WebService
+    
+    
+    
+    
+    
+    
+//    MARK: - UpdateCitizen WebService
+    
+    
+    
+    
+    
+    
+//    MARK: - FetchCitizen WebService
     
 }
