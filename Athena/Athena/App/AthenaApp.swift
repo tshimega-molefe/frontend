@@ -12,6 +12,7 @@ struct AthenaApp: App {
     
     @StateObject var userAuth = AuthViewModel()
     @StateObject var locationViewModel = LocationSearchViewModel()
+    @State var selectedIndex = 2
     
     var body: some Scene {
         WindowGroup {

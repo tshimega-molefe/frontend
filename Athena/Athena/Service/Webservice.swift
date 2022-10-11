@@ -60,8 +60,6 @@ class Webservice {
                     
                     let access = loginResponse?.access
                     
-                    // Figure out where to put "isLoggedIn = true"
-        
                     completion(.success(access!))
                     
                 } else {

@@ -11,7 +11,6 @@ struct LoginView: View {
     @EnvironmentObject var userAuth: AuthViewModel
 
     @State private var isEmptyField = false
-    @State private var checked = false
     
     //  MARK: - Properties
     
@@ -43,12 +42,6 @@ struct LoginView: View {
                     //                "Forgot Password?" HStack
                     
                     HStack (alignment: .center){
-                        
-                        CheckBoxView(checked: $checked)
-
-                        Text("Remember Me")
-                            .font(.custom(FontsManager.Poppins.regular, size: 15))
-                            .foregroundColor(Color.theme.grey)
                         
                         Spacer()
                         

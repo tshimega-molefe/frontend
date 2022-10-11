@@ -12,12 +12,16 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     var didChange = PassthroughSubject<AuthViewModel, Never>()
     
+    
+//    Authentication User Variables
     @Published var username: String = ""
     @Published var password: String = ""
     
-    
-    
+//    Authentication Status Variable
     @Published var isAuthenticated: Bool = false
+    
+//    Authentication UIView Variable
+    @Published var selectedIndex = 2
     
     
     func loginCitizen() {
@@ -28,12 +32,13 @@ class AuthViewModel: ObservableObject {
             switch result {
             case .success(let access):
                 defaults.set(access, forKey: "Bearer Token")
+                print("DEBUG: Access token is \(access)")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
                 }
                 
             case .failure(let error):
-                print(error.localizedDescription)
+                print("DEBUG: \(error.localizedDescription)")
             }
         }
     }
@@ -49,6 +54,8 @@ class AuthViewModel: ObservableObject {
     func logoutCitizen() {
         print("DEBUG: Logged out the current user...")
         isAuthenticated = false
+        selectedIndex = 2
+        
     }
     
     func fetchCitizen() {

@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 struct User: Codable {
-    let access: String
-    let refresh: String
     let email: String?
     let first_name: String?
     let last_name: String?
