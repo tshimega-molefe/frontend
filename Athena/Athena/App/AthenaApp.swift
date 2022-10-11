@@ -14,6 +14,8 @@ struct AthenaApp: App {
     @StateObject var locationViewModel = LocationSearchViewModel()
     @State var selectedIndex = 2
     
+    
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {

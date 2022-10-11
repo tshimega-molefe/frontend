@@ -12,6 +12,8 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     var didChange = PassthroughSubject<AuthViewModel, Never>()
     
+    //@AppStorage("Authentication_Status") var isAuthenticated = (!username.isEmpty() || !username.isExpired() ) ? true : false - where accessToken is from the keychain
+    
     @AppStorage("Access_Token") var isAuthenticated = false {
         willSet { objectWillChange.send() }
     }
@@ -21,49 +23,34 @@ class AuthViewModel: ObservableObject {
     @Published var invalid: Bool = false
     @Published var selectedIndex = 2
     
-    private var sampleUser = "username"
-    private var samplePassword = "password"
-    
     init() {
         print("DEBUG: Currently logged on: \(isAuthenticated)")
         print("DEBUG: Current user: \(username)")
+        
+        
     }
     
     func toggleAuthentication() {
-        self.password = ""
         
         withAnimation {
-            isAuthenticated.toggle()
+            isAuthenticated = false
         }
     }
-    
-    func authenticate() {
-        guard self.username.lowercased() == sampleUser else {
-            self.invalid = true
-            return
-        }
-        
-        guard self.password.lowercased() == samplePassword else {
-            self.invalid = true
-            return
-        }
-        
-        toggleAuthentication()
-    }
-    
     
     func loginCitizen() {
-        
         Webservice().login(username: username, password: password) { result in
-            switch result {
-            case .success(let access):
-                print("DEBUG: Access token is \(access)")
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let accessToken):
+                    print("DEBUG: Access token is \(accessToken)")
+                    
                     self.isAuthenticated = true
+                    self.password = ""
+                    
+                case .failure(let error):
+                    self.invalid = true
+                    print("DEBUG: \(error.localizedDescription)")
                 }
-                
-            case .failure(let error):
-                print("DEBUG: \(error.localizedDescription)")
             }
         }
     }
