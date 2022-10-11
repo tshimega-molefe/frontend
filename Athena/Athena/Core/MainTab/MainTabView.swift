@@ -17,7 +17,7 @@ struct MainTabView: View {
     var body: some View {
         Group {
             if !userAuth.isAuthenticated {
-                LoginView()
+                LoginView().transition(.offset(x: 0, y: 850))
             } else {
                 // Open WebSocket with Access Token
                 mainInterfaceView

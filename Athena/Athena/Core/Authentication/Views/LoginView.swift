@@ -64,9 +64,14 @@ struct LoginView: View {
                             print("DEBUG: There is missing information in either of the log in fields..")
                             self.isEmptyField = true
                                 } else {
-                            userAuth.loginCitizen()
+                                    userAuth.authenticate()
                                 }
                     }
+                    .alert("Access Denied", isPresented: $userAuth.invalid, actions: {
+                        Button("Dismiss") {
+                            print("DEBUG: You've entered incorrect details..")
+                        }
+                    })
                     .padding(.top, 40)
                     
                     Spacer()

@@ -12,30 +12,54 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     var didChange = PassthroughSubject<AuthViewModel, Never>()
     
+    @AppStorage("Access_Token") var isAuthenticated = false {
+        willSet { objectWillChange.send() }
+    }
     
-//    Authentication User Variables
-    @Published var username: String = ""
-    @Published var password: String = ""
-    
-//    Authentication Status Variable
-    @Published var isAuthenticated: Bool = false
-    
-//    Authentication UIView Variable
+    @AppStorage("USER_KEY") var username = ""
+    @Published var password = ""
+    @Published var invalid: Bool = false
     @Published var selectedIndex = 2
+    
+    private var sampleUser = "username"
+    private var samplePassword = "password"
+    
+    init() {
+        print("DEBUG: Currently logged on: \(isAuthenticated)")
+        print("DEBUG: Current user: \(username)")
+    }
+    
+    func toggleAuthentication() {
+        self.password = ""
+        
+        withAnimation {
+            isAuthenticated.toggle()
+        }
+    }
+    
+    func authenticate() {
+        guard self.username.lowercased() == sampleUser else {
+            self.invalid = true
+            return
+        }
+        
+        guard self.password.lowercased() == samplePassword else {
+            self.invalid = true
+            return
+        }
+        
+        toggleAuthentication()
+    }
     
     
     func loginCitizen() {
         
-        let defaults = UserDefaults.standard
-        
         Webservice().login(username: username, password: password) { result in
             switch result {
             case .success(let access):
-                defaults.set(access, forKey: "bearerToken")
                 print("DEBUG: Access token is \(access)")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
-                    self.selectedIndex = 2
                 }
                 
             case .failure(let error):
@@ -54,11 +78,9 @@ class AuthViewModel: ObservableObject {
     
     func logoutCitizen() {
         print("DEBUG: Logged out the current user...")
-       
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "bearerToken")
         DispatchQueue.main.async {
-            self.isAuthenticated = false
+            self.toggleAuthentication()
+            self.selectedIndex = 2
         }
         
     }
