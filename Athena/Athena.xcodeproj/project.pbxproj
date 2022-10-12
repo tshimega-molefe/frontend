@@ -11,6 +11,7 @@
 		9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */; };
 		9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBE28E0E11200437D38 /* AuthButtonView.swift */; };
 		9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABC228E0EB8300437D38 /* CheckBoxView.swift */; };
+		9530E3BB28F6E418000F395A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9530E3BA28F6E418000F395A /* .gitignore */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
 		9576894328E06450009FDCE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576894228E06450009FDCE2 /* Preview Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		9522ABBE28E0E11200437D38 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
 		9522ABC228E0EB8300437D38 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		9530E3BA28F6E418000F395A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893F28E06450009FDCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		9576892F28E0644F009FDCE2 = {
 			isa = PBXGroup;
 			children = (
+				9530E3BA28F6E418000F395A /* .gitignore */,
 				9576893A28E0644F009FDCE2 /* Athena */,
 				9576894128E06450009FDCE2 /* Preview Content */,
 				9576893928E0644F009FDCE2 /* Products */,
@@ -503,6 +506,7 @@
 				95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */,
 				95E6AED528E07BC8002DC84A /* Poppins-SemiBold.ttf in Resources */,
 				95E6AEE328E07BC8002DC84A /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				9530E3BB28F6E418000F395A /* .gitignore in Resources */,
 				95E6AED428E07BC8002DC84A /* Poppins-MediumItalic.ttf in Resources */,
 				95E6AEE128E07BC8002DC84A /* Poppins-BoldItalic.ttf in Resources */,
 				95E6AEDF28E07BC8002DC84A /* Poppins-SemiBoldItalic.ttf in Resources */,
