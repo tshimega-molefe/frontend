@@ -9,101 +9,101 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var userAuth: AuthViewModel
-
+    
     @State private var isEmptyField = false
     
     //  MARK: - Properties
     
     var body: some View {
-            ZStack {
+        ZStack {
+            
+            Color.theme.background.edgesIgnoringSafeArea(.all)
+            
+            //            Parent VStack
+            
+            VStack {
                 
-                Color.theme.background.edgesIgnoringSafeArea(.all)
+                //            AuthHeaderView
                 
-                //            Parent VStack
+                AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "login"), authLabel: "Log In")
                 
-                VStack {
+                //                Authentication TextField VStack
+                
+                VStack (spacing: 10) {
+                    CustomInputField(placeholderText: "Username",
+                                     text: $userAuth.username)
                     
-                    //            AuthHeaderView
-                    
-                    AuthHeaderView(authImage: UIImage(imageLiteralResourceName: "login"), authLabel: "Log In")
-                    
-                    //                Authentication TextField VStack
-                    
-                    VStack (spacing: 10) {
-                        CustomInputField(placeholderText: "Username",
-                                         text: $userAuth.username)
-                        
-                        SecureInputField(placeholderText: "Password",
-                                         text: $userAuth.password)
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.top, 64)
-                    
-                    //                "Forgot Password?" HStack
-                    
-                    HStack (alignment: .center){
-                        
-                        Spacer()
-                        
-                        NavigationLink {
-                            Text("Reset Password")
-                        } label: {
-                            Text("Forgot Password?")
-                                .font(.custom(FontsManager.Poppins.regular, size: 15))
-                                .foregroundColor(Color.theme.accent)
-                            
-                        }
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.top)
-                    
-                    //                    Log In Button
-                    
-                    AuthButtonView(buttonLabel: "Log In") {
-                        if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
-                            print("DEBUG: There is missing information in either of the log in fields..")
-                            self.isEmptyField = true
-                                } else {
-                                    userAuth.authenticate()
-                                }
-                    }
-                    .alert("Access Denied", isPresented: $userAuth.invalid, actions: {
-                        Button("Dismiss") {
-                            print("DEBUG: You've entered incorrect details..")
-                        }
-                    })
-                    .padding(.top, 40)
+                    SecureInputField(placeholderText: "Password",
+                                     text: $userAuth.password)
+                }
+                .padding(.horizontal, 30)
+                .padding(.top, 64)
+                
+                //                "Forgot Password?" HStack
+                
+                HStack (alignment: .center){
                     
                     Spacer()
                     
-                    //                    Don't have an account button
-                    
                     NavigationLink {
-                        RegistrationView()
+                        Text("Reset Password")
                     } label: {
-                        HStack {
-                            Text("Don't have an account? ")
-                                .font(.custom(FontsManager.Poppins.regular, size: 15))
-                                .foregroundColor(Color.theme.grey)
-                            
-                            +
-                            
-                            Text("Sign Up")
-                                .font(.custom(FontsManager.Poppins.semiBold, size: 15))
-                                .foregroundColor(Color.theme.accent)
-                                .underline()
-                        }
+                        Text("Forgot Password?")
+                            .font(.custom(FontsManager.Poppins.regular, size: 15))
+                            .foregroundColor(Color.theme.accent)
+                        
+                    }
+                }
+                .padding(.horizontal, 30)
+                .padding(.top)
+                
+                //                    Log In Button
+                
+                AuthButtonView(buttonLabel: "Log In") {
+                    if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
+                        print("DEBUG: There is missing information in either of the log in fields..")
+                        self.isEmptyField = true
+                    } else {
+                        userAuth.loginCitizen()
+                    }
+                }
+                .alert("Access Denied", isPresented: $userAuth.invalid, actions: {
+                    Button("Dismiss") {
+                        print("DEBUG: You've entered incorrect details..")
+                    }
+                })
+                .padding(.top, 40)
+                
+                Spacer()
+                
+                //                    Don't have an account button
+                
+                NavigationLink {
+                    RegistrationView()
+                } label: {
+                    HStack {
+                        Text("Don't have an account? ")
+                            .font(.custom(FontsManager.Poppins.regular, size: 15))
+                            .foregroundColor(Color.theme.grey)
+                        
+                        +
+                        
+                        Text("Sign Up")
+                            .font(.custom(FontsManager.Poppins.semiBold, size: 15))
+                            .foregroundColor(Color.theme.accent)
+                            .underline()
                     }
                 }
             }
-            .navigationTitle("Log In")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            .onTapGesture {
-                dismissKeyboard()
-            }
+        }
+        .navigationTitle("Log In")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .onTapGesture {
+            dismissKeyboard()
         }
     }
+}
 
 // MARK: Lifecyle
 
