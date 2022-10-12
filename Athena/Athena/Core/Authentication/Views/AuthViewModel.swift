@@ -24,18 +24,19 @@ class AuthViewModel: ObservableObject {
     @Published var selectedIndex = 2
     
     init() {
-        print("DEBUG: Currently logged on: \(isAuthenticated)")
-        print("DEBUG: Current user: \(username)")
         
-        
-    }
-    
-    func toggleAuthentication() {
-        
-        withAnimation {
-            isAuthenticated = false
+        if let data = KeychainHelper.standard.read(service: "access-token"){
+            let accessToken = String(data: data, encoding: .utf8)
+            print("DEBUG: Current username is \(username)")
+            print("DEBUG: Current access token is \(accessToken)")
+            self.isAuthenticated = true
+        }
+        else {
+            print("DEBUG: No access token found in keychain")
+            self.isAuthenticated = false
         }
     }
+    
     
     func loginCitizen() {
         Webservice().login(username: username, password: password) { result in
@@ -43,6 +44,8 @@ class AuthViewModel: ObservableObject {
                 switch result {
                 case .success(let accessToken):
                     print("DEBUG: Access token is \(accessToken)")
+                    let data = Data(accessToken.utf8)
+                    KeychainHelper.standard.save(data, service: "access-token")
                     
                     self.isAuthenticated = true
                     self.password = ""
@@ -65,8 +68,10 @@ class AuthViewModel: ObservableObject {
     
     func logoutCitizen() {
         print("DEBUG: Logged out the current user...")
+        KeychainHelper.standard.delete(service: "access-token")
+        
         DispatchQueue.main.async {
-            self.toggleAuthentication()
+            self.isAuthenticated = false
             self.selectedIndex = 2
         }
         

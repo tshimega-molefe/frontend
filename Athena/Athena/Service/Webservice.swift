@@ -26,6 +26,10 @@ struct LoginResponseBody: Codable {
     
 }
 
+    // MARK: - Register
+
+    // MARK: - Update
+
 
 
 class Webservice {

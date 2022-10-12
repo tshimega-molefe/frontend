@@ -12,6 +12,7 @@
 		9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBE28E0E11200437D38 /* AuthButtonView.swift */; };
 		9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABC228E0EB8300437D38 /* CheckBoxView.swift */; };
 		9530E3BB28F6E418000F395A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9530E3BA28F6E418000F395A /* .gitignore */; };
+		9534A3E228F6E9E900E01ADC /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534A3E128F6E9E900E01ADC /* KeychainHelper.swift */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
 		9576894328E06450009FDCE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576894228E06450009FDCE2 /* Preview Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		9522ABBE28E0E11200437D38 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
 		9522ABC228E0EB8300437D38 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		9530E3BA28F6E418000F395A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9534A3E128F6E9E900E01ADC /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Athena/Core/Authentication/Helpers/KeychainHelper.swift; sourceTree = SOURCE_ROOT; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893F28E06450009FDCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +154,15 @@
 				9522ABBE28E0E11200437D38 /* AuthButtonView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		9534A3E028F6E9D200E01ADC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9534A3E128F6E9E900E01ADC /* KeychainHelper.swift */,
+			);
+			name = Helpers;
+			path = ../../../Helpers;
 			sourceTree = "<group>";
 		};
 		9576892F28E0644F009FDCE2 = {
@@ -251,6 +262,7 @@
 		9576895028E065D4009FDCE2 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				9534A3E028F6E9D200E01ADC /* Helpers */,
 				9576895228E065DD009FDCE2 /* ViewModels */,
 				9576895128E065DB009FDCE2 /* Views */,
 			);
@@ -550,6 +562,7 @@
 				9588D53828ED8E6000DC1557 /* LocationSearchActivationView.swift in Sources */,
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
+				9534A3E228F6E9E900E01ADC /* KeychainHelper.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC4428E1CBC300ABE5CA /* SecondRegistration.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
