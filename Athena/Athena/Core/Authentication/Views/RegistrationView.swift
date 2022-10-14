@@ -10,13 +10,8 @@ import SwiftUI
 struct RegistrationView: View {
     @EnvironmentObject var userAuth: AuthViewModel
     
-    @State private var username = ""
-    @State private var email = ""
-    @State private var password = ""
     @State private var checked = false
     @State private var isEmptyField = false
-    @State var tap = false
-    @State var press = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -38,12 +33,12 @@ struct RegistrationView: View {
                     
                     VStack (spacing: 10) {
                         CustomInputField(placeholderText: "Username",
-                                         text: $username)
+                                         text: $userAuth.username)
                         CustomInputField(placeholderText: "Email",
-                                         text: $email)
+                                         text: $userAuth.email)
                         .keyboardType(.emailAddress)
                         SecureInputField(placeholderText: "Password",
-                                         text: $password)
+                                         text: $userAuth.password)
                     }
                     .padding(.horizontal, 30)
                     
@@ -68,13 +63,12 @@ struct RegistrationView: View {
                     .padding(.horizontal, 30)
                     .padding(.top)
 
-                    if (self.username.isEmpty || self.email.isEmpty || self.password.isEmpty || !self.checked) {
+                    if (self.userAuth.username.isEmpty || self.userAuth.email.isEmpty || self.userAuth.password.isEmpty || !self.checked || self.userAuth.invalid) {
                         IncompleteFormButton()
                     } else {
                         NavigationLink(destination: SecondRegistration().onAppear {
                             
-                            userAuth.registerCitizen(withUsername: username, email: email, password: password)
-                            
+                            userAuth.registerCitizen()
                         })
                         {
                             Text("Next")
@@ -130,11 +124,11 @@ struct IncompleteFormButton: View {
         Button {
             print("DEBUG: There is missing information in either of the create account fields..")
         } label: {
-            Text("Incomplete Form")
+            Text("Next")
                 .font(.custom(FontsManager.Poppins.semiBold, size: 16))
                 .foregroundColor(.white)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
-                .background(Color.theme.red)
+                .background(Color.theme.lightGrey)
                 .cornerRadius(15)
         }
         

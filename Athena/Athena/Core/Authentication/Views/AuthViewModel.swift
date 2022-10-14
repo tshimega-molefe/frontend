@@ -20,6 +20,12 @@ class AuthViewModel: ObservableObject {
     
     @AppStorage("USER_KEY") var username = ""
     @Published var password = ""
+    @Published var email = ""
+    @Published var firstname = ""
+    @Published var lastname = ""
+    @Published var cell = ""
+    
+    
     @Published var invalid: Bool = false
     @Published var selectedIndex = 2
     
@@ -58,8 +64,24 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func registerCitizen(withUsername username: String, email: String, password: String) {
-        print("DEBUG: Create Account with username \(username) & email \(email).")
+    func registerCitizen() {
+        Webservice().register(username: username, email: email, password: password) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let accessToken):
+                    print("DEBUG: Access token is \(accessToken)")
+                    let data = Data(accessToken.utf8)
+                    KeychainHelper.standard.save(data, service: "access-token")
+                    
+                    self.isAuthenticated = true
+                    self.password = ""
+                    self.username = ""
+                    
+                case .failure(let error):
+                    print("DEBUG: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     func updateCitizen(withFirstName firstname: String, lastName: String, cellNumber: String) {
