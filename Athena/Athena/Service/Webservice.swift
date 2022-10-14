@@ -97,7 +97,7 @@ class Webservice {
     
     func register(username: String, email: String, password: String, completion: @escaping (Result<String, RegistrationError>) -> Void) {
         
-        guard let url = URL(string: "http://localhost:8000/api/users/citizen/register") else {
+        guard let url = URL(string: "http://localhost:8000/api/users/citizen/register/") else {
             completion(.failure(.custom(errorMessage: "DEBUG: URL is not correct...")))
             return
         }

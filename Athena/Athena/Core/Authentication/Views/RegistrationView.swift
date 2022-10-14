@@ -62,27 +62,25 @@ struct RegistrationView: View {
                     }
                     .padding(.horizontal, 30)
                     .padding(.top)
+                    
+                    // Create Account Button
 
-                    if (self.userAuth.username.isEmpty || self.userAuth.email.isEmpty || self.userAuth.password.isEmpty || !self.checked || self.userAuth.invalid) {
-                        IncompleteFormButton()
-                    } else {
-                        NavigationLink(destination: SecondRegistration().onAppear {
-                            
+                    AuthButtonView(buttonLabel: "Create Account") {
+                        if(self.userAuth.username.isEmpty ||
+                           self.userAuth.email.isEmpty ||
+                           self.userAuth.password.isEmpty) {
+                    print("DEBUG: There is missing information in either of the create account fields..")
+                            self.isEmptyField = true
+                        } else {
                             userAuth.registerCitizen()
-                        })
-                        {
-                            Text("Next")
-                                .font(.custom(FontsManager.Poppins.semiBold, size: 16))
-                                .foregroundColor(.white)
-                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 67)
-                                .background(Color.theme.red)
-                                .cornerRadius(15)
                         }
-                        
-                        .shadow(color: .gray.opacity(0.3), radius: 2, x: 0, y: 0)
-                        .padding(.horizontal, 30)
-                        .padding(.top, 40)
                     }
+                    .alert("Username or Email already exists. Try again.", isPresented: $userAuth.alreadyExists, actions: {
+                        Button("Dismiss") {
+                            print("DEBUG: Couldn't create account, try again.")
+                        }
+                    })
+                    .padding(.top, 40)
                     
                     Spacer()
                     

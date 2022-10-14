@@ -27,6 +27,7 @@ class AuthViewModel: ObservableObject {
     
     
     @Published var invalid: Bool = false
+    @Published var alreadyExists: Bool = false
     @Published var selectedIndex = 2
     
     init() {
@@ -75,9 +76,9 @@ class AuthViewModel: ObservableObject {
                     
                     self.isAuthenticated = true
                     self.password = ""
-                    self.username = ""
                     
                 case .failure(let error):
+                    self.alreadyExists = true
                     print("DEBUG: \(error.localizedDescription)")
                 }
             }

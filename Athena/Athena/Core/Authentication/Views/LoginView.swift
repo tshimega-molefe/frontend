@@ -67,7 +67,7 @@ struct LoginView: View {
                         userAuth.loginCitizen()
                     }
                 }
-                .alert("Access Denied", isPresented: $userAuth.invalid, actions: {
+                .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
                     Button("Dismiss") {
                         print("DEBUG: You've entered incorrect details..")
                     }
