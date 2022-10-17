@@ -61,6 +61,8 @@ struct LocationSearchView: View {
             Divider()
                 .padding(.vertical)
             
+            // Add two place holders for the users two favourite locations between the "Where to" bar, and the ScrollView
+            
             // list view
             ScrollView {
                 VStack (alignment: .leading) {

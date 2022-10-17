@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SecurityView: View {
+    @State private var showLocationSearchView = false
+    
     var body: some View {
         ZStack (alignment: .bottom) {
             SecurityMapViewRepresentable().edgesIgnoringSafeArea(.top)

@@ -86,24 +86,6 @@ struct LoginView: View {
                 }
                 
                 
-                
-                //                    Log In Button
-                
-//                AuthButtonView(buttonLabel: "Log In") {
-//                    if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
-//                        print("DEBUG: There is missing information in either of the log in fields..")
-//                        self.isEmptyField = true
-//                    } else {
-//                        userAuth.loginCitizen()
-//                    }
-//                }
-//                .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
-//                    Button("Dismiss") {
-//                        print("DEBUG: You've entered incorrect details..")
-//                    }
-//                })
-//                .padding(.top, 40)
-                
                 Spacer()
                 
                 //                    Don't have an account button

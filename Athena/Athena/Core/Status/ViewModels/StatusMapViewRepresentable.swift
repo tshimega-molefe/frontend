@@ -45,7 +45,7 @@ extension StatusMapViewRepresentable {
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-                ,span: MKCoordinateSpan(latitudeDelta: 0.0035, longitudeDelta: 0.0035)
+                ,span: MKCoordinateSpan(latitudeDelta: 0.0025, longitudeDelta: 0.0025)
             )
             
 

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct ServiceRequestView: View {
+    
     var body: some View {
         
             // Cancel Button
         
-        
-        
         VStack {
             Capsule()
-                .foregroundColor(Color.theme.background)
+                .foregroundColor(Color(.systemGray6))
                 .frame(width: 48, height: 6)
-            
             
             // Request Title
             
