@@ -35,7 +35,7 @@ class AuthViewModel: ObservableObject {
         if let data = KeychainHelper.standard.read(service: "access-token"){
             let accessToken = String(data: data, encoding: .utf8)
             print("DEBUG: Current username is \(username)")
-            print("DEBUG: Current access token is \(accessToken)")
+            print("DEBUG: Current access token is \(String(describing: accessToken))")
             self.isAuthenticated = true
         }
         else {

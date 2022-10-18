@@ -12,21 +12,33 @@ struct SecurityMapViewRepresentable: UIViewRepresentable {
 
     let mapView = MKMapView()
     let SecLocationManager = SecurityLocationManager()
+    @Binding var mapState: SecurityMapViewState
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isRotateEnabled = false
-        mapView.showsUserLocation = true
+        mapView.showsUserLocation = false
         mapView.userTrackingMode = .follow
         
         return mapView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let coordinate = locationViewModel.selectedLocationCoordinate {
-            context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
-            context.coordinator.configurePolyline(withDestinationCoordinate: coordinate)
+        print("DEBUG: Map State is \(mapState)")
+        
+        switch mapState {
+        case .noInput:
+            context.coordinator.clearMapViewAndRecenterOnUserLocation()
+            break
+        case .searchingForLocation:
+            break
+        case .locationSelected:
+            if let coordinate = locationViewModel.selectedLocationCoordinate {
+                context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
+                context.coordinator.configurePolyline(withDestinationCoordinate: coordinate)
+            }
+            break
         }
     }
     
@@ -43,6 +55,7 @@ extension SecurityMapViewRepresentable {
         
         let parent: SecurityMapViewRepresentable
         var userLocationCoordinate: CLLocationCoordinate2D?
+        var currentRegion: MKCoordinateRegion?
         
         // MARK: - Lifecycle
         
@@ -60,7 +73,7 @@ extension SecurityMapViewRepresentable {
                 ,span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
             )
             
-            
+            self.currentRegion = region
         
             parent.mapView.setRegion(region, animated: true)
         }
@@ -84,7 +97,6 @@ extension SecurityMapViewRepresentable {
             parent.mapView.addAnnotation(anno)
             parent.mapView.selectAnnotation(anno, animated: true)
             
-            
         }
         
         func configurePolyline(withDestinationCoordinate coordinate: CLLocationCoordinate2D) {
@@ -93,7 +105,7 @@ extension SecurityMapViewRepresentable {
                                 to: coordinate) { route in
                 self.parent.mapView.addOverlay(route.polyline)
                 let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect,
-                                                               edgePadding: .init(top: 58, left: 38, bottom: 300, right: 38))
+                                                               edgePadding: .init(top: 74, left: 46, bottom: 500, right: 32))
                 self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
@@ -116,6 +128,15 @@ extension SecurityMapViewRepresentable {
                 
                 guard let route = response?.routes.first else { return }
                 completion(route)
+            }
+        }
+        
+        func clearMapViewAndRecenterOnUserLocation() {
+            parent.mapView.removeAnnotations(parent.mapView.annotations)
+            parent.mapView.removeOverlays(parent.mapView.overlays)
+            
+            if let currentRegion = currentRegion {
+                parent.mapView.setRegion(currentRegion, animated: true)
             }
         }
     }

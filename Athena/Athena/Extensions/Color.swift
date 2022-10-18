@@ -46,5 +46,9 @@ struct ColorTheme {
 //    Button Color
     
     let button = Color("ButtonColor")
+    
+//    Shadow Color
+    
+    let shadow = Color("ShadowColor")
 
 }

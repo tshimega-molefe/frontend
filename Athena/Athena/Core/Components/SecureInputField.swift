@@ -27,6 +27,7 @@ struct SecureInputField: View {
                     .foregroundColor(Color.theme.primaryText)
                     .textInputAutocapitalization(.never)
                     .privacySensitive()
+                    .autocorrectionDisabled()
             }
             .accentColor(Color.theme.accent)
             .padding(.leading)
