@@ -12,6 +12,9 @@ struct AthenaApp: App {
     
     @StateObject var userAuth = AuthViewModel()
     @StateObject var locationViewModel = LocationSearchViewModel()
+    // FIX: Potential incorrect use of stateObject of the WebSocketViewModel..
+    @StateObject var wsViewModel = WebSocketViewModel()
+    
     @State var selectedIndex = 2
     
     
@@ -23,7 +26,7 @@ struct AthenaApp: App {
             }
             .environmentObject(locationViewModel)
             .environmentObject(userAuth)
+            .environmentObject(wsViewModel)
         }
     }
-    
 }

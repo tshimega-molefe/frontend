@@ -41,6 +41,7 @@
 		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
 		95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */; };
 		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
+		95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -108,6 +109,7 @@
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLocationManager.swift; sourceTree = "<group>"; };
 		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
+		95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketViewModel.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			children = (
 				959FDCBA28F5A45B00F141CA /* Webservice.swift */,
 				958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */,
+				95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
 				9586C0E528FDBD2E005E978D /* EscortButtonView.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
+				95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */,
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				9534A3E228F6E9E900E01ADC /* KeychainHelper.swift in Sources */,

@@ -72,6 +72,8 @@ struct HelpButton: View {
     @State var tap = false
     @State var press = false
     
+    @EnvironmentObject var wsViewModel: WebSocketViewModel
+    
     var body: some View {
         ZStack{
             PinkRing()
@@ -91,6 +93,11 @@ struct HelpButton: View {
                     LongPressGesture().onChanged { value in
                         self.tap = true
                         print("DEBUG: Handle press for help..")
+                        
+                        // FIX: Error calling connect function from viewModel: Attempting to call "connect" fucntion from Service/WebSocketViewModel/
+                        
+                        wsViewModel.webSocketConnection?.connect()
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             self.tap = false
                         }

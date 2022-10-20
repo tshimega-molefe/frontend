@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+ // FEEDBACK: I think the WebSocketClient here is working fine - I just need to figure out how to call these protocols throughout the rest of the app
 protocol WebSocketConnection {
     func send(text: String)
     func send(data: Data)
@@ -27,7 +28,7 @@ protocol WebSocketConnectionDelegate {
     func onMessage(connection: WebSocketConnection, data: Data)
 }
 
-class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocketDelegate {
+class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocketDelegate, ObservableObject {
     
     var delegate: WebSocketConnectionDelegate?
     var webSocketTask: URLSessionWebSocketTask!
