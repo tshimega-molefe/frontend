@@ -1,98 +1,43 @@
-//
-//  Websockets.swift
-//  Athena
-//
-//  Created by Tshimega Belmont on 2022/10/20.
-//
-
 import Foundation
-import Combine
 
- // FEEDBACK: I think the WebSocketClient here is working fine - I just need to figure out how to call these protocols throughout the rest of the app
-protocol WebSocketConnection {
-    func send(text: String)
-    func send(data: Data)
-    func connect()
-    func disconnect()
-    var delegate: WebSocketConnectionDelegate? {
-        get
-        set
+final class WebsocketClient: NSObject {
+        
+    static let shared = WebsocketClient()
+    var webSocket: URLSessionWebSocketTask?
+    
+    var opened = false
+    
+    private var urlString = "ws://localhost:8000"
+    
+    private override init() {}
+    
+    func openWebSocket() {
+        if let url = URL(string: urlString) {
+            var request = URLRequest(url: url)
+            
+            // The value here is an access token from my local backend, needs to be replaced with value from keychain. 
+            request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MTQzNjM0LCJpYXQiOjE2NjYyNzk2MzQsImp0aSI6ImY4MTBiNjQ2ZjY4OTQ0MTdhZDYyOWQyZTgyNzVkNzRmIiwidXNlcl9pZCI6ImI2ZjQwOGViLWM2ZTctNGY3My05ZmJmLTE4MDA4NGU5NWRlYSJ9.zrw32pRNWvZ6BXEPtuqhYHU2tRg7AB0wgvTnGmr0kcE", forHTTPHeaderField: "Authorization")
+            let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+            let webSocket = session.webSocketTask(with: request)
+            self.webSocket = webSocket
+            self.opened = true
+            self.webSocket?.resume()
+        } else {
+            webSocket = nil
+        }
     }
 }
 
-protocol WebSocketConnectionDelegate {
-    func onConnected(connection: WebSocketConnection)
-    func onDisconnect(connection: WebSocketConnection, error: Error?)
-    func onError(connection: WebSocketConnection, error: Error)
-    func onMessage(connection: WebSocketConnection, text: String)
-    func onMessage(connection: WebSocketConnection, data: Data)
-}
-
-class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocketDelegate, ObservableObject {
-    
-    var delegate: WebSocketConnectionDelegate?
-    var webSocketTask: URLSessionWebSocketTask!
-    var urlSession: URLSession!
-    let delegateQueue = OperationQueue()
-    init(url: URL) {
-        super.init()
-        urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: delegateQueue)
-        webSocketTask = urlSession.webSocketTask(with: url)
-    }
-    
+extension WebsocketClient: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
-        self.delegate?.onConnected(connection: self)
-        print("DEBUG: Did open websocket..")
+        print("DEBUG: Opened websocket connection")
+        opened = true
     }
+
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        self.delegate?.onDisconnect(connection: self, error: nil)
-        print("DEBUG: Did close websocket..")
-    }
-    
-    func connect() {
-        webSocketTask.resume()
-        
-        listen()
-    }
-    
-    func disconnect() {
-        webSocketTask.cancel(with: .goingAway, reason: nil)
-    }
-    
-    func listen() {
-        webSocketTask.receive { result in
-            switch result {
-            case .failure(let error):
-                self.delegate?.onError(connection: self, error: error)
-            case .success(let message):
-                switch message {
-                case .string(let text):
-                    self.delegate?.onMessage(connection: self, text: text)
-                case .data(let data):
-                    self.delegate?.onMessage(connection: self, data: data)
-                @unknown default:
-                    fatalError()
-                }
-                
-                self.listen()
-            }
-        }
-    }
-    
-    func send(text: String) {
-        webSocketTask.send(URLSessionWebSocketTask.Message.string(text)) { error in
-            if let error = error {
-                self.delegate?.onError(connection: self, error: error)
-            }
-        }
-    }
-    
-    func send(data: Data) {
-        webSocketTask.send(URLSessionWebSocketTask.Message.data(data)) { error in
-            if let error = error {
-                self.delegate?.onError(connection: self, error: error)
-            }
-        }
+        print("DEBUG: Closed websocket connection.")
+        self.webSocket = nil
+        self.opened = false
     }
 }

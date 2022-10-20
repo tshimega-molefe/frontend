@@ -94,9 +94,10 @@ struct HelpButton: View {
                         self.tap = true
                         print("DEBUG: Handle press for help..")
                         
-                        // FIX: Error calling connect function from viewModel: Attempting to call "connect" fucntion from Service/WebSocketViewModel/
-                        
-                        wsViewModel.webSocketConnection?.connect()
+                        //DEBUG: The connect needs to be called before the press for help button is pressed imo but this is working for now
+                        wsViewModel.subscribeToService { (success) in
+                            
+                        }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             self.tap = false
