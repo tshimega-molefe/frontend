@@ -92,13 +92,13 @@ struct HelpButton: View {
                 .gesture(
                     LongPressGesture().onChanged { value in
                         self.tap = true
+                        
                         print("DEBUG: Handle press for help..")
                         
                         //DEBUG: The connect needs to be called before the press for help button is pressed imo but this is working for now
-                        wsViewModel.subscribeToService { (success) in
-                            
-                        }
-                        
+//                        wsViewModel.subscribeToService { (success) in
+//
+    
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             self.tap = false
                         }

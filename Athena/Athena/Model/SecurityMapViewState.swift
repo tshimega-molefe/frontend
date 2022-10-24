@@ -12,3 +12,8 @@ enum SecurityMapViewState {
     case searchingForLocation
     case locationSelected
 }
+//    case pressedForHelp
+//    case confirmedHelp
+//    case helpArrived
+//    case completed
+

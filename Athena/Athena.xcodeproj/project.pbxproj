@@ -33,15 +33,12 @@
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
-		959A5E7F290178ED00DA79C5 /* HelpMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A5E7E290178ED00DA79C5 /* HelpMapViewRepresentable.swift */; };
-		959A5E812901795F00DA79C5 /* HelpMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A5E802901795F00DA79C5 /* HelpMapViewState.swift */; };
-		959A5E8329017A3700DA79C5 /* HelpLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A5E8229017A3700DA79C5 /* HelpLocationManager.swift */; };
-		959A5E8529017B2600DA79C5 /* HelpMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A5E8429017B2600DA79C5 /* HelpMapView.swift */; };
 		959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCB328F5873700F141CA /* ServiceRequestView.swift */; };
 		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
 		95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */; };
 		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
 		95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */; };
+		95DB6F0D2906B81100CD4172 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6F0C2906B81100CD4172 /* XMarkButton.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -98,18 +95,15 @@
 		958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		958F830028EEEEA0000C0219 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
-		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Service/User.swift; sourceTree = SOURCE_ROOT; };
+		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
-		959A5E7E290178ED00DA79C5 /* HelpMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMapViewRepresentable.swift; sourceTree = "<group>"; };
-		959A5E802901795F00DA79C5 /* HelpMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMapViewState.swift; sourceTree = "<group>"; };
-		959A5E8229017A3700DA79C5 /* HelpLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpLocationManager.swift; sourceTree = "<group>"; };
-		959A5E8429017B2600DA79C5 /* HelpMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMapView.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLocationManager.swift; sourceTree = "<group>"; };
 		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
 		95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketViewModel.swift; sourceTree = "<group>"; };
+		95DB6F0C2906B81100CD4172 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -163,6 +157,7 @@
 				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 				9586C0E028FDB569005E978D /* CancelButton.swift */,
 				95078FA928FDDAD6001A8B1E /* ChevronCancelButton.swift */,
+				95DB6F0C2906B81100CD4172 /* XMarkButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -232,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				958F830228EF1776000C0219 /* SecurityMapViewState.swift */,
-				959A5E802901795F00DA79C5 /* HelpMapViewState.swift */,
+				9590D4C928E4D7DD00617C64 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,7 +237,6 @@
 			children = (
 				9588D52D28ED873100DC1557 /* StatusLocationManager.swift */,
 				95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */,
-				959A5E8229017A3700DA79C5 /* HelpLocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -304,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC4528E1D7F700ABE5CA /* AuthViewModel.swift */,
-				9590D4C928E4D7DD00617C64 /* User.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -412,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC4B28E1DBF000ABE5CA /* PressForHelpView.swift */,
-				959A5E8429017B2600DA79C5 /* HelpMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,7 +412,6 @@
 		95FCEC4A28E1DBC300ABE5CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				959A5E7E290178ED00DA79C5 /* HelpMapViewRepresentable.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -574,10 +565,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				958CE6CB28FEEA3F000EEEF4 /* WebSocketClient.swift in Sources */,
-				959A5E8329017A3700DA79C5 /* HelpLocationManager.swift in Sources */,
 				95E6AEE628E07D24002DC84A /* FontsManager.swift in Sources */,
 				9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */,
-				959A5E812901795F00DA79C5 /* HelpMapViewState.swift in Sources */,
 				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
@@ -601,12 +590,11 @@
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				958F830128EEEEA0000C0219 /* LocationSearchViewModel.swift in Sources */,
-				959A5E7F290178ED00DA79C5 /* HelpMapViewRepresentable.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
 				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				95FCEC4628E1D7F700ABE5CA /* AuthViewModel.swift in Sources */,
+				95DB6F0D2906B81100CD4172 /* XMarkButton.swift in Sources */,
 				95FCEC4C28E1DBF000ABE5CA /* PressForHelpView.swift in Sources */,
-				959A5E8529017B2600DA79C5 /* HelpMapView.swift in Sources */,
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* ChevronCancelButton.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
