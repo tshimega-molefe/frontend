@@ -12,7 +12,7 @@ import SwiftUI
 class WebSocketViewModel: UIResponder, UIApplicationDelegate, ObservableObject {
     var webSocketConnection = WebsocketClient.shared
     
-    func subscribeToService(with completion: (String) -> Void) {
+    func subscribeToService() {
         if !webSocketConnection.opened {
             webSocketConnection.openWebSocket()
         }

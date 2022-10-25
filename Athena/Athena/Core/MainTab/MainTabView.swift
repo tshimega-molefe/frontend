@@ -11,16 +11,21 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var userAuth: AuthViewModel
+    @EnvironmentObject var wsViewModel: WebSocketViewModel
     
 //  MARK: - Properties
     
 // Presentation logic
     var body: some View {
+        
+        
         Group {
             if !userAuth.isAuthenticated {
                 LoginView()
             } else {
                 // Open WebSocket with Access Token
+                let _ = wsViewModel.subscribeToService()
+                
                 mainInterfaceView
             }
         }

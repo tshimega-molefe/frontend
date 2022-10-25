@@ -1,5 +1,7 @@
 import Foundation
 
+
+
 final class WebsocketClient: NSObject {
         
     static let shared = WebsocketClient()
@@ -16,7 +18,7 @@ final class WebsocketClient: NSObject {
             var request = URLRequest(url: url)
             
             // The value here is an access token from my local backend, needs to be replaced with value from keychain. 
-            request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTU3OTM1LCJpYXQiOjE2NjY2OTM5MzUsImp0aSI6IjU3NDBmOGFmMTYyNjQzOGZhMDA1NjA5ODVmNThmODZiIiwidXNlcl9pZCI6Ijc1YmIxZmEwLTEwNjMtNDZiNC04M2IzLTk3NjI2M2YyNDk1MCJ9.kG46sSEFBdZlmHFTiPGUDF4JTJelK0M9fDCiJ_t35Jw", forHTTPHeaderField: "Authorization")
+            request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTc1MjQ0LCJpYXQiOjE2NjY3MTEyNDQsImp0aSI6ImVlOGIwNjM4NGVhOTQ2ZjM5NDI3ZmI0YTMyMWEyMmQ1IiwidXNlcl9pZCI6Ijc1YmIxZmEwLTEwNjMtNDZiNC04M2IzLTk3NjI2M2YyNDk1MCJ9.RTPTU35q-mAmWiwP_oCl9gdX4Ps-COZDtP9oAw8PKZk", forHTTPHeaderField: "Authorization")
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
             let webSocket = session.webSocketTask(with: request)
             self.webSocket = webSocket
