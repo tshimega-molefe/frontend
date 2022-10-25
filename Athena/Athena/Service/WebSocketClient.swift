@@ -11,7 +11,7 @@ final class WebsocketClient: NSObject {
             print("DEBUG: AccessToken for WebSocket is \(String(describing: accessToken))")
         }
         else {
-            print("DEBUG: No access token found in keychain")
+            print("DEBUG: No webSocket access token found in keychain")
         }
     }
     
@@ -40,6 +40,11 @@ final class WebsocketClient: NSObject {
             webSocket = nil
         }
     }
+    
+    func closeWebSocket() {
+        print("DEBUG: Handle closing websocket..")
+    }
+    
 }
 
 extension WebsocketClient: URLSessionWebSocketDelegate {

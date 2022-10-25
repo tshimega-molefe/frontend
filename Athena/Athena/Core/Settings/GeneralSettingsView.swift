@@ -10,6 +10,7 @@ import SwiftUI
 struct GeneralSettingsView: View {
     
     @EnvironmentObject var userAuth: AuthViewModel
+    @EnvironmentObject var wsViewModel: WebSocketViewModel
     
     var body: some View {
             List {
@@ -48,6 +49,7 @@ struct GeneralSettingsView: View {
                 
                 Button {
                     userAuth.logoutCitizen()
+                    wsViewModel.closeService()
                 } label: {
                     Text("Sign Out")
                         .font(.custom(FontsManager.Poppins.medium, size: 14))

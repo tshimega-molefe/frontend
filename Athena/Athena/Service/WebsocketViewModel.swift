@@ -17,4 +17,11 @@ class WebSocketViewModel: UIResponder, UIApplicationDelegate, ObservableObject {
             webSocketConnection.openWebSocket()
         }
     }
+    
+    func closeService() {
+        if webSocketConnection.opened {
+            webSocketConnection.closeWebSocket()
+        }
+    }
+    
 }
