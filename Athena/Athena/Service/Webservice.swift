@@ -49,7 +49,9 @@ struct RegisterResponseBody: Codable {
 
 
 
-class Webservice {
+class Webservice: ObservableObject {
+    
+ 
     
 //    MARK: - LoginCitizen WebService
     
@@ -82,6 +84,8 @@ class Webservice {
                     let loginResponse = try? JSONDecoder().decode(LoginResponseBody.self, from: data)
                     
                     let access = loginResponse?.access
+                    
+                    
                     
                     completion(.success(access!))
                     

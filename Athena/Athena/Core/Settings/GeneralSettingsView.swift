@@ -8,17 +8,53 @@
 import SwiftUI
 
 struct GeneralSettingsView: View {
+    
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     var body: some View {
             List {
                 Section {
                     Text("Hi")
                     Text("Hi")
-                } header: {
-                    Text("Header")
                 }
-
+                
+                Section {
+                    Text("Home")
+                } header: {
+                    Text("Home Address")
+                        .font(.custom(FontsManager.Poppins.light, size: 12))
+                        .textCase(.none)
+                }
+                
+                Section {
+                    Text("Family")
+                } header: {
+                    Text("Family")
+                        .font(.custom(FontsManager.Poppins.light, size: 12))
+                        .textCase(.none)
+                }
+                
+                Section {
+                    Text("Privacy")
+                }
+                
+                Section {
+                    Text("Notifications")
+                }
+                
+                Section {
+                    Text("Account Management")
+                }
+                
+                Button {
+                    userAuth.logoutCitizen()
+                } label: {
+                    Text("Sign Out")
+                        .font(.custom(FontsManager.Poppins.medium, size: 14))
+                        .foregroundColor(Color.theme.accent)
+                }
             }
-            .listStyle(.automatic)
+            .listStyle(.insetGrouped)
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {

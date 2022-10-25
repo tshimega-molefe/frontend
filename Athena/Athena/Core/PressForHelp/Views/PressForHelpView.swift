@@ -96,17 +96,18 @@ struct HelpButton: View {
                         print("DEBUG: Handle press for help..")
                         
                         //DEBUG: The connect needs to be called before the press for help button is pressed imo but this is working for now
-//                        wsViewModel.subscribeToService { (success) in
-//
-    
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.tap = false
+                        wsViewModel.subscribeToService { (success) in
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                self.tap = false
+                            }
                         }
                     }
                         .onEnded { value in
                             self.press.toggle()
                         }
             )
+                        
             
         }
     }

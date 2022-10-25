@@ -16,7 +16,7 @@ final class WebsocketClient: NSObject {
             var request = URLRequest(url: url)
             
             // The value here is an access token from my local backend, needs to be replaced with value from keychain. 
-            request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MTQzNjM0LCJpYXQiOjE2NjYyNzk2MzQsImp0aSI6ImY4MTBiNjQ2ZjY4OTQ0MTdhZDYyOWQyZTgyNzVkNzRmIiwidXNlcl9pZCI6ImI2ZjQwOGViLWM2ZTctNGY3My05ZmJmLTE4MDA4NGU5NWRlYSJ9.zrw32pRNWvZ6BXEPtuqhYHU2tRg7AB0wgvTnGmr0kcE", forHTTPHeaderField: "Authorization")
+            request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTU3OTM1LCJpYXQiOjE2NjY2OTM5MzUsImp0aSI6IjU3NDBmOGFmMTYyNjQzOGZhMDA1NjA5ODVmNThmODZiIiwidXNlcl9pZCI6Ijc1YmIxZmEwLTEwNjMtNDZiNC04M2IzLTk3NjI2M2YyNDk1MCJ9.kG46sSEFBdZlmHFTiPGUDF4JTJelK0M9fDCiJ_t35Jw", forHTTPHeaderField: "Authorization")
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
             let webSocket = session.webSocketTask(with: request)
             self.webSocket = webSocket
