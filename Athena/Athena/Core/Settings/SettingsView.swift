@@ -8,45 +8,46 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var userAuth: AuthViewModel
-    
+
+    @State private var showHelpView: Bool = false
+    @State private var showWalletView: Bool = false
+    @State private var showHistoryView: Bool = false
+
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.theme.background.edgesIgnoringSafeArea(.top)
-                
-                List {
-    
-                    Section {
-                        VStack (alignment: .leading, spacing: 20) {
-                            ProfileTab()
-                            
-                            HStack (alignment: .center, spacing: 20) {
-                                HelpTab()
-                                WalletTab()
-                                HistoryTab()
+    NavigationView {
+            ScrollView {
+                VStack (alignment: .leading) {
+                    HStack {
+                            VStack (alignment: .leading, spacing: 20) {
+                                ProfileTab()
                                 
-                            }
-                        }.padding()
+                                HStack (alignment: .center, spacing: 20) {
+                                    HelpTab()
+                                    WalletTab()
+                                    HistoryTab()
+                                    
+                                }
+                            }.padding()
                     }
                     
-                    Section {
-                        VStack (alignment: .leading, spacing: 40) {
-                            EvidenceTab()
+                    Divider()
+                        .padding(.bottom)
+                        .shadow(color: Color.theme.shadow, radius: 7)
+                    
+                    VStack (alignment: .leading, spacing: 60) {
+        
                             MessagesTab()
+                            EvidenceTab()
                             SettingsTab()
                             LegalTab()
-                        }
-                    } header: {
-                        Text("Tools")
                     }
-
-  
+                    
                 }
-                .listStyle(.grouped)
+                    
+                    
+                }
                 .navigationTitle("Your Account")
                 .navigationBarTitleDisplayMode(.large)
-            }
         }
     }
 }
@@ -59,16 +60,21 @@ struct SettingsView_Previews: PreviewProvider {
 
 struct HelpTab: View {
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: 109, height: 70)
-                .foregroundColor(Color.theme.lightGrey)
-            VStack (spacing: 5) {
-                Image(systemName: "questionmark.circle")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                Text("Help")
-                    .font(.custom(FontsManager.Poppins.light, size: 13))
+        Button {
+            print("DEBUG: Handle help view...")
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 109, height: 70)
+                    .foregroundColor(Color.theme.pink)
+                VStack (spacing: 5) {
+                    Image(systemName: "questionmark.circle")
+                        .font(.title2)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Text("Help")
+                        .font(.custom(FontsManager.Poppins.light, size: 13))
+                        .foregroundColor(Color.theme.primaryText)
+                }
             }
         }
     }
@@ -76,33 +82,47 @@ struct HelpTab: View {
 
 struct WalletTab: View {
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: 109, height: 70)
-                .foregroundColor(Color.theme.lightGrey)
-            VStack (spacing: 5) {
-                Image(systemName: "creditcard")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                Text("Wallet")
-                    .font(.custom(FontsManager.Poppins.light, size: 13))
+        
+        Button {
+            print("DEBUG: Handle wallet view..")
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 109, height: 70)
+                    .foregroundColor(Color.theme.pink)
+                VStack (spacing: 5) {
+                    Image(systemName: "creditcard")
+                        .font(.title2)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Text("Wallet")
+                        .font(.custom(FontsManager.Poppins.light, size: 13))
+                        .foregroundColor(Color.theme.primaryText)
+                }
             }
         }
+        
     }
 }
 
 struct HistoryTab: View {
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: 109, height: 70)
-                .foregroundColor(Color.theme.lightGrey)
-            VStack (spacing: 5) {
-                Image(systemName: "clock")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                Text("History")
-                    .font(.custom(FontsManager.Poppins.light, size: 13))
+        
+        Button {
+            print("DEBUG: Handle history view...")
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 109, height: 70)
+                    .foregroundColor(Color.theme.pink)
+        
+                VStack (spacing: 5) {
+                    Image(systemName: "clock")
+                        .font(.title2)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Text("History")
+                        .font(.custom(FontsManager.Poppins.light, size: 13))
+                        .foregroundColor(Color.theme.primaryText)
+                }
             }
         }
     }
@@ -132,53 +152,91 @@ struct ProfileTab: View {
 
 struct EvidenceTab: View {
     var body: some View {
-        HStack (alignment: .center, spacing: 15) {
-            Image(systemName: "tray.fill")
-                .font(.title2)
-                .foregroundColor(Color.theme.secondaryText)
-            
-            Text("Your Evidence")
+        
+        
+        NavigationLink {
+            EvidenceView()
+        } label: {
+            HStack (alignment: .center, spacing: 15) {
+                Image(systemName: "archivebox")
+                    .font(.title2)
+                    .foregroundColor(Color.theme.secondaryText)
+                
+                Text("Evidence")
+                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+                    .foregroundColor(Color.theme.primaryText)
+                
+                Spacer()
+            }
         }
-        .padding(.top, 5)
-        .padding(.bottom, 25)
+        .padding(.horizontal)
+        .padding(.top, 10)
+
     }
 }
 struct MessagesTab: View {
     var body: some View {
-        HStack (alignment: .center, spacing: 15) {
-            Image(systemName: "message")
-                .font(.title2)
-                .foregroundColor(Color.theme.secondaryText)
-            
-            Text("Messages")
+        NavigationLink {
+            MessagesView()
+        } label: {
+            HStack (alignment: .center, spacing: 15) {
+                Image(systemName: "message")
+                    .font(.title2)
+                    .foregroundColor(Color.theme.secondaryText)
+                
+                Text("Messages")
+                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+                    .foregroundColor(Color.theme.primaryText)
+                
+                Spacer()
+            }
         }
-        .padding(.top, 5)
-        .padding(.bottom, 25)
+        .padding(.horizontal)
+        .padding(.top, 10)
     }
 }
 struct SettingsTab: View {
     var body: some View {
-        HStack (alignment: .center, spacing: 15) {
-            Image(systemName: "gearshape")
-                .font(.title2)
-                .foregroundColor(Color.theme.secondaryText)
-            
-            Text("Settings")
+        
+        
+        NavigationLink {
+            GeneralSettingsView()
+        } label: {
+            HStack (alignment: .center, spacing: 15) {
+                Image(systemName: "gearshape")
+                    .font(.title2)
+                    .foregroundColor(Color.theme.secondaryText)
+                
+                Text("Settings")
+                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+                    .foregroundColor(Color.theme.primaryText)
+                
+                Spacer()
+            }
         }
-        .padding(.top, 5)
-        .padding(.bottom, 25)
+        .padding(.horizontal)
+        .padding(.top, 10)
     }
 }
 struct LegalTab: View {
     var body: some View {
-        HStack (alignment: .center, spacing: 15) {
-            Image(systemName: "exclamationmark.circle")
-                .font(.title2)
-                .foregroundColor(Color.theme.secondaryText)
-            
-            Text("Legal")
+        
+        NavigationLink {
+            LegalView()
+        } label: {
+            HStack (alignment: .center, spacing: 15) {
+                Image(systemName: "exclamationmark.circle")
+                    .font(.title2)
+                    .foregroundColor(Color.theme.secondaryText)
+                
+                Text("Legal")
+                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+                    .foregroundColor(Color.theme.primaryText)
+                
+                Spacer()
+            }
         }
+        .padding(.horizontal)
         .padding(.top, 10)
-        .padding(.bottom, 20)
     }
 }
