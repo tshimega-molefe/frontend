@@ -7,7 +7,7 @@
 
 import CoreLocation
 
-class SecurityLocationManager: NSObject, ObservableObject {
+class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     
     override init() {
@@ -16,6 +16,7 @@ class SecurityLocationManager: NSObject, ObservableObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
         
         
         
@@ -23,10 +24,11 @@ class SecurityLocationManager: NSObject, ObservableObject {
 }
 
 
-extension SecurityLocationManager: CLLocationManagerDelegate {
+extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard !locations.isEmpty else { return }
         locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
     }
     
 }

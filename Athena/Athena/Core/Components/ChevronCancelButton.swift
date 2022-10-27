@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChevronCancelButton: View {
+struct ChevronCancelButton: View {  
     let cancel: (() -> Void)
     var body: some View {
         Button (action: cancel,

@@ -24,7 +24,6 @@
 		9586C0E328FDB8B7005E978D /* SecurityBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586C0E228FDB8B7005E978D /* SecurityBackgroundView.swift */; };
 		9586C0E528FDBD2E005E978D /* EscortButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586C0E428FDBD2E005E978D /* EscortButtonView.swift */; };
 		9586C0E728FDBFFE005E978D /* DetailButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586C0E628FDBFFE005E978D /* DetailButtonView.swift */; };
-		9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D52D28ED873100DC1557 /* StatusLocationManager.swift */; };
 		9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53928EDB47C00DC1557 /* LocationSearchView.swift */; };
 		9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */; };
 		958CE6CB28FEEA3F000EEEF4 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */; };
@@ -33,11 +32,14 @@
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
 		9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */; };
 		9590D4CE28E4E71B00617C64 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4CD28E4E71B00617C64 /* NumberInputField.swift */; };
+		959DA942290AB4A800E1AE8F /* HelpMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DA941290AB4A800E1AE8F /* HelpMapViewRepresentable.swift */; };
 		959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959ED96D29074D8D00F59AD3 /* EvidenceView.swift */; };
 		959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCB328F5873700F141CA /* ServiceRequestView.swift */; };
 		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
-		95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */; };
+		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
 		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
+		95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC2B4290ADF24000FE158 /* HelpViewState.swift */; };
+		95B8F047290AF7F900D07171 /* PressForHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8F046290AF7F900D07171 /* PressForHelpButton.swift */; };
 		95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* MessagesView.swift */; };
 		95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */; };
 		95B9D0522907E34A00E59136 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D0512907E34A00E59136 /* LegalView.swift */; };
@@ -93,7 +95,6 @@
 		9586C0E228FDB8B7005E978D /* SecurityBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityBackgroundView.swift; sourceTree = "<group>"; };
 		9586C0E428FDBD2E005E978D /* EscortButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscortButtonView.swift; sourceTree = "<group>"; };
 		9586C0E628FDBFFE005E978D /* DetailButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonView.swift; sourceTree = "<group>"; };
-		9588D52D28ED873100DC1557 /* StatusLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLocationManager.swift; sourceTree = "<group>"; };
 		9588D53928EDB47C00DC1557 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
 		958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
@@ -102,11 +103,14 @@
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		9590D4CB28E4E2CD00617C64 /* SecureInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputField.swift; sourceTree = "<group>"; };
 		9590D4CD28E4E71B00617C64 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
+		959DA941290AB4A800E1AE8F /* HelpMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMapViewRepresentable.swift; sourceTree = "<group>"; };
 		959ED96D29074D8D00F59AD3 /* EvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceView.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
-		95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLocationManager.swift; sourceTree = "<group>"; };
+		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
+		95ACC2B4290ADF24000FE158 /* HelpViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewState.swift; sourceTree = "<group>"; };
+		95B8F046290AF7F900D07171 /* PressForHelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressForHelpButton.swift; sourceTree = "<group>"; };
 		95B9D04D2907E31200E59136 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		95B9D0512907E34A00E59136 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				9586C0E028FDB569005E978D /* CancelButton.swift */,
 				95078FA928FDDAD6001A8B1E /* ChevronCancelButton.swift */,
 				95DB6F0C2906B81100CD4172 /* XMarkButton.swift */,
+				95B8F046290AF7F900D07171 /* PressForHelpButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				958F830228EF1776000C0219 /* SecurityMapViewState.swift */,
+				95ACC2B4290ADF24000FE158 /* HelpViewState.swift */,
 				9590D4C928E4D7DD00617C64 /* User.swift */,
 			);
 			path = Model;
@@ -243,8 +249,7 @@
 		9576894A28E06518009FDCE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				9588D52D28ED873100DC1557 /* StatusLocationManager.swift */,
-				95A56BC528EC512200BC1C2E /* SecurityLocationManager.swift */,
+				95A56BC528EC512200BC1C2E /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 		95FCEC4A28E1DBC300ABE5CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				959DA941290AB4A800E1AE8F /* HelpMapViewRepresentable.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -583,17 +589,18 @@
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				95FCEC4F28E1DDDB00ABE5CA /* MainTabView.swift in Sources */,
 				9586C0E128FDB569005E978D /* CancelButton.swift in Sources */,
-				9588D52E28ED873100DC1557 /* StatusLocationManager.swift in Sources */,
+				95B8F047290AF7F900D07171 /* PressForHelpButton.swift in Sources */,
 				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
 				959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */,
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
-				95A56BC628EC512200BC1C2E /* SecurityLocationManager.swift in Sources */,
+				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9590D4CC28E4E2CD00617C64 /* SecureInputField.swift in Sources */,
 				9586C0E528FDBD2E005E978D /* EscortButtonView.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
 				95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */,
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
+				95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				9534A3E228F6E9E900E01ADC /* KeychainHelper.swift in Sources */,
 				9586C0E728FDBFFE005E978D /* DetailButtonView.swift in Sources */,
@@ -612,6 +619,7 @@
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
 				95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* ChevronCancelButton.swift in Sources */,
+				959DA942290AB4A800E1AE8F /* HelpMapViewRepresentable.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9586C0E328FDB8B7005E978D /* SecurityBackgroundView.swift in Sources */,

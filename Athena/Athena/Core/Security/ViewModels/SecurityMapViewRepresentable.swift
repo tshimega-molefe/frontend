@@ -11,15 +11,17 @@ import MapKit
 struct SecurityMapViewRepresentable: UIViewRepresentable {
 
     let mapView = MKMapView()
-    let SecLocationManager = SecurityLocationManager()
+    let UserLocationManager = LocationManager()
+    
     @Binding var mapState: SecurityMapViewState
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isRotateEnabled = false
-        mapView.showsUserLocation = false
-        mapView.userTrackingMode = .follow
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
+
         
         return mapView
     }
@@ -68,13 +70,16 @@ extension SecurityMapViewRepresentable {
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             self.userLocationCoordinate = userLocation.coordinate
+            
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
                 ,span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
             )
             
+            
             self.currentRegion = region
-        
+            
+
             parent.mapView.setRegion(region, animated: true)
         }
         

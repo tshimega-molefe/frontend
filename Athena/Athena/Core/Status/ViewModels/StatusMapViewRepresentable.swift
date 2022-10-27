@@ -11,7 +11,6 @@ import MapKit
 struct StatusMapViewRepresentable: UIViewRepresentable {
 
     let mapView = MKMapView()
-    let StatLocationManager = StatusLocationManager()
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator

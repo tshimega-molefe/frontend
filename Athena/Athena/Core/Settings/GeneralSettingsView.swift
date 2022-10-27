@@ -16,11 +16,12 @@ struct GeneralSettingsView: View {
             List {
                 Section {
                     Text("Hi")
-                    Text("Hi")
                 }
                 
                 Section {
                     Text("Home")
+                        .font(.custom(FontsManager.Poppins.medium, size: 14))
+                        .foregroundColor(Color.theme.primaryText)
                 } header: {
                     Text("Home Address")
                         .font(.custom(FontsManager.Poppins.light, size: 12))
@@ -29,6 +30,8 @@ struct GeneralSettingsView: View {
                 
                 Section {
                     Text("Family")
+                        .font(.custom(FontsManager.Poppins.medium, size: 14))
+                        .foregroundColor(Color.theme.primaryText)
                 } header: {
                     Text("Family")
                         .font(.custom(FontsManager.Poppins.light, size: 12))
@@ -36,25 +39,40 @@ struct GeneralSettingsView: View {
                 }
                 
                 Section {
-                    Text("Privacy")
+                    VStack(alignment: .leading) {
+                        Text("Privacy")
+                            .font(.custom(FontsManager.Poppins.medium, size: 14))
+                            .foregroundColor(Color.theme.primaryText)
+                        Text("Manage the data you share with us")
+                            .font(.custom(FontsManager.Poppins.light, size: 12))
+                            .foregroundColor(Color.theme.secondaryText)
+                    }
                 }
                 
                 Section {
                     Text("Notifications")
+                        .font(.custom(FontsManager.Poppins.medium, size: 14))
+                        .foregroundColor(Color.theme.primaryText)
                 }
                 
                 Section {
                     Text("Account Management")
+                        .font(.custom(FontsManager.Poppins.medium, size: 14))
+                        .foregroundColor(Color.theme.primaryText)
                 }
                 
-                Button {
-                    userAuth.logoutCitizen()
-                    wsViewModel.closeService()
-                } label: {
+                Section {
                     Text("Sign Out")
                         .font(.custom(FontsManager.Poppins.medium, size: 14))
                         .foregroundColor(Color.theme.accent)
                 }
+                .onTapGesture {
+                    userAuth.logoutCitizen()
+                    wsViewModel.closeService()
+                    print("DEBUG: Logged out current user \(userAuth.username)")
+                }
+                
+                
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Settings")

@@ -130,6 +130,8 @@ struct HistoryTab: View {
 
 
 struct ProfileTab: View {
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     var body: some View {
         HStack (alignment: .top) {
             Image("sabrina")
