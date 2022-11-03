@@ -47,6 +47,9 @@ struct RegisterResponseBody: Codable {
 
     // MARK: - Update
 
+enum UpdateError: Error {
+    
+}
 
 
 class Webservice: ObservableObject {
@@ -146,6 +149,9 @@ class Webservice: ObservableObject {
     
 //    MARK: - UpdateCitizen WebService
     
+    func updateCitizen() {
+        
+    }
     
     
     

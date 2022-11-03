@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var userAuth: AuthViewModel
-    
     @State private var isEmptyField = false
     
     //  MARK: - Properties

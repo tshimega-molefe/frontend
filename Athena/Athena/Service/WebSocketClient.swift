@@ -44,8 +44,47 @@ final class WebsocketClient: NSObject {
         }
     }
     
+    func pingWebSocket() {
+        self.webSocket!.sendPing { error in
+            if let error = error {
+                print("DEBUG: Ping Error is \(error)")
+            }
+        }
+    }
+    
     func closeWebSocket() {
-        self.webSocket!.cancel(with: .goingAway, reason: nil)
+        self.webSocket!.cancel(with: .goingAway, reason: "DEBUG: Web Socket Session Ended..".data(using: .utf8))
+    }
+    
+    func sendMessage() {
+        DispatchQueue.global().asyncAfter(deadline: .now()+1) {
+            self.sendMessage()
+            self.webSocket?.send(.string("DEBUG: Send new message: \(Int.random(in: 0...1000))"), completionHandler: { error in
+                if let error = error {
+                    print("DEBUG: Send Message Error is \(error)")
+                }
+            })
+        }
+    }
+    
+    func receiveMessage() {
+        webSocket?.receive(completionHandler: { [weak self] result in
+            switch result {
+                case .success(let message):
+                    switch message {
+                    case .data(let data):
+                        print("DEBUG: Received Data: \(data)")
+                    case .string(let message):
+                        print("DEBUG: Recieved String: \(message)")
+                    @unknown default:
+                        break
+                    }
+                case .failure(let error):
+                    print("DEBUG: Receive Message Error is \(error)")
+            }
+            
+            self?.receiveMessage()
+        })
     }
     
 }
@@ -54,6 +93,9 @@ extension WebsocketClient: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("DEBUG: Opened websocket connection")
         opened = true
+        pingWebSocket()
+        receiveMessage()
+        sendMessage()
     }
     
     

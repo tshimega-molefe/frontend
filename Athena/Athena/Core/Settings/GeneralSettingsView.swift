@@ -69,6 +69,7 @@ struct GeneralSettingsView: View {
                 .onTapGesture {
                     userAuth.logoutCitizen()
                     wsViewModel.closeService()
+                    userAuth.selectedIndex = 2
                     print("DEBUG: Logged out current user \(userAuth.username)")
                 }
                 

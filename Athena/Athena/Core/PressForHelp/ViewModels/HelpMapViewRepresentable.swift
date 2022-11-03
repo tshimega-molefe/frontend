@@ -41,8 +41,6 @@ struct HelpMapViewRepresentable: UIViewRepresentable {
         case .completed:
             break
         }
-        
-        
     }
     
     func makeCoordinator() -> MapCoordinator {
