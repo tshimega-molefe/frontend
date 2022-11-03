@@ -45,7 +45,7 @@ final class WebsocketClient: NSObject {
     }
     
     func pingWebSocket() {
-        self.webSocket!.sendPing { error in
+        webSocket?.sendPing { error in
             if let error = error {
                 print("DEBUG: Ping Error is \(error)")
             }
@@ -53,7 +53,7 @@ final class WebsocketClient: NSObject {
     }
     
     func closeWebSocket() {
-        self.webSocket!.cancel(with: .goingAway, reason: "DEBUG: Web Socket Session Ended..".data(using: .utf8))
+        webSocket?.cancel(with: .goingAway, reason: "DEBUG: Web Socket Session Ended..".data(using: .utf8))
     }
     
     func sendMessage() {
