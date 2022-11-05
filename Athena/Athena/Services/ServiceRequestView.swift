@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ServiceRequestView: View {
     
+    @Binding var state: Emergency.Status?
+    
+    @EnvironmentObject var wsViewMode: WebSocketViewModel
+    
     var body: some View {
         
         if #available(iOS 16.0, *) {
@@ -34,14 +38,11 @@ struct ServiceRequestView: View {
                 // Request Service button
                 
                 AuthButtonView(buttonLabel: "Confirm ARES") {
-                    print("DEBUG: Handle Confirm Ares...")
+                    state = .requested
+                    //wsViewMode.webSocketConnection.sendMessage(type: "create.emergency", message: "")
                 }
                 .padding(.top)
             }
-            
-            .navigationBarHidden(true)
-            .toolbar(.hidden, for: .tabBar)
-            .navigationBarBackButtonHidden(true)
             .padding(.bottom, 50)
             .background(Color.theme.background)
             .cornerRadius(24)
@@ -53,7 +54,7 @@ struct ServiceRequestView: View {
 
 struct ServiceRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceRequestView()
+        ServiceRequestView(state: .constant(.confirming))
     }
 }
 
