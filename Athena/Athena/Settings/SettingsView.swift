@@ -8,126 +8,49 @@
 import SwiftUI
 
 struct SettingsView: View {
-
+    
     @State private var showHelpView: Bool = false
     @State private var showWalletView: Bool = false
     @State private var showHistoryView: Bool = false
-
+    
     var body: some View {
-    NavigationView {
-            ScrollView {
-                VStack (alignment: .leading) {
-                    HStack {
-                            VStack (alignment: .leading, spacing: 20) {
-                                ProfileTab()
-                                
-                                HStack (alignment: .center, spacing: 20) {
-                                    HelpTab()
-                                    WalletTab()
-                                    HistoryTab()
-                                    
-                                }
-                            }.padding()
-                    }
-                    
-                    Divider()
-                        .padding(.bottom)
-                        .shadow(color: Color.theme.shadow, radius: 7)
-                    
-                    VStack (alignment: .leading, spacing: 60) {
         
-                            MessagesTab()
-                            EvidenceTab()
-                            SettingsTab()
-                            LegalTab()
-                    }
-                    
+        ScrollView {
+            VStack (alignment: .leading) {
+                HStack {
+                    VStack (alignment: .leading, spacing: 20) {
+                        ProfileTab()
+                        
+                        HStack (alignment: .center, spacing: 20) {
+                            SettingsTab(imageName: "questionmark.circle", text: "Help") {
+                                print("DEBUG: Help tab clicked in Settings")
+                            }
+                            SettingsTab(imageName: "creditcard", text: "Wallet") {
+                                print("DEBUG: Wallet tab clicked in Settings")
+                            }
+                            SettingsTab(imageName: "clock", text: "History") {
+                                print("DEBUG: History tab clicked in Settings")
+                            }
+                            
+                        }
+                    }.padding()
                 }
+                
+                Divider()
+                    .padding(.bottom)
+                    .shadow(color: Color.theme.shadow, radius: 7)
+                
+                VStack (alignment: .leading, spacing: 60) {
                     
-                    
-                }
-                .navigationTitle("Your Account")
-                .navigationBarTitleDisplayMode(.large)
-        }
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
-
-struct HelpTab: View {
-    var body: some View {
-        Button {
-            print("DEBUG: Handle help view...")
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 109, height: 70)
-                    .foregroundColor(Color.theme.pink)
-                VStack (spacing: 5) {
-                    Image(systemName: "questionmark.circle")
-                        .font(.title2)
-                        .foregroundColor(Color.theme.secondaryText)
-                    Text("Help")
-                        .font(.custom(FontsManager.Poppins.light, size: 13))
-                        .foregroundColor(Color.theme.primaryText)
+                    MessagesTab()
+                    EvidenceTab()
+                    //SettingsTab()
+                    LegalTab()
                 }
             }
         }
     }
 }
-
-struct WalletTab: View {
-    var body: some View {
-        
-        Button {
-            print("DEBUG: Handle wallet view..")
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 109, height: 70)
-                    .foregroundColor(Color.theme.pink)
-                VStack (spacing: 5) {
-                    Image(systemName: "creditcard")
-                        .font(.title2)
-                        .foregroundColor(Color.theme.secondaryText)
-                    Text("Wallet")
-                        .font(.custom(FontsManager.Poppins.light, size: 13))
-                        .foregroundColor(Color.theme.primaryText)
-                }
-            }
-        }
-        
-    }
-}
-
-struct HistoryTab: View {
-    var body: some View {
-        
-        Button {
-            print("DEBUG: Handle history view...")
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 109, height: 70)
-                    .foregroundColor(Color.theme.pink)
-        
-                VStack (spacing: 5) {
-                    Image(systemName: "clock")
-                        .font(.title2)
-                        .foregroundColor(Color.theme.secondaryText)
-                    Text("History")
-                        .font(.custom(FontsManager.Poppins.light, size: 13))
-                        .foregroundColor(Color.theme.primaryText)
-                }
-            }
-        }
-    }
-}
-
 
 struct ProfileTab: View {
     @EnvironmentObject var userAuth: AuthViewModel
@@ -155,7 +78,6 @@ struct ProfileTab: View {
 struct EvidenceTab: View {
     var body: some View {
         
-        
         NavigationLink {
             EvidenceView()
         } label: {
@@ -173,7 +95,7 @@ struct EvidenceTab: View {
         }
         .padding(.horizontal)
         .padding(.top, 10)
-
+        
     }
 }
 struct MessagesTab: View {
@@ -197,29 +119,28 @@ struct MessagesTab: View {
         .padding(.top, 10)
     }
 }
-struct SettingsTab: View {
-    var body: some View {
-        
-        
-        NavigationLink {
-            GeneralSettingsView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "gearshape")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Settings")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-    }
-}
+//struct SettingsTab: View {
+//    var body: some View {
+//        
+//        NavigationLink {
+//            GeneralSettingsView()
+//        } label: {
+//            HStack (alignment: .center, spacing: 15) {
+//                Image(systemName: "gearshape")
+//                    .font(.title2)
+//                    .foregroundColor(Color.theme.secondaryText)
+//                
+//                Text("Settings")
+//                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+//                    .foregroundColor(Color.theme.primaryText)
+//                
+//                Spacer()
+//            }
+//        }
+//        .padding(.horizontal)
+//        .padding(.top, 10)
+//    }
+//}
 struct LegalTab: View {
     var body: some View {
         
@@ -240,5 +161,11 @@ struct LegalTab: View {
         }
         .padding(.horizontal)
         .padding(.top, 10)
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
     }
 }
