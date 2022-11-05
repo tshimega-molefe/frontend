@@ -56,10 +56,16 @@ final class WebsocketClient: NSObject {
         webSocket?.cancel(with: .goingAway, reason: "DEBUG: Web Socket Session Ended..".data(using: .utf8))
     }
     
-    func sendMessage() {
+    func sendMessage(type: String, message: String) {
+        let json = """
+                    {
+                        "type": "\(type)",
+                        "data": "\(message)"
+                    }
+                    """
         DispatchQueue.global().asyncAfter(deadline: .now()+1) {
-            self.sendMessage()
-            self.webSocket?.send(.string("DEBUG: Send new message: \(Int.random(in: 0...1000))"), completionHandler: { error in
+            
+            self.webSocket?.send(.string(json), completionHandler: { error in
                 if let error = error {
                     print("DEBUG: Send Message Error is \(error)")
                 }
@@ -69,6 +75,7 @@ final class WebsocketClient: NSObject {
     
     func receiveMessage() {
         webSocket?.receive(completionHandler: { [weak self] result in
+            print(result)
             switch result {
                 case .success(let message):
                     switch message {
@@ -93,9 +100,7 @@ extension WebsocketClient: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("DEBUG: Opened websocket connection")
         opened = true
-        pingWebSocket()
         receiveMessage()
-        sendMessage()
     }
     
     

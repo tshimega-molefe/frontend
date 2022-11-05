@@ -11,6 +11,7 @@ struct ConfirmView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var mapState = HelpMapViewState.notPressed
+    @Binding var state: Emergency.Status?
     
     var cancelButton: some View {
         PillButton(text: "Cancel") {
@@ -21,7 +22,7 @@ struct ConfirmView: View {
     var body: some View {
         VStack {
             HelpMapViewRepresentable(helpMapState: $mapState).edgesIgnoringSafeArea(.top)
-            ServiceRequestView()
+            ServiceRequestView(state: $state)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: cancelButton)
@@ -30,7 +31,7 @@ struct ConfirmView: View {
 
 struct ConfirmView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmView()
+        ConfirmView( state: .constant(.idle))
     }
 }
 

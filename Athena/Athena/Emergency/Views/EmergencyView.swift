@@ -10,14 +10,20 @@ import CoreLocation
 
 struct EmergencyView: View {
     
-    @StateObject private var emergency: Emergency = Emergency()
-
-
+    @Binding var emergencyStatus: Emergency.Status?
+    
     let coordinate = CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868)
     var body: some View {
-        NavigationLink(destination: ConfirmView(),
-                       tag: Emergency.EmergencyState.confirm, selection: $emergency.emergencyState) {
-            EmergencyButton()
+        VStack {
+            NavigationLink(destination: ConfirmView(state: $emergencyStatus),
+                           tag: Emergency.Status.confirming, selection: $emergencyStatus) {
+                EmergencyButton()
+            }
+            
+            NavigationLink(destination: RequestedView(),
+                           tag: Emergency.Status.requested, selection: $emergencyStatus) {
+                EmptyView()
+            }
         }
     }
 }
@@ -26,7 +32,7 @@ struct EmergencyView: View {
 
 struct PressForHelpView_Previews: PreviewProvider {
     static var previews: some View {
-        EmergencyView()
+        EmergencyView(emergencyStatus: .constant(.confirming))
     }
 }
 

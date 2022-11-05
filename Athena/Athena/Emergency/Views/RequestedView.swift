@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct RequestedView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var cancelButton: some View {
+        PillButton(text: "Cancel") {
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Requested View!")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: cancelButton)
     }
 }
 
