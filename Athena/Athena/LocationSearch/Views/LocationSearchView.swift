@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct LocationSearchView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var startLocationText = ""
     @ObservedObject var locationService: LocationSearchService
     
-    var body: some View { 
+    var cancelButton: some View {
+        CancelButton(imageName: "chevron.left", font: .title2) {
+            presentationMode.wrappedValue.dismiss()
+        }
+        
+    }
+    
+    var body: some View {
         if #available(iOS 16.0, *) {
             VStack(alignment: .leading) {
-                CancelButton(imageName: "chevron.left", font: .title2) {
-                    
-                }
-                .padding(.leading)
                 // header view
                 HStack {
                     VStack{
@@ -32,8 +37,6 @@ struct LocationSearchView: View {
                         Rectangle()
                             .fill(Color.theme.red)
                             .frame(width: 6, height: 6)
-                        
-                        
                     }
                     
                     VStack {
@@ -58,7 +61,6 @@ struct LocationSearchView: View {
                         .padding(.trailing)
                         .accentColor(Color.theme.accent)
                     }
-                    
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
@@ -68,27 +70,21 @@ struct LocationSearchView: View {
                 
                 // Add two place holders for the users two favourite locations between the "Where to" bar, and the ScrollView
                 
-                // list view
                 ScrollView {
                     VStack (alignment: .leading) {
-                        ForEach(locationService.results, id: \.self) { result in
-                            LocationSearchResultsCell(title:
-                                                        result.title, subtitle:
-                                                        result.subtitle)
+                        ForEach(locationService.searchResults, id: \.self) { result in
+                            
+                            LocationSearchResultsCell(title: result.title, subtitle: result.subtitle)
                             .onTapGesture {
-                                withAnimation(.spring()) {
-                                    locationService.selectLocation(result)
-                                    //mapState = .locationSelected
-                                }
+                                locationService.selectLocation(result)
                             }
                         }
                     }
                 }
-                
             }
-            .toolbar(.visible, for: .tabBar)
-            .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: cancelButton)
+            .toolbar(.visible, for: .tabBar)
             .background(Color.theme.background)
         } else {
             // Fallback on earlier versions

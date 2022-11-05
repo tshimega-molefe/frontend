@@ -10,6 +10,9 @@ import SwiftUI
 
 struct HomeTabView: View {
     //  MARK: - Properties
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    
     enum Tab {
         case status
         case security
@@ -18,16 +21,15 @@ struct HomeTabView: View {
         case settings
     }
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @EnvironmentObject var userAuth: AuthViewModel
     @EnvironmentObject var wsViewModel: WebSocketViewModel
     
+    //@ObservedObject var coordinator: TabCoordinator
+    @StateObject var emergency: Emergency = Emergency()
     @State private var selectedTab: Tab = .emergency
     
     // Presentation logic
     var body: some View {
-        
         Group {
             if !userAuth.isAuthenticated {
                 LoginView()
@@ -49,7 +51,7 @@ struct HomeTabView: View {
 
 //  MARK: Extensions
 
-extension TabView {
+extension HomeTabView {
     
     var mainInterfaceView: some View {
         
@@ -67,7 +69,7 @@ extension TabView {
                 }.tag(Tab.security)
             
             NavigationView {
-                EmergencyView()
+                EmergencyView(emergencyStatus: $emergency.status)
             }
             .tabItem {
                 Image(systemName: "cross.circle")

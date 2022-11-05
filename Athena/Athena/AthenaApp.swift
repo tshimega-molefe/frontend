@@ -15,9 +15,7 @@ struct AthenaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                MainTabView()
-            }
+            HomeTabView()
             .environmentObject(userAuth)
             .environmentObject(wsViewModel)
         }

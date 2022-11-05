@@ -20,7 +20,7 @@ class LocationSearchService: NSObject, ObservableObject {
     
     @Published var queryFragment = ""
     @Published var status: LocationStatus = .idle
-    @Published var results: [MKLocalSearchCompletion] = []
+    @Published var searchResults: [MKLocalSearchCompletion] = []
     
     @Published var selectedLocationCoordinate: CLLocationCoordinate2D?
     
@@ -28,40 +28,53 @@ class LocationSearchService: NSObject, ObservableObject {
     private let searchCompleter: MKLocalSearchCompleter!
 
     
-    private let searchCompleter = MKLocalSearchCompleter()
-    var queryFragment: String = "" {
-        didSet {
-            searchCompleter.queryFragment = queryFragment
-        }
-    }
-    
     // MARK: - Lifecycle
-    override init() {
+    init(searchCompleter: MKLocalSearchCompleter = MKLocalSearchCompleter()) {
+        self.searchCompleter = searchCompleter
         super.init()
         searchCompleter.delegate = self
-        searchCompleter.queryFragment = queryFragment
+        queryCancellable = $queryFragment
+                    .receive(on: DispatchQueue.main)
+                    // we're debouncing the search, because the search completer is rate limited.
+                    // feel free to play with the proper value here
+                    .debounce(for: .milliseconds(250), scheduler: RunLoop.main, options: nil)
+                    .sink(receiveValue: { fragment in
+                        self.status = .isSearching
+                        if !fragment.isEmpty {
+                            self.searchCompleter.queryFragment = fragment
+                        } else {
+                            self.status = .idle
+                            self.searchResults = []
+                        }
+                })
     }
     
     // MARK: - Helper functions
     
-    func selectLocation(_ localSearch: MKLocalSearchCompletion) {
-        locationSearch(forLocalSearchCompletion: localSearch) { response, error in
+    func selectLocation(_ selectedResult: MKLocalSearchCompletion) {
+        locationSearch(localSearchCompletion: selectedResult) { response, error in
             if let error = error {
                 print("DEBUG: Location search failed with error \(error.localizedDescription)")
+                self.status = .error("Something went wrong completing the search")
                 return
             }
             
-            guard let item = response?.mapItems.first else { return }
-            let coordinate = item.placemark.coordinate
-            self.selectedLocationCoordinate = coordinate
-            print("DEBUG: Location coordinates \(coordinate)")
+            if let item = response?.mapItems.first  {
+                let coordinate = item.placemark.coordinate
+                self.selectedLocationCoordinate = coordinate
+                
+                print("DEBUG: Location coordinates \(coordinate)")
+            }
+            else {
+                self.status = .error("Something went wrong completing the search")
+            }
+            
         }
     }
     
-    func locationSearch(forLocalSearchCompletion localSearch: MKLocalSearchCompletion,
-                        completion: @escaping MKLocalSearch.CompletionHandler) {
+    func locationSearch(localSearchCompletion: MKLocalSearchCompletion, completion: @escaping MKLocalSearch.CompletionHandler) {
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = localSearch.title.appending(localSearch.subtitle)
+        searchRequest.naturalLanguageQuery = localSearchCompletion.title.appending(localSearchCompletion.subtitle)
         let search = MKLocalSearch(request: searchRequest)
         
         search.start(completionHandler: completion)
@@ -73,6 +86,15 @@ class LocationSearchService: NSObject, ObservableObject {
 
 extension LocationSearchService: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        self.results = completer.results
+        // Depending on what you're searching, you might need to filter differently or
+        // remove the filter altogether. Filtering for an empty Subtitle seems to filter
+        // out a lot of places and only shows cities and countries.
+        //self.searchResults = completer.results.filter({ $0.subtitle == "" })
+        self.searchResults = completer.results
+        self.status = completer.results.isEmpty ? .noResults : .result
+    }
+
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        self.status = .error(error.localizedDescription)
     }
 }
