@@ -13,6 +13,12 @@
 		9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBE28E0E11200437D38 /* AuthButtonView.swift */; };
 		9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABC228E0EB8300437D38 /* CheckBoxView.swift */; };
 		9530E3BB28F6E418000F395A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9530E3BA28F6E418000F395A /* .gitignore */; };
+		956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D7291E5E9200607CA9 /* ComposableArchitecture */; };
+		956273DA291E5E9200607CA9 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D9291E5E9200607CA9 /* Dependencies */; };
+		956273DD291E5EF900607CA9 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273DC291E5EF900607CA9 /* RootFeature.swift */; };
+		956273E0291E603A00607CA9 /* UserFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273DF291E603A00607CA9 /* UserFeature.swift */; };
+		956273E2291E611800607CA9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273E1291E611800607CA9 /* APIError.swift */; };
+		956273E4291E684300607CA9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273E3291E684300607CA9 /* AppEnvironment.swift */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
 		9576894328E06450009FDCE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576894228E06450009FDCE2 /* Preview Assets.xcassets */; };
@@ -87,6 +93,10 @@
 		9522ABBE28E0E11200437D38 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
 		9522ABC228E0EB8300437D38 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		9530E3BA28F6E418000F395A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		956273DC291E5EF900607CA9 /* RootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
+		956273DF291E603A00607CA9 /* UserFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeature.swift; sourceTree = "<group>"; };
+		956273E1291E611800607CA9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		956273E3291E684300607CA9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893F28E06450009FDCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +112,7 @@
 		958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		958F830028EEEEA0000C0219 /* LocationSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchService.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
-		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/Model/User.swift; sourceTree = SOURCE_ROOT; };
+		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/User/User.swift; sourceTree = SOURCE_ROOT; };
 		959DA941290AB4A800E1AE8F /* HelpMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMapViewRepresentable.swift; sourceTree = "<group>"; };
 		959ED96D29074D8D00F59AD3 /* EvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceView.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
@@ -161,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */,
+				956273DA291E5E9200607CA9 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +210,23 @@
 			path = ../../../Helpers;
 			sourceTree = "<group>";
 		};
+		956273DB291E5EE000607CA9 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				956273DC291E5EF900607CA9 /* RootFeature.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		956273DE291E602500607CA9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				956273DF291E603A00607CA9 /* UserFeature.swift */,
+				9590D4C928E4D7DD00617C64 /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		9576892F28E0644F009FDCE2 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				9576893B28E0644F009FDCE2 /* AthenaApp.swift */,
+				956273DE291E602500607CA9 /* User */,
+				956273DB291E5EE000607CA9 /* Root */,
 				9522ABB828E09A1B00437D38 /* Components */,
 				9576895028E065D4009FDCE2 /* Authentication */,
 				9588D53028ED8C8A00DC1557 /* LocationSearch */,
@@ -255,7 +286,6 @@
 			children = (
 				958F830228EF1776000C0219 /* SecurityMapViewState.swift */,
 				95ACC2B4290ADF24000FE158 /* HelpViewState.swift */,
-				9590D4C928E4D7DD00617C64 /* User.swift */,
 				B376FECD2915CE5300CA6AFD /* Emergency.swift */,
 			);
 			path = Model;
@@ -391,6 +421,8 @@
 				959FDCBA28F5A45B00F141CA /* Webservice.swift */,
 				958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */,
 				95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */,
+				956273E1291E611800607CA9 /* APIError.swift */,
+				956273E3291E684300607CA9 /* AppEnvironment.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -398,30 +430,14 @@
 		95FCEC4828E1DBB000ABE5CA /* Emergency */ = {
 			isa = PBXGroup;
 			children = (
-				95FCEC4A28E1DBC300ABE5CA /* ViewModels */,
-				95FCEC4928E1DBBC00ABE5CA /* Views */,
-			);
-			path = Emergency;
-			sourceTree = "<group>";
-		};
-		95FCEC4928E1DBBC00ABE5CA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				95B8F046290AF7F900D07171 /* EmergencyButton.swift */,
 				95FCEC4B28E1DBF000ABE5CA /* EmergencyView.swift */,
+				95B8F046290AF7F900D07171 /* EmergencyButton.swift */,
 				B376FEBA291479DA00CA6AFD /* ConfirmView.swift */,
 				B3081E312915E6AF00ACBFCF /* RequestedView.swift */,
 				B3081E332915EA5000ACBFCF /* CompletedView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		95FCEC4A28E1DBC300ABE5CA /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
 				959DA941290AB4A800E1AE8F /* HelpMapViewRepresentable.swift */,
 			);
-			path = ViewModels;
+			path = Emergency;
 			sourceTree = "<group>";
 		};
 		95FCEC4D28E1DDCC00ABE5CA /* HomeTab */ = {
@@ -504,6 +520,10 @@
 			dependencies = (
 			);
 			name = Athena;
+			packageProductDependencies = (
+				956273D7291E5E9200607CA9 /* ComposableArchitecture */,
+				956273D9291E5E9200607CA9 /* Dependencies */,
+			);
 			productName = Athena;
 			productReference = 9576893828E0644F009FDCE2 /* Athena.app */;
 			productType = "com.apple.product-type.application";
@@ -532,6 +552,9 @@
 				Base,
 			);
 			mainGroup = 9576892F28E0644F009FDCE2;
+			packageReferences = (
+				956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 9576893928E0644F009FDCE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -580,14 +603,17 @@
 			files = (
 				958CE6CB28FEEA3F000EEEF4 /* WebSocketClient.swift in Sources */,
 				95E6AEE628E07D24002DC84A /* FontsManager.swift in Sources */,
+				956273E0291E603A00607CA9 /* UserFeature.swift in Sources */,
 				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				B376FEBB291479DA00CA6AFD /* ConfirmView.swift in Sources */,
 				9576895428E065F6009FDCE2 /* LoginView.swift in Sources */,
 				B376FEB729142F6E00CA6AFD /* SettingsTab.swift in Sources */,
 				95FCEC4F28E1DDDB00ABE5CA /* HomeTabView.swift in Sources */,
 				9586C0E128FDB569005E978D /* PillButton.swift in Sources */,
+				956273E4291E684300607CA9 /* AppEnvironment.swift in Sources */,
 				95B8F047290AF7F900D07171 /* EmergencyButton.swift in Sources */,
 				95FCEC5728E1DFB400ABE5CA /* SecurityView.swift in Sources */,
+				956273DD291E5EF900607CA9 /* RootFeature.swift in Sources */,
 				B3081E342915EA5000ACBFCF /* CompletedView.swift in Sources */,
 				959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */,
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
@@ -601,6 +627,7 @@
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */,
 				95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */,
+				956273E2291E611800607CA9 /* APIError.swift in Sources */,
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				B376FEB52912FA7D00CA6AFD /* SecurityConfig.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
@@ -756,12 +783,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = L5F36B6L4T;
+				DEVELOPMENT_TEAM = 75KLTK97UQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Athena;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you when you need our help";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -793,12 +821,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = L5F36B6L4T;
+				DEVELOPMENT_TEAM = 75KLTK97UQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Athena;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you when you need our help";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -843,6 +872,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		956273D7291E5E9200607CA9 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		956273D9291E5E9200607CA9 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9576893028E0644F009FDCE2 /* Project object */;
 }

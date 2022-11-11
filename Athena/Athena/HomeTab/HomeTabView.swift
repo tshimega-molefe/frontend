@@ -31,7 +31,7 @@ struct HomeTabView: View {
     // Presentation logic
     var body: some View {
         Group {
-            if !userAuth.isAuthenticated {
+            if userAuth.isAuthenticated {
                 LoginView()
             } else {
                 // Open WebSocket with Access Token

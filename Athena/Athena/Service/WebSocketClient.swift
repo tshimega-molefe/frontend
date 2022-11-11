@@ -89,11 +89,9 @@ final class WebsocketClient: NSObject {
                 case .failure(let error):
                     print("DEBUG: Receive Message Error is \(error)")
             }
-            
             self?.receiveMessage()
         })
     }
-    
 }
 
 extension WebsocketClient: URLSessionWebSocketDelegate {

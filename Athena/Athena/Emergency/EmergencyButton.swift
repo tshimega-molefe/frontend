@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+struct EmergencyButtonState: Equatable {
+    var clicked: Bool
+}
+
 struct EmergencyButton: View {
     //let clickHelp: (() -> Void)
     
@@ -45,7 +49,6 @@ extension EmergencyButton {
             Circle()
                 .stroke(Color.theme.red, lineWidth: 2)
                 .frame(width: 250, height: 250)
-            
         }
     }
 
@@ -56,7 +59,6 @@ extension EmergencyButton {
                 .frame(width: 270, height: 270)
         }
     }
-
 }
 
 struct PressForHelpButton_Previews: PreviewProvider {

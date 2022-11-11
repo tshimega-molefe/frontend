@@ -21,9 +21,10 @@ class AuthViewModel: ObservableObject {
     @AppStorage("USER_KEY") var username = ""
     @Published var password = ""
     @Published var email = ""
-    @Published var firstname = ""
-    @Published var lastname = ""
-    @Published var cell = ""
+    @Published var firstName = ""
+    @Published var lastName = ""
+    @Published var cellPhone = ""
+    
     
     @Published var invalid: Bool = false
     @Published var alreadyExists: Bool = false
