@@ -15,7 +15,6 @@ struct SettingsView: View {
     
     var body: some View {
         
-        ScrollView {
             VStack (alignment: .leading) {
                 HStack {
                     VStack (alignment: .leading, spacing: 20) {
@@ -40,15 +39,16 @@ struct SettingsView: View {
                     .padding(.bottom)
                     .shadow(color: Color.theme.shadow, radius: 7)
                 
-                VStack (alignment: .leading, spacing: 60) {
-                    
-                    MessagesTab()
-                    EvidenceTab()
-                    //SettingsTab()
-                    LegalTab()
+                ScrollView {
+                    VStack (alignment: .leading, spacing: 60) {
+                        
+                        MessagesTab()
+                        EvidenceTab()
+                        //SettingsTab()
+                        LegalTab()
+                    }
                 }
             }
-        }
     }
 }
 
