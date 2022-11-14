@@ -22,13 +22,13 @@ struct SettingsView: View {
                         
                         HStack (alignment: .center, spacing: 20) {
                             SettingsTab(imageName: "questionmark.circle", text: "Help") {
-                                print("DEBUG: Help tab clicked in Settings")
+                                print("DEBUG: Handle Help Tab..")
                             }
                             SettingsTab(imageName: "creditcard", text: "Wallet") {
-                                print("DEBUG: Wallet tab clicked in Settings")
+                                print("DEBUG: Handle Wallet Tab..")
                             }
                             SettingsTab(imageName: "clock", text: "History") {
-                                print("DEBUG: History tab clicked in Settings")
+                                print("DEBUG: Handle History Tab..")
                             }
                             
                         }
@@ -42,13 +42,21 @@ struct SettingsView: View {
                 ScrollView {
                     VStack (alignment: .leading, spacing: 60) {
                         
-                        MessagesTab()
-                        EvidenceTab()
-                        //SettingsTab()
-                        LegalTab()
-                    }
+                        SettingsRow(imageName: "message", text: "Messages") {
+                            print("DEBUG: Handle Messages..")
+                        }
+                        SettingsRow(imageName: "archivebox", text: "Evidence") {
+                            print("DEBUG: Handle Evidence..")
+                        }
+                        SettingsRow(imageName: "gearshape", text: "Settings") {
+                            print("DEBUG: Handle Settings..")
+                        }
+                        SettingsRow(imageName: "exclamationmark.circle", text: "Legal") {
+                            print("DEBUG: Handle Legal..")
+                        }
                 }
             }
+        }
     }
 }
 
@@ -72,95 +80,6 @@ struct ProfileTab: View {
                     .foregroundColor(Color.theme.secondaryText)
             }
         }
-    }
-}
-
-struct EvidenceTab: View {
-    var body: some View {
-        
-        NavigationLink {
-            EvidenceView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "archivebox")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Evidence")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-        
-    }
-}
-struct MessagesTab: View {
-    var body: some View {
-        NavigationLink {
-            MessagesView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "message")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Messages")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-    }
-}
-//struct SettingsTab: View {
-//    var body: some View {
-//        
-//        NavigationLink {
-//            GeneralSettingsView()
-//        } label: {
-//            HStack (alignment: .center, spacing: 15) {
-//                Image(systemName: "gearshape")
-//                    .font(.title2)
-//                    .foregroundColor(Color.theme.secondaryText)
-//                
-//                Text("Settings")
-//                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-//                    .foregroundColor(Color.theme.primaryText)
-//                
-//                Spacer()
-//            }
-//        }
-//        .padding(.horizontal)
-//        .padding(.top, 10)
-//    }
-//}
-struct LegalTab: View {
-    var body: some View {
-        
-        NavigationLink {
-            LegalView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "exclamationmark.circle")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Legal")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
     }
 }
 
