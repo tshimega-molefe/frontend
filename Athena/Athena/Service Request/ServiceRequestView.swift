@@ -6,55 +6,67 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ServiceRequestView: View {
-    
-    @Binding var state: Emergency.Status?
-    
-    @EnvironmentObject var wsViewMode: WebSocketViewModel
+
+    let store: Store<ServiceRequestFeature.State, ServiceRequestFeature.Action>
     
     var body: some View {
-        
-        if #available(iOS 16.0, *) {
-            VStack {
-                Capsule()
-                    .foregroundColor(Color(.systemGray6))
-                    .frame(width: 40, height: 6)
-                    .padding(.top, 8)
-                
-                Text("Swipe to select your preferred option")
-                    .font(.custom(FontsManager.Poppins.regular, size: 10))
-                    .foregroundColor(Color.theme.secondaryText)
-                    .padding(.top)
-                
-                // Security Responder Information View
-                
-                ResponderView()
-                
-                // Payment Option View
-                
-                PaymentOptionView()
-                
-                // Request Service button
-                
-                AuthButtonView(buttonLabel: "Confirm ARES") {
-                    state = .requested
-                    //wsViewMode.webSocketConnection.sendMessage(type: "create.emergency", message: "")
+        /*TODO: Use TCA to only display this view when some value != nil
+                The current method works but we dont want the view to even be in memory if its not needed
+         */
+        WithViewStore(self.store) { viewStore in
+            ZStack {
+                VStack {
+                    Capsule()
+                        .foregroundColor(Color(.systemGray6))
+                        .frame(width: 40, height: 6)
+                        .padding(.top, 8)
+                    
+                    Text("Swipe to select your preferred option")
+                        .font(.custom(FontsManager.Poppins.regular, size: 10))
+                        .foregroundColor(Color.theme.secondaryText)
+                        .padding(.top)
+                    
+                    // Security Responder Information View
+                    ResponderView()
+                    
+                    // Payment Option View
+                    PaymentOptionView()
+                    
+                    // Request Service button
+                    AuthButtonView(buttonLabel: "Confirm ARES") {
+                        viewStore.send(.confirm)
+                    }
+                    
                 }
-                .padding(.top)
+                .padding(.bottom, 50)
+                .background(Color.theme.background.clipShape(CustomCorner(corners: [.topLeft, .topRight])))
             }
-            .padding(.bottom, 50)
-            .background(Color.theme.background)
-            .cornerRadius(24)
-        } else {
-            // Fallback on earlier versions
+            .offset(y: viewStore.isPresented ? 0 : UIScreen.main.bounds.height)
         }
     }
 }
 
+
+
+
 struct ServiceRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceRequestView(state: .constant(.confirming))
+        ServiceRequestView(store: Store(initialState: ServiceRequestFeature.State(),
+                                        reducer: AnyReducer(ServiceRequestFeature()),
+                                        environment: ()))
+    }
+}
+
+struct CustomCorner: Shape {
+    let corners: UIRectCorner
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 25, height: 25))
+        
+        return Path(path.cgPath)
     }
 }
 
@@ -63,14 +75,14 @@ struct ResponderView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack (spacing: 12){
                 ForEach(0 ..< 3, id: \.self) { _ in
-                HStack (alignment: .top) {
-                            // Security Profile Image
+                    HStack (alignment: .top) {
+                        // Security Profile Image
                         Image(uiImage: UIImage(imageLiteralResourceName: "security"))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 132.66, height: 200)
                             .cornerRadius(15)
-//                            .shadow(color: Color.theme.shadow, radius: 2)
+                        //                            .shadow(color: Color.theme.shadow, radius: 2)
                         
                         VStack (alignment: .leading, spacing: 8) {
                             // Security Name
@@ -111,7 +123,6 @@ struct ResponderView: View {
                                 .font(.custom(FontsManager.Poppins.light, size: 12))
                                 .foregroundColor(Color.theme.accent)
                             
-                            
                             // Service Price
                             HStack {
                                 
@@ -126,8 +137,6 @@ struct ResponderView: View {
                             }
                             .padding(.top, 40)
                             
-                            
-
                         }
                         .padding(.leading)
                     }
@@ -145,7 +154,6 @@ struct PaymentOptionView: View {
                 .font(.subheadline)
                 .foregroundColor(.primary)
                 .padding(.leading)
-            
             
             Text("**** 5117")
                 .font(.custom(FontsManager.Poppins.regular, size: 20))

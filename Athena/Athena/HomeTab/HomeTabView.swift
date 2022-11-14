@@ -54,7 +54,7 @@ struct HomeTabView: View {
 extension HomeTabView {
     
     var mainInterfaceView: some View {
-        
+
         TabView(selection: $selectedTab) {
             StatusView()
                 .tabItem {
@@ -69,7 +69,9 @@ extension HomeTabView {
                 }.tag(Tab.security)
             
             NavigationView {
-                EmergencyView(emergencyStatus: $emergency.status)
+                NavigationLink(destination: EmergencyView()) {
+                    EmergencyButton()
+                }
             }
             .tabItem {
                 Image(systemName: "cross.circle")
