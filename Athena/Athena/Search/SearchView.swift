@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var searchQuery = ""
+
+    
+    let myCriminals = [ "Escobar", "El Chapo", "Jacob Zuma", "General Shepard", "Osama Bin Laden", "Majin Buu"]
+    
+    
     var body: some View {
-        ZStack {
-            Color.theme.background.edgesIgnoringSafeArea(.top)
-            Text("Search View")
+        NavigationView {
+            List {
+                ForEach(myCriminals, id: \.self) { criminals in
+                    Text(criminals)
+                }
+            }
+            .listStyle(.sidebar)
+            .searchable(text: $searchQuery)
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Directory")
         }
+        
     }
 }
 

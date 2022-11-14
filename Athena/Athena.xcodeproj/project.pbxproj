@@ -40,7 +40,7 @@
 		95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC2B4290ADF24000FE158 /* HelpViewState.swift */; };
 		95B8F047290AF7F900D07171 /* EmergencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8F046290AF7F900D07171 /* EmergencyButton.swift */; };
 		95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* MessagesView.swift */; };
-		95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */; };
+		95B9D0502907E33800E59136 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* AccountView.swift */; };
 		95B9D0522907E34A00E59136 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D0512907E34A00E59136 /* LegalView.swift */; };
 		95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
@@ -115,7 +115,7 @@
 		95ACC2B4290ADF24000FE158 /* HelpViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewState.swift; sourceTree = "<group>"; };
 		95B8F046290AF7F900D07171 /* EmergencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyButton.swift; sourceTree = "<group>"; };
 		95B9D04D2907E31200E59136 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
-		95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		95B9D04F2907E33800E59136 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		95B9D0512907E34A00E59136 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
 		95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketViewModel.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
@@ -441,9 +441,9 @@
 			isa = PBXGroup;
 			children = (
 				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
-				959ED96D29074D8D00F59AD3 /* EvidenceView.swift */,
 				95B9D04D2907E31200E59136 /* MessagesView.swift */,
-				95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */,
+				959ED96D29074D8D00F59AD3 /* EvidenceView.swift */,
+				95B9D04F2907E33800E59136 /* AccountView.swift */,
 				95B9D0512907E34A00E59136 /* LegalView.swift */,
 				B376FEB629142F6E00CA6AFD /* SettingsTab.swift */,
 				B376FEB82914316700CA6AFD /* SettingsRow.swift */,
@@ -625,7 +625,7 @@
 				B317C03129212FCA00CD924B /* EmergencyFeature.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9586C0E328FDB8B7005E978D /* SecurityServiceCard.swift in Sources */,
-				95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */,
+				95B9D0502907E33800E59136 /* AccountView.swift in Sources */,
 				B376FEAD2912622A00CA6AFD /* AuthViewModel.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,
 				9590D4CA28E4D7DD00617C64 /* User.swift in Sources */,

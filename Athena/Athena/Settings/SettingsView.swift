@@ -42,15 +42,18 @@ struct SettingsView: View {
                 ScrollView {
                     VStack (alignment: .leading, spacing: 60) {
                         
-                        SettingsRow(imageName: "message", text: "Messages") {
-                            print("DEBUG: Handle Messages..")
+                        SettingsRow(imageName: "gearshape", text: "Account") {
+                            print("DEBUG: Handle Settings..")
                         }
+                        
                         SettingsRow(imageName: "archivebox", text: "Evidence") {
                             print("DEBUG: Handle Evidence..")
                         }
-                        SettingsRow(imageName: "gearshape", text: "Settings") {
-                            print("DEBUG: Handle Settings..")
+                        
+                        SettingsRow(imageName: "message", text: "Notifications") {
+                            print("DEBUG: Handle Messages..")
                         }
+                        
                         SettingsRow(imageName: "exclamationmark.circle", text: "Legal") {
                             print("DEBUG: Handle Legal..")
                         }
@@ -71,7 +74,7 @@ struct ProfileTab: View {
                 .clipShape(Circle())
             
             VStack (alignment: .leading) {
-                Text("Sabrina Morreno")
+                Text(userAuth.username)
                     .font(.custom(FontsManager.Poppins.regular, size: 18))
                     .foregroundColor(Color.theme.primaryText)
                 

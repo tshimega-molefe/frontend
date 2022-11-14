@@ -23,10 +23,10 @@ struct SecurityServiceCard: View {
                 .font(.custom(FontsManager.Poppins.semiBold, size: 20))
                 .padding(.top, 22)
             
-            SecurityCardRow(text: "Security Escort", imageName: "house") {
+            SecurityCardRow(text: "Transport", imageName: "house") {
                 self.selectedService = .escort
             }
-            SecurityCardRow(text: "VIP Security", imageName: "shield.righthalf.filled") {
+            SecurityCardRow(text: "Bodyguard", imageName: "shield.righthalf.filled") {
                 self.selectedService = .vip
             }
         }
