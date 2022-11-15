@@ -478,8 +478,8 @@
 		B328B25D2921A7CB007AE687 /* Service Request */ = {
 			isa = PBXGroup;
 			children = (
-				959FDCB328F5873700F141CA /* ServiceRequestView.swift */,
 				B328B25E2921A859007AE687 /* ServiceRequestFeature.swift */,
+				959FDCB328F5873700F141CA /* ServiceRequestView.swift */,
 			);
 			path = "Service Request";
 			sourceTree = "<group>";
@@ -771,7 +771,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,7 +809,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

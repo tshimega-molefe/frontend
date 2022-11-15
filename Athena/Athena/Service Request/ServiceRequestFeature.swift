@@ -15,7 +15,12 @@ struct ServiceRequestFeature: ReducerProtocol {
         // TODO: Create service provider model so data can be pulled into top block
         //var serviceProviders: [ServiceProviders] = []
         
-        var isPresented = true
+        var route: Route = .idle
+    }
+    
+    enum Route: Equatable {
+        case idle
+        case confirmed
     }
     
     enum Action: Equatable {
@@ -26,7 +31,7 @@ struct ServiceRequestFeature: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .confirm:
-            state.isPresented.toggle()
+            state.route = .confirmed
             return .none
             
         case .updatePaymentMethod:

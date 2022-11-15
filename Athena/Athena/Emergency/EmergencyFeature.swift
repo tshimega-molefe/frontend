@@ -10,6 +10,7 @@ import ComposableArchitecture
 struct EmergencyFeature: ReducerProtocol {
     
     struct State: Equatable {
+        var serviceRequestFeature: ServiceRequestFeature.State?
         var route: Route = .confirming
     }
     
@@ -20,18 +21,28 @@ struct EmergencyFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
+        case serviceRequestAction(ServiceRequestFeature.Action)
         case onAppear
         case cancel
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-        case .onAppear:
-            
-            return .none
-            
-        case .cancel:
-            return .none
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .onAppear:
+                state.serviceRequestFeature = ServiceRequestFeature.State()
+                return .none
+            case .cancel:
+                //state.serviceRequestFeature = nil
+                return .none
+            case .serviceRequestAction:
+                return .none
+            }
         }
+        .ifLet(\.serviceRequestFeature, action: /Action.serviceRequestAction) {
+            ServiceRequestFeature()
+        }
+        
+        
     }
 }

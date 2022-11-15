@@ -80,11 +80,11 @@ struct RegistrationView: View {
                         AuthButtonView(buttonLabel: "Create Account") {
                             userAuth.registerCitizen()
                         }
-                        .alert("Username or Email already exists. Try again.", isPresented: $userAuth.alreadyExists, actions: {
-                            Button("Dismiss") {
-                                print("DEBUG: Couldn't create account, try again...")
-                            }
-                        })
+//                        .alert("Username or Email already exists. Try again.", isPresented: $userAuth.alreadyExists, actions: {
+//                            Button("Dismiss") {
+//                                print("DEBUG: Couldn't create account, try again...")
+//                            }
+//                        })
                         .padding(.top, 40)
                     }
         

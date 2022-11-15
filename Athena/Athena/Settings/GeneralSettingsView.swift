@@ -12,7 +12,7 @@ struct GeneralSettingsView: View {
     @EnvironmentObject var userAuth: AuthViewModel
     @EnvironmentObject var wsViewModel: WebSocketViewModel
     
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) private var presentationMode
 
     
     var body: some View {
@@ -84,7 +84,7 @@ struct GeneralSettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     CancelButton(imageName: "xmark", font: .callout) {
-                        dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                     .navigationBarBackButtonHidden(true)
                 }

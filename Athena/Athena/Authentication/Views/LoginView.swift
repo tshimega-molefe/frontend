@@ -74,11 +74,12 @@ struct LoginView: View {
                     AuthButtonView(buttonLabel: "Log In") {
                         userAuth.loginCitizen()
                     }
-                    .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
-                        Button("Dismiss") {
-                            print("DEBUG: You've entered incorrect details..")
-                        }
-                    })
+                    
+//                    .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
+//                        Button("Dismiss") {
+//                            print("DEBUG: You've entered incorrect details..")
+//                        }
+//                    })
                     .padding(.top, 40)
                 }
                 

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import ComposableArchitecture
 
 struct HomeTabView: View {
     //  MARK: - Properties
@@ -69,7 +69,10 @@ extension HomeTabView {
                 }.tag(Tab.security)
             
             NavigationView {
-                NavigationLink(destination: EmergencyView()) {
+                NavigationLink(destination: EmergencyView(store: Store(
+                    initialState: EmergencyFeature.State(),
+                    reducer: AnyReducer(EmergencyFeature()),
+                    environment: ()))) {
                     EmergencyButton()
                 }
             }

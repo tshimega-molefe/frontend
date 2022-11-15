@@ -24,27 +24,34 @@ struct ServiceRequestView: View {
                         .frame(width: 40, height: 6)
                         .padding(.top, 8)
                     
-                    Text("Swipe to select your preferred option")
-                        .font(.custom(FontsManager.Poppins.regular, size: 10))
-                        .foregroundColor(Color.theme.secondaryText)
-                        .padding(.top)
-                    
-                    // Security Responder Information View
-                    ResponderView()
-                    
-                    // Payment Option View
-                    PaymentOptionView()
-                    
-                    // Request Service button
-                    AuthButtonView(buttonLabel: "Confirm ARES") {
-                        viewStore.send(.confirm)
+                    if viewStore.state.route == .idle {
+                        Text("Swipe to select your preferred option")
+                            .font(.custom(FontsManager.Poppins.regular, size: 10))
+                            .foregroundColor(Color.theme.secondaryText)
+                            .padding(.top)
+                        
+                        // Security Responder Information View
+                        ResponderView()
+                        
+                        // Payment Option View
+                        PaymentOptionView()
+                        
+                        // Request Service button
+                        AuthButtonView(buttonLabel: "Confirm ARES") {
+                            viewStore.send(.confirm)
+                        }
                     }
+                    else {
+                        Text("Requesting Help...")
+                            .padding(.top)
+                    }
+                
                     
                 }
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .padding(.bottom, 50)
                 .background(Color.theme.background.clipShape(CustomCorner(corners: [.topLeft, .topRight])))
             }
-            .offset(y: viewStore.isPresented ? 0 : UIScreen.main.bounds.height)
         }
     }
 }

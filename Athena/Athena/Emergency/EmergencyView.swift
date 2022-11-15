@@ -10,33 +10,45 @@ import CoreLocation
 import ComposableArchitecture
 
 struct EmergencyView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) private var presentationMode
     
-    var cancelButton: some View {
-        PillButton(text: "Cancel") {
-            dismiss()
-        }
-    }
+    let store: Store<EmergencyFeature.State, EmergencyFeature.Action>
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011286,
-                                                       longitude: -116.166868))
-            
-            //Note: This is where we going to see TCA in action
-            //      because we can use the functions (state, action etc.) from the child composable view
-            ServiceRequestView(store: Store(initialState: ServiceRequestFeature.State(),
-                                            reducer: AnyReducer(ServiceRequestFeature()),
-                                            environment: ()))
+        WithViewStore(self.store) { viewStore in
+            ZStack(alignment: .bottom) {
+                MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011286,
+                                                           longitude: -116.166868))
+                
+                //Note: This is where we going to see TCA in action
+                //      because we can use the functions (state, action etc.) from the child composable view
+                IfLetStore(
+                    self.store.scope(
+                    state: \.serviceRequestFeature,
+                    action: EmergencyFeature.Action.serviceRequestAction)
+                ) { requestStore in
+                    ServiceRequestView(store: requestStore)
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading:
+                                    PillButton(text: "Cancel") {
+                self.presentationMode.wrappedValue.dismiss()
+                viewStore.send(.cancel)
+            })
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: cancelButton)
     }
 }
 
 struct EmergencyView_Previews: PreviewProvider {
     static var previews: some View {
-        EmergencyView()
+        EmergencyView(store: Store(
+            initialState: EmergencyFeature.State(),
+            reducer: AnyReducer(EmergencyFeature()),
+            environment: ()))
     }
 }
 

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct EvidenceView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
         CancelButton(imageName: "xmark", font: .callout) {
-            dismiss()
+            self.presentationMode.wrappedValue.dismiss()
         }
         .navigationBarBackButtonHidden(true)
     }

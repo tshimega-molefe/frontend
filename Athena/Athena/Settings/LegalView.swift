@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct LegalView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) private var presentationMode
+
     var body: some View {
         CancelButton(imageName: "xmark", font: .callout) {
-            dismiss()
+            self.presentationMode.wrappedValue.dismiss()
         }
         .navigationBarBackButtonHidden(true)
     }

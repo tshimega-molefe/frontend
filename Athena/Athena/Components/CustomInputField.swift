@@ -30,14 +30,15 @@ struct CustomInputField: View {
                 case .email:
                     TextField(placeholderText, text: $text).keyboardType(.emailAddress)
                 case .secure:
-                    SecureField(placeholderText, text: $text).privacySensitive()
+                    SecureField(placeholderText, text: $text)
+//                        .privacySensitive()
                 case .number:
                     TextField(placeholderText, text: $text).keyboardType(.phonePad)
                 }
             }
             .font(.custom(FontsManager.Poppins.regular, size: 15))
             .foregroundColor(Color.theme.primaryText)
-            .textInputAutocapitalization(.never)
+//            .textInputAutocapitalization(.never)
             .autocorrectionDisabled()
             .accentColor(Color.theme.accent)
             .padding(.leading)
