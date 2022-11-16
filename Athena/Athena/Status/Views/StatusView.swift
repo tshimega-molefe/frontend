@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StatusView: View {
     var body: some View {
-        StatusMapViewRepresentable().edgesIgnoringSafeArea(.top)
+        MapBoxMapView().edgesIgnoringSafeArea(.top)
     }
 }
 

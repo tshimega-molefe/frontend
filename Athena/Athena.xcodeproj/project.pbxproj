@@ -13,6 +13,8 @@
 		9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABBE28E0E11200437D38 /* AuthButtonView.swift */; };
 		9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522ABC228E0EB8300437D38 /* CheckBoxView.swift */; };
 		9530E3BB28F6E418000F395A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9530E3BA28F6E418000F395A /* .gitignore */; };
+		954C23DA29252AB70098A4CB /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 954C23D929252AB70098A4CB /* MapboxMaps */; };
+		954C23DC2925313A0098A4CB /* MapBoxMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C23DB2925313A0098A4CB /* MapBoxMapView.swift */; };
 		956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D7291E5E9200607CA9 /* ComposableArchitecture */; };
 		956273DA291E5E9200607CA9 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D9291E5E9200607CA9 /* Dependencies */; };
 		956273E0291E603A00607CA9 /* UserFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273DF291E603A00607CA9 /* UserFeature.swift */; };
@@ -89,6 +91,7 @@
 		9522ABBE28E0E11200437D38 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
 		9522ABC228E0EB8300437D38 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		9530E3BA28F6E418000F395A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		954C23DB2925313A0098A4CB /* MapBoxMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxMapView.swift; sourceTree = "<group>"; };
 		956273DF291E603A00607CA9 /* UserFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeature.swift; sourceTree = "<group>"; };
 		956273E1291E611800607CA9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954C23DA29252AB70098A4CB /* MapboxMaps in Frameworks */,
 				956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */,
 				956273DA291E5E9200607CA9 /* Dependencies in Frameworks */,
 			);
@@ -180,6 +184,7 @@
 				9586C0E028FDB569005E978D /* PillButton.swift */,
 				95078FA928FDDAD6001A8B1E /* CancelButton.swift */,
 				B376FEB02912857700CA6AFD /* MapView.swift */,
+				954C23DB2925313A0098A4CB /* MapBoxMapView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 			packageProductDependencies = (
 				956273D7291E5E9200607CA9 /* ComposableArchitecture */,
 				956273D9291E5E9200607CA9 /* Dependencies */,
+				954C23D929252AB70098A4CB /* MapboxMaps */,
 			);
 			productName = Athena;
 			productReference = 9576893828E0644F009FDCE2 /* Athena.app */;
@@ -534,6 +540,7 @@
 			mainGroup = 9576892F28E0644F009FDCE2;
 			packageReferences = (
 				956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				954C23D829252AB70098A4CB /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = 9576893928E0644F009FDCE2 /* Products */;
 			projectDirPath = "";
@@ -621,6 +628,7 @@
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
 				95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* CancelButton.swift in Sources */,
+				954C23DC2925313A0098A4CB /* MapBoxMapView.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				B317C03129212FCA00CD924B /* EmergencyFeature.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
@@ -686,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -740,7 +748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -759,7 +767,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = L5F36B6L4T;
+				DEVELOPMENT_TEAM = 75KLTK97UQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
@@ -797,7 +805,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = L5F36B6L4T;
+				DEVELOPMENT_TEAM = 75KLTK97UQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
@@ -850,6 +858,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		954C23D829252AB70098A4CB /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -861,6 +877,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		954C23D929252AB70098A4CB /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 954C23D829252AB70098A4CB /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
 		956273D7291E5E9200607CA9 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;

@@ -22,7 +22,7 @@ struct SearchView: View {
                 }
             }
             .listStyle(.sidebar)
-            .searchable(text: $searchQuery)
+//            .searchable(text: $searchQuery)
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle("Directory")
         }
