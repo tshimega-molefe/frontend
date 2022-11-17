@@ -31,11 +31,11 @@ struct HomeTabView: View {
     // Presentation logic
     var body: some View {
         Group {
-            if userAuth.isAuthenticated {
+            if !userAuth.isAuthenticated {
                 LoginView()
             } else {
                 // Open WebSocket with Access Token
-                let _ = wsViewModel.subscribeToService()
+                //let _ = wsViewModel.subscribeToService()
                 
                 mainInterfaceView
             }
@@ -54,7 +54,7 @@ struct HomeTabView: View {
 extension HomeTabView {
     
     var mainInterfaceView: some View {
-
+        
         TabView(selection: $selectedTab) {
             StatusView()
                 .tabItem {
@@ -86,12 +86,13 @@ extension HomeTabView {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }.tag(Tab.search)
-            
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
-                }.tag(Tab.settings)
+            NavigationView {
+                SettingsView()
+            }
+            .tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }.tag(Tab.settings)
         }
     }
 }

@@ -80,6 +80,7 @@
 		B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB82914316700CA6AFD /* SettingsRow.swift */; };
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
 		B376FECE2915CE5300CA6AFD /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* Emergency.swift */; };
+		B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3F158AC2925279D0067DC28 /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */,
 				956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */,
 				956273DA291E5E9200607CA9 /* Dependencies in Frameworks */,
 			);
@@ -503,6 +505,7 @@
 			packageProductDependencies = (
 				956273D7291E5E9200607CA9 /* ComposableArchitecture */,
 				956273D9291E5E9200607CA9 /* Dependencies */,
+				B3F158AC2925279D0067DC28 /* MapboxMaps */,
 			);
 			productName = Athena;
 			productReference = 9576893828E0644F009FDCE2 /* Athena.app */;
@@ -534,6 +537,7 @@
 			mainGroup = 9576892F28E0644F009FDCE2;
 			packageReferences = (
 				956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = 9576893928E0644F009FDCE2 /* Products */;
 			projectDirPath = "";
@@ -858,6 +862,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -870,6 +882,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		B3F158AC2925279D0067DC28 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

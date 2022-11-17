@@ -8,7 +8,6 @@
 import Foundation
 import ComposableArchitecture
 
-
 struct ServiceRequestFeature: ReducerProtocol {
     
     struct State: Equatable {
@@ -21,21 +20,37 @@ struct ServiceRequestFeature: ReducerProtocol {
     enum Route: Equatable {
         case idle
         case confirmed
+        case accepted
+        case completed
     }
     
     enum Action: Equatable {
         case confirm
+        case accept
+        case complete
         case updatePaymentMethod
     }
     
+    
+    
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
+            
         case .confirm:
             state.route = .confirmed
+            return .none
+            
+        case .accept:
+            state.route = .accepted
+            return .none
+            
+        case .complete:
+            state.route = .completed
             return .none
             
         case .updatePaymentMethod:
             return .none
         }
+        
     }
 }

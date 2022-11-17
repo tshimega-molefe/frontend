@@ -17,27 +17,30 @@ struct EmergencyView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ZStack(alignment: .bottom) {
-                MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011286,
-                                                           longitude: -116.166868))
+                MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011286, longitude: -116.166868))
                 
-                //Note: This is where we going to see TCA in action
-                //      because we can use the functions (state, action etc.) from the child composable view
                 IfLetStore(
                     self.store.scope(
-                    state: \.serviceRequestFeature,
-                    action: EmergencyFeature.Action.serviceRequestAction)
+                        state: \.serviceRequestFeature,
+                        action: EmergencyFeature.Action.serviceRequestAction)
                 ) { requestStore in
                     ServiceRequestView(store: requestStore)
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading:
-                                    PillButton(text: "Cancel") {
-                self.presentationMode.wrappedValue.dismiss()
-                viewStore.send(.cancel)
-            })
             .onAppear {
+                viewStore.send(.connectOrDisconnect)
                 viewStore.send(.onAppear)
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading:
+                    PillButton(text: "Cancel") { viewStore.send(.cancel) }
+            )
+            .onChange(of: viewStore.isPresented) { presented in
+                if !presented { self.presentationMode.wrappedValue.dismiss() }
+            }
+            .onDisappear {
+                viewStore.send(.connectOrDisconnect)
             }
         }
     }

@@ -44,7 +44,7 @@ struct SettingsView: View {
                     
                     MessagesTab()
                     EvidenceTab()
-                    //SettingsTab()
+                    SettingsTab2()
                     LegalTab()
                 }
             }
@@ -119,28 +119,28 @@ struct MessagesTab: View {
         .padding(.top, 10)
     }
 }
-//struct SettingsTab: View {
-//    var body: some View {
-//        
-//        NavigationLink {
-//            GeneralSettingsView()
-//        } label: {
-//            HStack (alignment: .center, spacing: 15) {
-//                Image(systemName: "gearshape")
-//                    .font(.title2)
-//                    .foregroundColor(Color.theme.secondaryText)
-//                
-//                Text("Settings")
-//                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-//                    .foregroundColor(Color.theme.primaryText)
-//                
-//                Spacer()
-//            }
-//        }
-//        .padding(.horizontal)
-//        .padding(.top, 10)
-//    }
-//}
+struct SettingsTab2: View {
+    var body: some View {
+        
+        NavigationLink {
+            GeneralSettingsView()
+        } label: {
+            HStack (alignment: .center, spacing: 15) {
+                Image(systemName: "gearshape")
+                    .font(.title2)
+                    .foregroundColor(Color.theme.secondaryText)
+                
+                Text("Settings")
+                    .font(.custom(FontsManager.Poppins.regular, size: 16))
+                    .foregroundColor(Color.theme.primaryText)
+                
+                Spacer()
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top, 10)
+    }
+}
 struct LegalTab: View {
     var body: some View {
         
