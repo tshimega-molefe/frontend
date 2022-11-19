@@ -39,13 +39,12 @@ struct ServiceRequestView: View {
                         // Request Service button
                         AuthButtonView(buttonLabel: "Confirm ARES") {
                             viewStore.send(.confirm)
+
                         }
                     case .confirmed:
                         Text("Requesting Help...")
                             .padding(.top)
-                        Button("Move to accepted") {
-                            viewStore.send(.accept)
-                        }
+                    
                     case .accepted:
                         Text("Help is on the way...")
                             .padding(.top)

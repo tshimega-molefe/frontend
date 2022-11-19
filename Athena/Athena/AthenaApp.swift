@@ -12,13 +12,11 @@ import ComposableArchitecture
 struct AthenaApp: App {
     
     @StateObject var userAuth = AuthViewModel()
-    @StateObject var wsViewModel = WebSocketViewModel()
     
     var body: some Scene {
         WindowGroup {
             HomeTabView()
             .environmentObject(userAuth)
-            .environmentObject(wsViewModel)
         }
     }
 }

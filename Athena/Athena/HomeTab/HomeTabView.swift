@@ -22,10 +22,7 @@ struct HomeTabView: View {
     }
     
     @EnvironmentObject var userAuth: AuthViewModel
-    @EnvironmentObject var wsViewModel: WebSocketViewModel
     
-    //@ObservedObject var coordinator: TabCoordinator
-    @StateObject var emergency: Emergency = Emergency()
     @State private var selectedTab: Tab = .emergency
     
     // Presentation logic

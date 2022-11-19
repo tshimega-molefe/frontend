@@ -31,8 +31,6 @@ struct ServiceRequestFeature: ReducerProtocol {
         case updatePaymentMethod
     }
     
-    
-    
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
             
@@ -51,6 +49,5 @@ struct ServiceRequestFeature: ReducerProtocol {
         case .updatePaymentMethod:
             return .none
         }
-        
     }
 }

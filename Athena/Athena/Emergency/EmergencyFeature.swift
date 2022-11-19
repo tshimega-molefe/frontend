@@ -53,7 +53,6 @@ struct EmergencyFeature: ReducerProtocol {
                 //let messageToSend = state.messageToSend
                 //state.messageToSend = ""
                 let messageToSend = "{\"type\": \"create.emergency\"}"
-                
                 return .task {
                     print("DEBUG: SENDING CREATION: \(messageToSend)")
                     try await websocket.send(WebSocketID.self, .string(messageToSend))
@@ -160,7 +159,22 @@ struct EmergencyFeature: ReducerProtocol {
                 
             case let .receivedSocketMessage(.success(message)):
                 if case let .string(string) = message {
+                    
+                   
                     print(string)
+                    let decoder = JSONDecoder()
+                    
+                    let emergency = try! decoder.decode(EmergencyModel.self, from: string.data(using: .utf8)!)
+                    print(emergency)
+                    
+                    let type = emergency.type ?? ""
+                    
+                    if(type == "accept.emergency"){
+                        return .task {
+                            return .serviceRequestAction(.accept)
+                        }
+                        
+                    }
                 }
                 
                 return .none

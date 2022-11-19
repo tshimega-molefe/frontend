@@ -42,7 +42,6 @@
 		95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* MessagesView.swift */; };
 		95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */; };
 		95B9D0522907E34A00E59136 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D0512907E34A00E59136 /* LegalView.swift */; };
-		95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -79,7 +78,7 @@
 		B376FEB729142F6E00CA6AFD /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB629142F6E00CA6AFD /* SettingsTab.swift */; };
 		B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB82914316700CA6AFD /* SettingsRow.swift */; };
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
-		B376FECE2915CE5300CA6AFD /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* Emergency.swift */; };
+		B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */; };
 		B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3F158AC2925279D0067DC28 /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +117,6 @@
 		95B9D04D2907E31200E59136 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		95B9D0512907E34A00E59136 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
-		95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketViewModel.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -156,7 +154,7 @@
 		B376FEB629142F6E00CA6AFD /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B376FEB82914316700CA6AFD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		B376FEBA291479DA00CA6AFD /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
-		B376FECD2915CE5300CA6AFD /* Emergency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
+		B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +269,6 @@
 			children = (
 				958F830228EF1776000C0219 /* SecurityMapViewState.swift */,
 				95ACC2B4290ADF24000FE158 /* HelpViewState.swift */,
-				B376FECD2915CE5300CA6AFD /* Emergency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 			children = (
 				959FDCBA28F5A45B00F141CA /* Webservice.swift */,
 				958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */,
-				95BB8D8A29018EC5003B5965 /* WebsocketViewModel.swift */,
 				956273E1291E611800607CA9 /* APIError.swift */,
 			);
 			path = Service;
@@ -409,6 +405,7 @@
 				B317C03029212FCA00CD924B /* EmergencyFeature.swift */,
 				B376FEBA291479DA00CA6AFD /* EmergencyView.swift */,
 				95B8F046290AF7F900D07171 /* EmergencyButton.swift */,
+				B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */,
 			);
 			path = Emergency;
 			sourceTree = "<group>";
@@ -599,11 +596,10 @@
 				959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */,
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
-				B376FECE2915CE5300CA6AFD /* Emergency.swift in Sources */,
+				B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */,
 				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9586C0E528FDBD2E005E978D /* SecurityCardRow.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
-				95BB8D8B29018EC5003B5965 /* WebsocketViewModel.swift in Sources */,
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */,
 				95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */,
