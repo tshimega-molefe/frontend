@@ -198,9 +198,15 @@ struct EmergencyFeature: ReducerProtocol {
                             return .connectOrDisconnect
                         }
                         
+                        
                     case "start.emergency":
                         return .task {
                             return .serviceRequestAction(.start)
+                        }
+                        
+                    case "accept.emergency":
+                        return .task {
+                            return .serviceRequestAction(.accept)
                         }
                         
                     case "complete.emergency":
