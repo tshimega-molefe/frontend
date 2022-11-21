@@ -21,12 +21,13 @@ struct ServiceRequestFeature: ReducerProtocol {
         case idle
         case confirmed
         case accepted
-        case completed
+        case started
     }
     
     enum Action: Equatable {
         case confirm
         case accept
+        case start
         case complete
         case updatePaymentMethod
     }
@@ -42,12 +43,17 @@ struct ServiceRequestFeature: ReducerProtocol {
             state.route = .accepted
             return .none
             
+        case .start:
+            state.route = .started
+            return .none
+            
         case .complete:
-            state.route = .completed
+            state.route = .idle
             return .none
             
         case .updatePaymentMethod:
             return .none
+            
         }
     }
 }

@@ -37,10 +37,10 @@ struct EmergencyView: View {
                     PillButton(text: "Cancel") { viewStore.send(.cancel) }
             )
             .onChange(of: viewStore.isPresented) { presented in
-                if !presented { self.presentationMode.wrappedValue.dismiss() }
-            }
-            .onDisappear {
-                viewStore.send(.connectOrDisconnect)
+                if !presented {
+                    self.presentationMode.wrappedValue.dismiss()
+                    
+                }
             }
         }
     }

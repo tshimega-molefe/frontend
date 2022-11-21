@@ -7,13 +7,8 @@
 
 import Foundation
 
-class EmergencyModel: Identifiable, Codable {
-    // MARK: Stored Properties
-    
+struct EmergencyModel: Equatable, Codable {
     var type: String?
-    //Should proably be UUID but I cant get it to work
     var id: String?
     var security: String?
-    
 }
-

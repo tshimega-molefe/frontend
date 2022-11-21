@@ -9,13 +9,19 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ServiceRequestView: View {
+    @ObservedObject var viewStore: ViewStore<ServiceRequestFeature.State, ServiceRequestFeature.Action>
     let store: Store<ServiceRequestFeature.State, ServiceRequestFeature.Action>
+    
+    init(store: Store<ServiceRequestFeature.State, ServiceRequestFeature.Action>) {
+      self.store = store
+      self.viewStore = ViewStore(self.store)
+    }
     
     var body: some View {
         /*TODO: Use TCA to only display this view when some value != nil
          The current method works but we dont want the view to even be in memory if its not needed
          */
-        WithViewStore(self.store) { viewStore in
+        
             ZStack {
                 VStack {
                     Capsule()
@@ -46,14 +52,17 @@ struct ServiceRequestView: View {
                             .padding(.top)
                     
                     case .accepted:
+                        Text("Help has been called...")
+                            .padding(.top)
+                        ResponderView()
+                        
+                    case .started:
                         Text("Help is on the way...")
                             .padding(.top)
                         ResponderView()
-                    case .completed:
-                        Text("Trip Completed")
+                        
                     }
                 }
-            }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(.bottom, 50)
             .background(Color.theme.background.clipShape(CustomCorner(corners: [.topLeft, .topRight])))

@@ -15,6 +15,7 @@ struct EmergencyFeature: ReducerProtocol {
         var route: Route = .confirming
         var connectivityState = ConnectivityState.disconnected
         var serviceRequestFeature: ServiceRequestFeature.State?
+        var emergency: EmergencyModel?
     }
     
     enum Route: Equatable {
@@ -66,11 +67,15 @@ struct EmergencyFeature: ReducerProtocol {
             case .serviceRequestAction(.accept):
                 return .none
                 
-            case .serviceRequestAction(.updatePaymentMethod):
+            case .serviceRequestAction(.start):
                 return .none
                 
             case .serviceRequestAction(.complete):
                 return .none
+                
+            case .serviceRequestAction(.updatePaymentMethod):
+                return .none
+                
                 
             case .onAppear:
                 state.isPresented = true
@@ -78,18 +83,37 @@ struct EmergencyFeature: ReducerProtocol {
                 return .none
                 
             case .cancel:
-                //state.serviceRequestFeature = nil
-                state.isPresented = false
-                return .none
+                if state.serviceRequestFeature?.route != .idle {
+                    let messageToSend = "{\"type\": \"cancel.emergency\", \"id\": \"\(state.emergency?.id ?? "")\"}"
+                    return .task {
+                        print("DEBUG: SENDING CANCELLATION: \(messageToSend)")
+                        try await websocket.send(WebSocketID.self, .string(messageToSend))
+                        return .sendResponse(didSucceed: true)
+                    } catch: { _ in
+                            .sendResponse(didSucceed: false)
+                    }
+                        .cancellable(id: WebSocketID.self)
+                }
+                else {
+                    state.isPresented = false
+                    return .task {
+                        return .connectOrDisconnect
+                    }
+                }
+                
                 
             case .connectOrDisconnect:
                 switch state.connectivityState {
                     
                 case .connected, .connecting:
+                    
                     state.connectivityState = .disconnected
+                    state.isPresented = false
+                    
                     return .cancel(id: WebSocketID.self)
                     
                 case .disconnected:
+                    
                     state.connectivityState = .connecting
                     
                     return .run { send in
@@ -153,6 +177,7 @@ struct EmergencyFeature: ReducerProtocol {
                 return .none
                 
             case .webSocket(.didClose):
+                
                 state.connectivityState = .disconnected
                 return .cancel(id: WebSocketID.self)
                 
@@ -160,26 +185,40 @@ struct EmergencyFeature: ReducerProtocol {
             case let .receivedSocketMessage(.success(message)):
                 if case let .string(string) = message {
                     
-                   
                     print(string)
                     let decoder = JSONDecoder()
+                    state.emergency = try! decoder.decode(EmergencyModel.self, from: string.data(using: .utf8)!)
                     
-                    let emergency = try! decoder.decode(EmergencyModel.self, from: string.data(using: .utf8)!)
-                    print(emergency)
+                    let type = state.emergency?.type ?? ""
                     
-                    let type = emergency.type ?? ""
-                    
-                    if(type == "accept.emergency"){
+                    switch type {
+                        
+                    case "cancel.emergency":
                         return .task {
-                            return .serviceRequestAction(.accept)
+                            return .connectOrDisconnect
                         }
                         
+                    case "start.emergency":
+                        return .task {
+                            return .serviceRequestAction(.start)
+                        }
+                        
+                    case "complete.emergency":
+                        return .task {
+                            return .serviceRequestAction(.complete)
+                        }
+                        
+                    default:
+                        return .none
                     }
                 }
                 
                 return .none
+                
+                
             case .receivedSocketMessage(.failure):
                 return .none
+                
             }
         }
         .ifLet(\.serviceRequestFeature, action: /Action.serviceRequestAction) {
