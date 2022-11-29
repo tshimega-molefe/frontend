@@ -17,13 +17,13 @@ struct SettingsFeature: ReducerProtocol {
     
     enum Route: Equatable {
         case idle
-        case help
-        case wallet
-        case history
-        case messages
-        case evidence
-        case settings
-        case legal
+        case helpView
+        case walletView
+        case historyView
+        case messagesView
+        case evidenceView
+        case accountView
+        case legalView
     }
     
     enum Action: Equatable {
@@ -32,7 +32,7 @@ struct SettingsFeature: ReducerProtocol {
         case openHistory
         case openMessages
         case openEvidence
-        case openSettings
+        case openAccount
         case openLegal
         case onAppear
         case closeSettings
@@ -43,31 +43,31 @@ struct SettingsFeature: ReducerProtocol {
             switch action {
                 
             case .openHelp:
-                state.route = .help
+                state.route = .helpView
                 return .none
                 
             case .openWallet:
-                state.route = .wallet
+                state.route = .walletView
                 return .none
                 
             case .openHistory:
-                state.route = .history
+                state.route = .historyView
                 return .none
                 
             case .openMessages:
-                state.route = .messages
+                state.route = .messagesView
                 return .none
                 
             case .openEvidence:
-                state.route = .evidence
+                state.route = .evidenceView
                 return .none
                 
-            case .openSettings:
-                state.route = .settings
+            case .openAccount:
+                state.route = .accountView
                 return .none
                 
             case .openLegal:
-                state.route = .legal
+                state.route = .legalView
                 return .none
                 
             case .onAppear:

@@ -32,15 +32,13 @@
 		958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830028EEEEA0000C0219 /* LocationSearchService.swift */; };
 		958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830228EF1776000C0219 /* SecurityMapViewState.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
-		959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959ED96D29074D8D00F59AD3 /* EvidenceView.swift */; };
+		959ED96E29074D8E00F59AD3 /* SettingsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */; };
 		959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCB328F5873700F141CA /* ServiceRequestView.swift */; };
 		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
 		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
 		95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC2B4290ADF24000FE158 /* HelpViewState.swift */; };
 		95B8F047290AF7F900D07171 /* EmergencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8F046290AF7F900D07171 /* EmergencyButton.swift */; };
-		95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* MessagesView.swift */; };
-		95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */; };
-		95B9D0522907E34A00E59136 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D0512907E34A00E59136 /* LegalView.swift */; };
+		95B9D04E2907E31200E59136 /* SettingsTypeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */; };
 		95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA2947293643F000E5F54D /* SettingsFeature.swift */; };
 		95DA294A2936441600E5F54D /* SecurityFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA29492936441600E5F54D /* SecurityFeature.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
@@ -111,15 +109,13 @@
 		958F830028EEEEA0000C0219 /* LocationSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchService.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/User/User.swift; sourceTree = SOURCE_ROOT; };
-		959ED96D29074D8D00F59AD3 /* EvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceView.swift; sourceTree = "<group>"; };
+		959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTypeView.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		95ACC2B4290ADF24000FE158 /* HelpViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewState.swift; sourceTree = "<group>"; };
 		95B8F046290AF7F900D07171 /* EmergencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyButton.swift; sourceTree = "<group>"; };
-		95B9D04D2907E31200E59136 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
-		95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
-		95B9D0512907E34A00E59136 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
+		95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTypeFeature.swift; sourceTree = "<group>"; };
 		95DA2947293643F000E5F54D /* SettingsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeature.swift; sourceTree = "<group>"; };
 		95DA29492936441600E5F54D /* SecurityFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityFeature.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
@@ -188,6 +184,8 @@
 				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 				9586C0E028FDB569005E978D /* PillButton.swift */,
 				95078FA928FDDAD6001A8B1E /* CancelButton.swift */,
+				B376FEB629142F6E00CA6AFD /* SettingsTab.swift */,
+				B376FEB82914316700CA6AFD /* SettingsRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -425,12 +423,8 @@
 			children = (
 				95DA2947293643F000E5F54D /* SettingsFeature.swift */,
 				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
-				959ED96D29074D8D00F59AD3 /* EvidenceView.swift */,
-				95B9D04D2907E31200E59136 /* MessagesView.swift */,
-				95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */,
-				95B9D0512907E34A00E59136 /* LegalView.swift */,
-				B376FEB629142F6E00CA6AFD /* SettingsTab.swift */,
-				B376FEB82914316700CA6AFD /* SettingsRow.swift */,
+				95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */,
+				959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -612,19 +606,17 @@
 				958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */,
 				B38CDEC62935544B0005BC9D /* MapFeature.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
-				95B9D0522907E34A00E59136 /* LegalView.swift in Sources */,
 				B376FEAF2912628200CA6AFD /* KeychainHelper.swift in Sources */,
-				959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */,
+				959ED96E29074D8E00F59AD3 /* SettingsTypeView.swift in Sources */,
 				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
-				95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */,
+				95B9D04E2907E31200E59136 /* SettingsTypeFeature.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* CancelButton.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				B317C03129212FCA00CD924B /* EmergencyFeature.swift in Sources */,
 				95DA294A2936441600E5F54D /* SecurityFeature.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9586C0E328FDB8B7005E978D /* SecurityServiceCard.swift in Sources */,
-				95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */,
 				B376FEAD2912622A00CA6AFD /* AuthViewModel.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,
 				9590D4CA28E4D7DD00617C64 /* User.swift in Sources */,
