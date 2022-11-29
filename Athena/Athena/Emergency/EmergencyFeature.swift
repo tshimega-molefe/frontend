@@ -65,16 +65,7 @@ struct EmergencyFeature: ReducerProtocol {
                 .cancellable(id: WebSocketID.self)
                 
                 
-            case .serviceRequestAction(.accept):
-                return .none
-                
-            case .serviceRequestAction(.start):
-                return .none
-                
-            case .serviceRequestAction(.complete):
-                return .none
-                
-            case .serviceRequestAction(.updatePaymentMethod):
+            case .serviceRequestAction(_):
                 return .none
                 
                 
@@ -242,16 +233,7 @@ struct EmergencyFeature: ReducerProtocol {
             case .receivedSocketMessage(.failure):
                 return .none
                 
-            case .mapAction(.calculateRoute(_, _)):
-                return .none
-            case .mapAction(.longPress(_)):
-                return .none
-            case .mapAction(.routeResponse(_)):
-                return .none
-            case .mapAction(.getDirections):
-                return .none
-            case .mapAction(.removeCitizen):
-                return .none
+            
                 
             case let .mapAction(.updateCitizenLocation(newCoordinate)):
                 let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
@@ -264,8 +246,9 @@ struct EmergencyFeature: ReducerProtocol {
                 }
                 .cancellable(id: WebSocketID.self)
                 
-            case .mapAction(.updateSecurityLocation(_)):
+            case .mapAction(_):
                 return .none
+            
             }
         }
         .ifLet(\.mapFeature, action: /Action.mapAction) {

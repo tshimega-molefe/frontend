@@ -12,10 +12,15 @@ import ComposableArchitecture
 struct SettingsView: View {
     @Environment(\.presentationMode) private var presentationMode
     
+    @ObservedObject var viewStore: ViewStore<SettingsFeature.State, SettingsFeature.Action>
     let store: Store<SettingsFeature.State, SettingsFeature.Action>
+    
+    init(store: Store<SettingsFeature.State, SettingsFeature.Action>) {
+      self.store = store
+      self.viewStore = ViewStore(self.store)
+    }
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
             
             switch viewStore.state.route {
 
@@ -49,16 +54,16 @@ struct SettingsView: View {
                     VStack (alignment: .leading, spacing: 60) {
                         
                         SettingsRow(rowType: .messages) {
-                            viewStore.state.route = .messagesView
+                            viewStore.send(.openMessages)
                         }
                         SettingsRow(rowType: .evidence) {
-                            viewStore.state.route = .evidenceView
+                            viewStore.send(.openEvidence)
                         }
                         SettingsRow(rowType: .settings) {
-                            viewStore.state.route = .accountView
+                            viewStore.send(.openAccount)
                         }
                         SettingsRow(rowType: .legal) {
-                            viewStore.state.route = .legalView
+                            viewStore.send(.openLegal)
                         }
                     }
                 }
@@ -74,7 +79,7 @@ struct SettingsView: View {
                 Text("Hi")
             case .evidenceView:
                 Text("Hi")
-            case .settingsView:
+            case .accountView:
                 Text("Hi")
             case .legalView:
                 Text("Hi")
@@ -82,7 +87,7 @@ struct SettingsView: View {
             }
         }
     }
-}
+
 
 struct ProfileTab: View {
     @EnvironmentObject var userAuth: AuthViewModel
