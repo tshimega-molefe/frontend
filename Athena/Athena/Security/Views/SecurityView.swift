@@ -20,10 +20,9 @@ struct SecurityView: View {
         
         if selectedService == .noInput {
             VStack {
-                MapView(coordinate: coordinate)
+                //CustomMapView(coordinate: coordinate)
                 SecurityServiceCard(selectedService: $selectedService)
             }
-            .edgesIgnoringSafeArea(.top)
             
         }
         else if selectedService == .escort || selectedService == .vip {

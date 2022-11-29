@@ -44,8 +44,6 @@ struct HomeTabView: View {
     }
 }
 
-//  MARK: Lifecycle
-
 //  MARK: Extensions
 
 extension HomeTabView {

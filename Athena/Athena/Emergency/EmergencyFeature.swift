@@ -5,8 +5,9 @@
 //  Created by Dev Jacobson on 2022/11/13.
 //
 
-import ComposableArchitecture
 import Foundation
+import ComposableArchitecture
+import CoreLocation
 
 struct EmergencyFeature: ReducerProtocol {
     
@@ -15,7 +16,8 @@ struct EmergencyFeature: ReducerProtocol {
         var route: Route = .confirming
         var connectivityState = ConnectivityState.disconnected
         var serviceRequestFeature: ServiceRequestFeature.State?
-        var emergency: EmergencyModel?
+        var mapFeature: MapFeature.State?
+        var emergency: EmergencyModel = EmergencyModel()
     }
     
     enum Route: Equatable {
@@ -32,12 +34,13 @@ struct EmergencyFeature: ReducerProtocol {
     
     enum Action: Equatable {
         case serviceRequestAction(ServiceRequestFeature.Action)
+        case mapAction(MapFeature.Action)
         case onAppear
         case cancel
         case connectOrDisconnect
         case sendResponse(didSucceed: Bool)
-        case webSocket(WebSocketClientComposable.Action)
-        case receivedSocketMessage(TaskResult<WebSocketClientComposable.Message>)
+        case webSocket(WebSocketClient.Action)
+        case receivedSocketMessage(TaskResult<WebSocketClient.Message>)
     }
     
     @Dependency(\.websocket) private var websocket
@@ -51,8 +54,6 @@ struct EmergencyFeature: ReducerProtocol {
             switch action {
                 
             case .serviceRequestAction(.confirm):
-                //let messageToSend = state.messageToSend
-                //state.messageToSend = ""
                 let messageToSend = "{\"type\": \"create.emergency\"}"
                 return .task {
                     print("DEBUG: SENDING CREATION: \(messageToSend)")
@@ -79,12 +80,16 @@ struct EmergencyFeature: ReducerProtocol {
                 
             case .onAppear:
                 state.isPresented = true
+                state.mapFeature = MapFeature.State(mapMode: .citizen)
                 state.serviceRequestFeature = ServiceRequestFeature.State()
                 return .none
                 
             case .cancel:
+                //state.mapFeature = nil
+                //state.serviceRequestFeature = nil
+                
                 if state.serviceRequestFeature?.route != .idle {
-                    let messageToSend = "{\"type\": \"cancel.emergency\", \"id\": \"\(state.emergency?.id ?? "")\"}"
+                    let messageToSend = "{\"type\": \"cancel.emergency\", \"id\": \"\(state.emergency.id ?? "")\"}"
                     return .task {
                         print("DEBUG: SENDING CANCELLATION: \(messageToSend)")
                         try await websocket.send(WebSocketID.self, .string(messageToSend))
@@ -173,6 +178,7 @@ struct EmergencyFeature: ReducerProtocol {
                 return .none
                 
             case .webSocket(.didOpen):
+                
                 state.connectivityState = .connected
                 return .none
                 
@@ -185,11 +191,10 @@ struct EmergencyFeature: ReducerProtocol {
             case let .receivedSocketMessage(.success(message)):
                 if case let .string(string) = message {
                     
-                    print(string)
                     let decoder = JSONDecoder()
                     state.emergency = try! decoder.decode(EmergencyModel.self, from: string.data(using: .utf8)!)
                     
-                    let type = state.emergency?.type ?? ""
+                    let type = state.emergency.type ?? ""
                     
                     switch type {
                         
@@ -197,7 +202,6 @@ struct EmergencyFeature: ReducerProtocol {
                         return .task {
                             return .connectOrDisconnect
                         }
-                        
                         
                     case "start.emergency":
                         return .task {
@@ -207,6 +211,19 @@ struct EmergencyFeature: ReducerProtocol {
                     case "accept.emergency":
                         return .task {
                             return .serviceRequestAction(.accept)
+                        }
+                        
+                    case "update.emergency":
+                        
+                        if let security = state.emergency.security {                            
+                            return .task { [securityCoordinate = security.coordinate] in
+                                
+                                let lat = securityCoordinate.latitude
+                                let long = securityCoordinate.longitude
+                                let coordinate = CLLocationCoordinate2DMake(lat, long)
+                                
+                                return .mapAction(.updateSecurityLocation(coordinate))
+                            }
                         }
                         
                     case "complete.emergency":
@@ -225,7 +242,34 @@ struct EmergencyFeature: ReducerProtocol {
             case .receivedSocketMessage(.failure):
                 return .none
                 
+            case .mapAction(.calculateRoute(_, _)):
+                return .none
+            case .mapAction(.longPress(_)):
+                return .none
+            case .mapAction(.routeResponse(_)):
+                return .none
+            case .mapAction(.getDirections):
+                return .none
+            case .mapAction(.removeCitizen):
+                return .none
+                
+            case let .mapAction(.updateCitizenLocation(newCoordinate)):
+                let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
+                
+                return .task {
+                    try await websocket.send(WebSocketID.self, .string(messageToSend))
+                    return .sendResponse(didSucceed: true)
+                } catch: { _ in
+                        .sendResponse(didSucceed: false)
+                }
+                .cancellable(id: WebSocketID.self)
+                
+            case .mapAction(.updateSecurityLocation(_)):
+                return .none
             }
+        }
+        .ifLet(\.mapFeature, action: /Action.mapAction) {
+            MapFeature()
         }
         .ifLet(\.serviceRequestFeature, action: /Action.serviceRequestAction) {
             ServiceRequestFeature()

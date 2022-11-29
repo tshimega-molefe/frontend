@@ -16,32 +16,46 @@ struct EmergencyView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            ZStack(alignment: .bottom) {
-                MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011286, longitude: -116.166868))
-                
-                IfLetStore(
-                    self.store.scope(
-                        state: \.serviceRequestFeature,
-                        action: EmergencyFeature.Action.serviceRequestAction)
-                ) { requestStore in
-                    ServiceRequestView(store: requestStore)
-                }
-            }
-            .onAppear {
-                viewStore.send(.connectOrDisconnect)
-                viewStore.send(.onAppear)
-            }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(
-                leading:
-                    PillButton(text: "Cancel") { viewStore.send(.cancel) }
-            )
-            .onChange(of: viewStore.isPresented) { presented in
-                if !presented {
-                    self.presentationMode.wrappedValue.dismiss()
+            GeometryReader { geo in
+                VStack(alignment: .center) {
                     
+                    IfLetStore(
+                        self.store.scope(
+                            state: \.mapFeature,
+                            action: EmergencyFeature.Action.mapAction)
+                    ) { mapStore in
+                        CustomMapView(store: mapStore)
+                            
+                    }
+                    .frame(height: geo.size.height / 2.5)
+                    
+                    
+                    IfLetStore(
+                        self.store.scope(
+                            state: \.serviceRequestFeature,
+                            action: EmergencyFeature.Action.serviceRequestAction)
+                    ) { requestStore in
+                        ServiceRequestView(store: requestStore)
+                    }
+                }
+                .edgesIgnoringSafeArea(.top)
+                .onAppear {
+                    viewStore.send(.onAppear)
+                    viewStore.send(.connectOrDisconnect)
+                }
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(
+                    leading:
+                        PillButton(text: "Cancel") { viewStore.send(.cancel) }
+                )
+                .onChange(of: viewStore.isPresented) { presented in
+                    if !presented {
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                    }
                 }
             }
+            
         }
     }
 }

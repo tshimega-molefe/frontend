@@ -73,12 +73,16 @@
 		B328B25F2921A859007AE687 /* ServiceRequestFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328B25E2921A859007AE687 /* ServiceRequestFeature.swift */; };
 		B376FEAD2912622A00CA6AFD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEAC2912622A00CA6AFD /* AuthViewModel.swift */; };
 		B376FEAF2912628200CA6AFD /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEAE2912628200CA6AFD /* KeychainHelper.swift */; };
-		B376FEB12912857700CA6AFD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB02912857700CA6AFD /* MapView.swift */; };
 		B376FEB52912FA7D00CA6AFD /* SecurityConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB42912FA7D00CA6AFD /* SecurityConfig.swift */; };
 		B376FEB729142F6E00CA6AFD /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB629142F6E00CA6AFD /* SettingsTab.swift */; };
 		B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB82914316700CA6AFD /* SettingsRow.swift */; };
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
 		B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */; };
+		B38CDEC42935542E0005BC9D /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38CDEC32935542E0005BC9D /* CustomMapView.swift */; };
+		B38CDEC62935544B0005BC9D /* MapFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38CDEC52935544B0005BC9D /* MapFeature.swift */; };
+		B38CDEC9293558B90005BC9D /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */; };
+		B38CDECB293558B90005BC9D /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDECA293558B90005BC9D /* MapboxNavigation */; };
+		B38CDECD293558F50005BC9D /* NavigationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38CDECC293558F50005BC9D /* NavigationClient.swift */; };
 		B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3F158AC2925279D0067DC28 /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
@@ -149,12 +153,14 @@
 		B328B25E2921A859007AE687 /* ServiceRequestFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestFeature.swift; sourceTree = "<group>"; };
 		B376FEAC2912622A00CA6AFD /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = Athena/Authentication/Views/AuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B376FEAE2912628200CA6AFD /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Athena/Authentication/Helpers/KeychainHelper.swift; sourceTree = SOURCE_ROOT; };
-		B376FEB02912857700CA6AFD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B376FEB42912FA7D00CA6AFD /* SecurityConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityConfig.swift; sourceTree = "<group>"; };
 		B376FEB629142F6E00CA6AFD /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B376FEB82914316700CA6AFD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		B376FEBA291479DA00CA6AFD /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
 		B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
+		B38CDEC32935542E0005BC9D /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
+		B38CDEC52935544B0005BC9D /* MapFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFeature.swift; sourceTree = "<group>"; };
+		B38CDECC293558F50005BC9D /* NavigationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38CDECB293558B90005BC9D /* MapboxNavigation in Frameworks */,
+				B38CDEC9293558B90005BC9D /* MapboxCoreNavigation in Frameworks */,
 				B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */,
 				956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */,
 				956273DA291E5E9200607CA9 /* Dependencies in Frameworks */,
@@ -179,7 +187,6 @@
 				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 				9586C0E028FDB569005E978D /* PillButton.swift */,
 				95078FA928FDDAD6001A8B1E /* CancelButton.swift */,
-				B376FEB02912857700CA6AFD /* MapView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				9588D53028ED8C8A00DC1557 /* LocationSearch */,
 				95FCEC4D28E1DDCC00ABE5CA /* HomeTab */,
 				95FCEC5128E1DEC800ABE5CA /* Status */,
+				B38CDEC22935541F0005BC9D /* Map */,
 				95FCEC5028E1DEC500ABE5CA /* Security */,
 				95FCEC4828E1DBB000ABE5CA /* Emergency */,
 				B328B25D2921A7CB007AE687 /* Service Request */,
@@ -395,6 +403,7 @@
 				959FDCBA28F5A45B00F141CA /* Webservice.swift */,
 				958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */,
 				956273E1291E611800607CA9 /* APIError.swift */,
+				B38CDECC293558F50005BC9D /* NavigationClient.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -483,6 +492,15 @@
 			path = "Service Request";
 			sourceTree = "<group>";
 		};
+		B38CDEC22935541F0005BC9D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B38CDEC32935542E0005BC9D /* CustomMapView.swift */,
+				B38CDEC52935544B0005BC9D /* MapFeature.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,6 +521,8 @@
 				956273D7291E5E9200607CA9 /* ComposableArchitecture */,
 				956273D9291E5E9200607CA9 /* Dependencies */,
 				B3F158AC2925279D0067DC28 /* MapboxMaps */,
+				B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */,
+				B38CDECA293558B90005BC9D /* MapboxNavigation */,
 			);
 			productName = Athena;
 			productReference = 9576893828E0644F009FDCE2 /* Athena.app */;
@@ -535,6 +555,7 @@
 			packageReferences = (
 				956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
 			);
 			productRefGroup = 9576893928E0644F009FDCE2 /* Products */;
 			projectDirPath = "";
@@ -597,6 +618,7 @@
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */,
+				B38CDECD293558F50005BC9D /* NavigationClient.swift in Sources */,
 				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9586C0E528FDBD2E005E978D /* SecurityCardRow.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
@@ -607,13 +629,14 @@
 				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
 				B376FEB52912FA7D00CA6AFD /* SecurityConfig.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
+				B38CDEC42935542E0005BC9D /* CustomMapView.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				B328B25F2921A859007AE687 /* ServiceRequestFeature.swift in Sources */,
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */,
+				B38CDEC62935544B0005BC9D /* MapFeature.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
-				B376FEB12912857700CA6AFD /* MapView.swift in Sources */,
 				95B9D0522907E34A00E59136 /* LegalView.swift in Sources */,
 				B376FEAF2912628200CA6AFD /* KeychainHelper.swift in Sources */,
 				959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */,
@@ -858,6 +881,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-navigation-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
@@ -878,6 +909,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxCoreNavigation;
+		};
+		B38CDECA293558B90005BC9D /* MapboxNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxNavigation;
 		};
 		B3F158AC2925279D0067DC28 /* MapboxMaps */ = {
 			isa = XCSwiftPackageProductDependency;

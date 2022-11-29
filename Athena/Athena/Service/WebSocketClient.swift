@@ -2,7 +2,7 @@ import Foundation
 import ComposableArchitecture
 import XCTestDynamicOverlay
 
-struct WebSocketClientComposable {
+struct WebSocketClient {
     enum Action: Equatable {
         case didOpen(protocol: String?)
         case didClose(code: URLSessionWebSocketTask.CloseCode, reason: Data?)
@@ -32,7 +32,7 @@ struct WebSocketClientComposable {
     var sendPing: @Sendable (Any.Type) async throws -> Void
 }
 
-extension WebSocketClientComposable {
+extension WebSocketClient {
     static var live: Self {
         
         final actor WebSocketActor: GlobalActor {
@@ -147,11 +147,11 @@ extension WebSocketClientComposable {
 
 
 private enum WebsocketClientKey: DependencyKey {
-    static var liveValue = WebSocketClientComposable.live
+    static var liveValue = WebSocketClient.live
 }
 
 extension DependencyValues {
-    var websocket: WebSocketClientComposable {
+    var websocket: WebSocketClient {
         get { self[WebsocketClientKey.self] }
         set { self[WebsocketClientKey.self] = newValue }
     }
