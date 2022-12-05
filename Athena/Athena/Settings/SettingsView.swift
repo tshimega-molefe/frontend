@@ -6,51 +6,88 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
 
 struct SettingsView: View {
+    @Environment(\.presentationMode) private var presentationMode
     
-    @State private var showHelpView: Bool = false
-    @State private var showWalletView: Bool = false
-    @State private var showHistoryView: Bool = false
+    @ObservedObject var viewStore: ViewStore<SettingsFeature.State, SettingsFeature.Action>
+    let store: Store<SettingsFeature.State, SettingsFeature.Action>
     
+    init(store: Store<SettingsFeature.State, SettingsFeature.Action>) {
+      self.store = store
+      self.viewStore = ViewStore(self.store)
+    }
+
     var body: some View {
-        
-        ScrollView {
-            VStack (alignment: .leading) {
-                HStack {
-                    VStack (alignment: .leading, spacing: 20) {
-                        ProfileTab()
-                        
-                        HStack (alignment: .center, spacing: 20) {
-                            SettingsTab(imageName: "questionmark.circle", text: "Help") {
-                                print("DEBUG: Help tab clicked in Settings")
-                            }
-                            SettingsTab(imageName: "creditcard", text: "Wallet") {
-                                print("DEBUG: Wallet tab clicked in Settings")
-                            }
-                            SettingsTab(imageName: "clock", text: "History") {
-                                print("DEBUG: History tab clicked in Settings")
-                            }
+            
+            switch viewStore.state.route {
+
+            case .idle:
+                // TODO: Extract this Idle View to an ExtractedView
+                VStack (alignment: .leading) {
+                    HStack {
+                        VStack (alignment: .leading, spacing: 20) {
+                            ProfileTab()
                             
-                        }
-                    }.padding()
-                }
-                
-                Divider()
-                    .padding(.bottom)
-                    .shadow(color: Color.theme.shadow, radius: 7)
-                
-                VStack (alignment: .leading, spacing: 60) {
+                            HStack (alignment: .center, spacing: 20) {
+                                SettingsTab(imageName: "questionmark.circle", text: "Help") {
+                                    print("DEBUG: Help tab clicked in Settings")
+                                }
+                                SettingsTab(imageName: "creditcard", text: "Wallet") {
+                                    print("DEBUG: Wallet tab clicked in Settings")
+                                }
+                                SettingsTab(imageName: "clock", text: "History") {
+                                    print("DEBUG: History tab clicked in Settings")
+                                }
+                                
+                            }
+                        }.padding()
+                    }
                     
-                    MessagesTab()
-                    EvidenceTab()
-                    SettingsTab2()
-                    LegalTab()
+                    Divider()
+                        .padding(.bottom)
+                        .shadow(color: Color.theme.shadow, radius: 7)
+                    
+                    ScrollView {
+                    VStack (alignment: .leading, spacing: 60) {
+                        
+                        SettingsRow(rowType: .messages) {
+                            viewStore.send(.openMessages)
+                        }
+                        SettingsRow(rowType: .evidence) {
+                            viewStore.send(.openEvidence)
+                        }
+                        SettingsRow(rowType: .settings) {
+                            viewStore.send(.openAccount)
+                        }
+                        SettingsRow(rowType: .legal) {
+                            viewStore.send(.openLegal)
+                        }
+                    }
                 }
+            }
+                
+            case .helpView:
+                Text("Hi")
+            case .walletView:
+                Text("Hi")
+            case .historyView:
+                Text("Hi")
+            case .messagesView:
+                Text("Hi")
+            case .evidenceView:
+                Text("Hi")
+            case .accountView:
+                Text("Hi")
+            case .legalView:
+                Text("Hi")
+            
             }
         }
     }
-}
+
 
 struct ProfileTab: View {
     @EnvironmentObject var userAuth: AuthViewModel
@@ -75,97 +112,11 @@ struct ProfileTab: View {
     }
 }
 
-struct EvidenceTab: View {
-    var body: some View {
-        
-        NavigationLink {
-            EvidenceView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "archivebox")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Evidence")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-        
-    }
-}
-struct MessagesTab: View {
-    var body: some View {
-        NavigationLink {
-            MessagesView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "message")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Messages")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-    }
-}
-struct SettingsTab2: View {
-    var body: some View {
-        
-        NavigationLink {
-            GeneralSettingsView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "gearshape")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Settings")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-    }
-}
-struct LegalTab: View {
-    var body: some View {
-        
-        NavigationLink {
-            LegalView()
-        } label: {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "exclamationmark.circle")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-                Text("Legal")
-                    .font(.custom(FontsManager.Poppins.regular, size: 16))
-                    .foregroundColor(Color.theme.primaryText)
-                
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 10)
-    }
-}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(store: Store(initialState: SettingsFeature.State(),
+                                  reducer: AnyReducer(SettingsFeature()),
+                                 environment: ()))
     }
 }

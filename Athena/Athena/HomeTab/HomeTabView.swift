@@ -81,8 +81,11 @@ extension HomeTabView {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }.tag(Tab.search)
+            
             NavigationView {
-                SettingsView()
+                SettingsView(store: Store(initialState: SettingsFeature.State(),
+                                          reducer: AnyReducer(SettingsFeature()),
+                                         environment: ()))
             }
             .tabItem {
                 Image(systemName: "gear")

@@ -32,16 +32,15 @@
 		958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830028EEEEA0000C0219 /* LocationSearchService.swift */; };
 		958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830228EF1776000C0219 /* SecurityMapViewState.swift */; };
 		9590D4CA28E4D7DD00617C64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590D4C928E4D7DD00617C64 /* User.swift */; };
-		959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959ED96D29074D8D00F59AD3 /* EvidenceView.swift */; };
+		959ED96E29074D8E00F59AD3 /* SettingsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */; };
 		959FDCB428F5873700F141CA /* ServiceRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCB328F5873700F141CA /* ServiceRequestView.swift */; };
 		959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FDCBA28F5A45B00F141CA /* Webservice.swift */; };
 		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
-		95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */; };
 		95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC2B4290ADF24000FE158 /* HelpViewState.swift */; };
 		95B8F047290AF7F900D07171 /* EmergencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8F046290AF7F900D07171 /* EmergencyButton.swift */; };
-		95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* MessagesView.swift */; };
-		95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */; };
-		95B9D0522907E34A00E59136 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D0512907E34A00E59136 /* LegalView.swift */; };
+		95B9D04E2907E31200E59136 /* SettingsTypeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */; };
+		95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA2947293643F000E5F54D /* SettingsFeature.swift */; };
+		95DA294A2936441600E5F54D /* SecurityFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA29492936441600E5F54D /* SecurityFeature.swift */; };
 		95E6AED128E07BC8002DC84A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */; };
 		95E6AED228E07BC8002DC84A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */; };
 		95E6AED328E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */; };
@@ -73,7 +72,6 @@
 		B328B25F2921A859007AE687 /* ServiceRequestFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328B25E2921A859007AE687 /* ServiceRequestFeature.swift */; };
 		B376FEAD2912622A00CA6AFD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEAC2912622A00CA6AFD /* AuthViewModel.swift */; };
 		B376FEAF2912628200CA6AFD /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEAE2912628200CA6AFD /* KeychainHelper.swift */; };
-		B376FEB52912FA7D00CA6AFD /* SecurityConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB42912FA7D00CA6AFD /* SecurityConfig.swift */; };
 		B376FEB729142F6E00CA6AFD /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB629142F6E00CA6AFD /* SettingsTab.swift */; };
 		B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB82914316700CA6AFD /* SettingsRow.swift */; };
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
@@ -109,16 +107,15 @@
 		958F830028EEEEA0000C0219 /* LocationSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchService.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
 		9590D4C928E4D7DD00617C64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Athena/User/User.swift; sourceTree = SOURCE_ROOT; };
-		959ED96D29074D8D00F59AD3 /* EvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceView.swift; sourceTree = "<group>"; };
+		959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTypeView.swift; sourceTree = "<group>"; };
 		959FDCB328F5873700F141CA /* ServiceRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestView.swift; sourceTree = "<group>"; };
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewRepresentable.swift; sourceTree = "<group>"; };
 		95ACC2B4290ADF24000FE158 /* HelpViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewState.swift; sourceTree = "<group>"; };
 		95B8F046290AF7F900D07171 /* EmergencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyButton.swift; sourceTree = "<group>"; };
-		95B9D04D2907E31200E59136 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
-		95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
-		95B9D0512907E34A00E59136 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
+		95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTypeFeature.swift; sourceTree = "<group>"; };
+		95DA2947293643F000E5F54D /* SettingsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeature.swift; sourceTree = "<group>"; };
+		95DA29492936441600E5F54D /* SecurityFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityFeature.swift; sourceTree = "<group>"; };
 		95E6AEBE28E07BC8002DC84A /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		95E6AEBF28E07BC8002DC84A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		95E6AEC028E07BC8002DC84A /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -151,7 +148,6 @@
 		B328B25E2921A859007AE687 /* ServiceRequestFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestFeature.swift; sourceTree = "<group>"; };
 		B376FEAC2912622A00CA6AFD /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = Athena/Authentication/Views/AuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B376FEAE2912628200CA6AFD /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Athena/Authentication/Helpers/KeychainHelper.swift; sourceTree = SOURCE_ROOT; };
-		B376FEB42912FA7D00CA6AFD /* SecurityConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityConfig.swift; sourceTree = "<group>"; };
 		B376FEB629142F6E00CA6AFD /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B376FEB82914316700CA6AFD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		B376FEBA291479DA00CA6AFD /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
@@ -180,22 +176,14 @@
 		9522ABB828E09A1B00437D38 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9522ABBB28E0AA2900437D38 /* Authentication */,
+				9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */,
+				9522ABBE28E0E11200437D38 /* AuthButtonView.swift */,
 				9522ABB928E09A3100437D38 /* CustomInputField.swift */,
-				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 				9586C0E028FDB569005E978D /* PillButton.swift */,
+				9522ABC228E0EB8300437D38 /* CheckBoxView.swift */,
 				95078FA928FDDAD6001A8B1E /* CancelButton.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		9522ABBB28E0AA2900437D38 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				9522ABBC28E0AA4600437D38 /* AuthHeaderView.swift */,
-				9522ABBE28E0E11200437D38 /* AuthButtonView.swift */,
-			);
-			path = Authentication;
 			sourceTree = "<group>";
 		};
 		9534A3E028F6E9D200E01ADC /* Helpers */ = {
@@ -333,25 +321,6 @@
 			path = LocationSearch;
 			sourceTree = "<group>";
 		};
-		9588D53128ED8D2800DC1557 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				95A56BC728EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		9588D53228ED8D2E00DC1557 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
-				9586C0E228FDB8B7005E978D /* SecurityServiceCard.swift */,
-				9586C0E428FDBD2E005E978D /* SecurityCardRow.swift */,
-				B376FEB42912FA7D00CA6AFD /* SecurityConfig.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		9588D53328ED8D7900DC1557 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,8 +397,10 @@
 		95FCEC5028E1DEC500ABE5CA /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				9588D53128ED8D2800DC1557 /* ViewModels */,
-				9588D53228ED8D2E00DC1557 /* Views */,
+				95DA29492936441600E5F54D /* SecurityFeature.swift */,
+				95FCEC5628E1DFB400ABE5CA /* SecurityView.swift */,
+				9586C0E228FDB8B7005E978D /* SecurityServiceCard.swift */,
+				9586C0E428FDBD2E005E978D /* SecurityCardRow.swift */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -446,11 +417,10 @@
 		95FCEC5228E1DF1A00ABE5CA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95DA2947293643F000E5F54D /* SettingsFeature.swift */,
 				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
-				959ED96D29074D8D00F59AD3 /* EvidenceView.swift */,
-				95B9D04D2907E31200E59136 /* MessagesView.swift */,
-				95B9D04F2907E33800E59136 /* GeneralSettingsView.swift */,
-				95B9D0512907E34A00E59136 /* LegalView.swift */,
+				95B9D04D2907E31200E59136 /* SettingsTypeFeature.swift */,
+				959ED96D29074D8D00F59AD3 /* SettingsTypeView.swift */,
 				B376FEB629142F6E00CA6AFD /* SettingsTab.swift */,
 				B376FEB82914316700CA6AFD /* SettingsRow.swift */,
 			);
@@ -630,9 +600,8 @@
 				958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */,
 				B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */,
 				95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */,
+				95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */,
 				956273E2291E611800607CA9 /* APIError.swift in Sources */,
-				95A56BC828EC5B0C00BC1C2E /* SecurityMapViewRepresentable.swift in Sources */,
-				B376FEB52912FA7D00CA6AFD /* SecurityConfig.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				B328B25F2921A859007AE687 /* ServiceRequestFeature.swift in Sources */,
@@ -640,18 +609,17 @@
 				95FCEC5928E1DFC600ABE5CA /* SearchView.swift in Sources */,
 				958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */,
 				9522ABBA28E09A3100437D38 /* CustomInputField.swift in Sources */,
-				95B9D0522907E34A00E59136 /* LegalView.swift in Sources */,
 				B376FEAF2912628200CA6AFD /* KeychainHelper.swift in Sources */,
-				959ED96E29074D8E00F59AD3 /* EvidenceView.swift in Sources */,
+				959ED96E29074D8E00F59AD3 /* SettingsTypeView.swift in Sources */,
 				95FCEC5F28E1F64A00ABE5CA /* StatusMapViewRepresentable.swift in Sources */,
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
-				95B9D04E2907E31200E59136 /* MessagesView.swift in Sources */,
+				95B9D04E2907E31200E59136 /* SettingsTypeFeature.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* CancelButton.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
 				B317C03129212FCA00CD924B /* EmergencyFeature.swift in Sources */,
+				95DA294A2936441600E5F54D /* SecurityFeature.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,
 				9586C0E328FDB8B7005E978D /* SecurityServiceCard.swift in Sources */,
-				95B9D0502907E33800E59136 /* GeneralSettingsView.swift in Sources */,
 				B376FEAD2912622A00CA6AFD /* AuthViewModel.swift in Sources */,
 				9522ABBD28E0AA4600437D38 /* AuthHeaderView.swift in Sources */,
 				9590D4CA28E4D7DD00617C64 /* User.swift in Sources */,
