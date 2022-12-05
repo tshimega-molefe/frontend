@@ -14,8 +14,7 @@ import MapboxDirections
 import ComposableArchitecture
 import Combine
 
-
-struct CustomMapView: UIViewControllerRepresentable {
+struct ServiceMap: UIViewControllerRepresentable {
     var store: StoreOf<MapFeature>
     
     func makeUIViewController(context: Context) -> MapViewController {
@@ -144,6 +143,9 @@ class MapViewController: UIViewController, AnnotationInteractionDelegate {
                     if let securityLocation = securityLocation {
                         (self?.userAnnotation == nil) ? self?.addAnnotation(coordinate: securityLocation) : self?.updateAnnotation(coordinate: securityLocation)
                     }
+                    else {
+                        self?.removeAnnotation()
+                    }
                 }
                 .store(in: &self.cancellables)
             
@@ -152,6 +154,9 @@ class MapViewController: UIViewController, AnnotationInteractionDelegate {
                 .sink { [weak self] citizenLocation in
                     if let citizenLocation = citizenLocation {
                         (self?.userAnnotation == nil) ? self?.addAnnotation(coordinate: citizenLocation) : self?.updateAnnotation(coordinate: citizenLocation)
+                    }
+                    else {
+                        self?.removeAnnotation()
                     }
                 }
                 .store(in: &self.cancellables)
@@ -178,11 +183,18 @@ class MapViewController: UIViewController, AnnotationInteractionDelegate {
         circleAnnotationManager.annotations = [userAnnotation]
     }
     
+    private func removeAnnotation() {
+        userAnnotation = nil
+        circleAnnotationManager.annotations = []
+    }
+    
     private func drawRoute(route: Route) {
         navigationMapView.show([route])
         navigationMapView.showRouteDurations(along: [route])
         navigationMapView.showWaypoints(on: route)
     }
+    
+    
     
     // Present the navigation view controller when the annotation is selected
     func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
@@ -206,6 +218,8 @@ public class CameraLocationConsumer: LocationConsumer {
     }
     
     public func locationUpdate(newLocation: Location) {
+        
+        
         mapView?.camera.ease(to: CameraOptions(center: newLocation.coordinate, zoom: 15), duration: 1.3)
         
         switch viewStore?.state.mapMode {

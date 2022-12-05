@@ -8,6 +8,7 @@
 import Foundation
 import ComposableArchitecture
 import CoreLocation
+import ServiceMap
 
 struct EmergencyFeature: ReducerProtocol {
     
@@ -85,7 +86,6 @@ struct EmergencyFeature: ReducerProtocol {
                 return .none
                 
             case .cancel:
-                //state.mapFeature = nil
                 //state.serviceRequestFeature = nil
                 
                 if state.serviceRequestFeature?.route != .idle {
@@ -198,7 +198,28 @@ struct EmergencyFeature: ReducerProtocol {
                     
                     switch type {
                         
+                    case "renew.emergency":
+                        switch state.emergency.status {
+                        case "ACCEPTED":
+                            
+                            state.serviceRequestFeature?.route = .accepted
+                            return .none
+                            
+                        case "IN PROGRESS":
+                            state.serviceRequestFeature?.route = .started
+                            
+                        case "REQUESTED":
+                            state.serviceRequestFeature?.route = .confirmed
+                            
+                        default:
+                            return .none
+                            
+                        }
+                        
+                        
                     case "cancel.emergency":
+                        state.mapFeature?.securityLocation = nil
+                        
                         return .task {
                             return .connectOrDisconnect
                         }
@@ -215,7 +236,7 @@ struct EmergencyFeature: ReducerProtocol {
                         
                     case "update.emergency":
                         
-                        if let security = state.emergency.security {                            
+                        if let security = state.emergency.security {
                             return .task { [securityCoordinate = security.coordinate] in
                                 
                                 let lat = securityCoordinate.latitude
@@ -227,6 +248,9 @@ struct EmergencyFeature: ReducerProtocol {
                         }
                         
                     case "complete.emergency":
+                        
+                        state.mapFeature?.securityLocation = nil
+                        
                         return .task {
                             return .serviceRequestAction(.complete)
                         }
@@ -254,6 +278,8 @@ struct EmergencyFeature: ReducerProtocol {
                 return .none
                 
             case let .mapAction(.updateCitizenLocation(newCoordinate)):
+                
+                
                 let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
                 
                 return .task {

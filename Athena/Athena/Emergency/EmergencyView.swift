@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import ComposableArchitecture
+import ServiceMap
 
 struct EmergencyView: View {
     @Environment(\.presentationMode) private var presentationMode
@@ -16,46 +17,44 @@ struct EmergencyView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            GeometryReader { geo in
-                VStack(alignment: .center) {
+            
+            VStack(alignment: .center) {
+                
+                IfLetStore(
+                    self.store.scope(
+                        state: \.mapFeature,
+                        action: EmergencyFeature.Action.mapAction)
+                ) { mapStore in
+                    ServiceMapView(store: mapStore)
                     
-                    IfLetStore(
-                        self.store.scope(
-                            state: \.mapFeature,
-                            action: EmergencyFeature.Action.mapAction)
-                    ) { mapStore in
-                        CustomMapView(store: mapStore)
-                            
-                    }
-                    .frame(height: geo.size.height / 2.5)
-                    
-                    
-                    IfLetStore(
-                        self.store.scope(
-                            state: \.serviceRequestFeature,
-                            action: EmergencyFeature.Action.serviceRequestAction)
-                    ) { requestStore in
-                        ServiceRequestView(store: requestStore)
-                    }
                 }
-                .edgesIgnoringSafeArea(.top)
-                .onAppear {
-                    viewStore.send(.onAppear)
-                    viewStore.send(.connectOrDisconnect)
-                }
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(
-                    leading:
-                        PillButton(text: "Cancel") { viewStore.send(.cancel) }
-                )
-                .onChange(of: viewStore.isPresented) { presented in
-                    if !presented {
-                        self.presentationMode.wrappedValue.dismiss()
-                        
-                    }
+                
+                
+                
+                IfLetStore(
+                    self.store.scope(
+                        state: \.serviceRequestFeature,
+                        action: EmergencyFeature.Action.serviceRequestAction)
+                ) { requestStore in
+                    ServiceRequestView(store: requestStore)
                 }
             }
-            
+            .edgesIgnoringSafeArea(.top)
+            .onAppear {
+                viewStore.send(.onAppear)
+                viewStore.send(.connectOrDisconnect)
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading:
+                    PillButton(text: "Cancel") { viewStore.send(.cancel) }
+            )
+            .onChange(of: viewStore.isPresented) { presented in
+                if !presented {
+                    self.presentationMode.wrappedValue.dismiss()
+                    
+                }
+            }
         }
     }
 }

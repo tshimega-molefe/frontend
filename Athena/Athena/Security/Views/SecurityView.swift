@@ -20,7 +20,7 @@ struct SecurityView: View {
         
         if selectedService == .noInput {
             VStack {
-                //CustomMapView(coordinate: coordinate)
+                //CustomMapView()
                 SecurityServiceCard(selectedService: $selectedService)
             }
             

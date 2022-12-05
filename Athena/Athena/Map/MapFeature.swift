@@ -13,6 +13,7 @@ import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
 
+@available(iOS 13.0, *)
 struct MapFeature: ReducerProtocol {
     
     struct State: Equatable {
