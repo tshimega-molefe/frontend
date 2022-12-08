@@ -32,18 +32,18 @@ struct SettingsView: View {
                             ProfileTab()
                             
                             HStack (alignment: .center, spacing: 20) {
-                                SettingsTab(imageName: "questionmark.circle", text: "Help") {
-                                    print("DEBUG: Help tab clicked in Settings")
+                                SettingsTab(tabType: .help) {
+                                    viewStore.send(.openHelp)
                                 }
-                                SettingsTab(imageName: "creditcard", text: "Wallet") {
-                                    print("DEBUG: Wallet tab clicked in Settings")
+                                SettingsTab(tabType: .wallet) {
+                                    viewStore.send(.openWallet)
                                 }
-                                SettingsTab(imageName: "clock", text: "History") {
-                                    print("DEBUG: History tab clicked in Settings")
+                                SettingsTab(tabType: .history) {
+                                    viewStore.send(.openHistory)
                                 }
                                 
                             }
-                        }.padding()
+                        }.padding(.horizontal)
                     }
                     
                     Divider()

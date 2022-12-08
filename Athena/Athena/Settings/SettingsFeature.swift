@@ -11,7 +11,6 @@ import ComposableArchitecture
 struct SettingsFeature: ReducerProtocol {
     
     struct State: Equatable {
-        var isPresented = false
         var route: Route = .idle
     }
     
@@ -34,8 +33,6 @@ struct SettingsFeature: ReducerProtocol {
         case openEvidence
         case openAccount
         case openLegal
-        case onAppear
-        case closeSettings
     }
     
     var body: some ReducerProtocol<State, Action>{
@@ -68,15 +65,6 @@ struct SettingsFeature: ReducerProtocol {
                 
             case .openLegal:
                 state.route = .legalView
-                return .none
-                
-            case .onAppear:
-                state.isPresented = true
-                return .none
-                
-            case .closeSettings:
-                state.route = .idle
-                state.isPresented = false
                 return .none
             }
         }
