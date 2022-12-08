@@ -11,10 +11,12 @@ import ComposableArchitecture
 struct SettingsTypeFeature: ReducerProtocol {
     
     struct State: Equatable {
+        var route: Route = .null
         var isPresented = false
     }
     
     enum Route: Equatable {
+        case null
         case helpView
         case walletView
         case historyView

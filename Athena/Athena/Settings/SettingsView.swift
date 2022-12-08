@@ -68,22 +68,30 @@ struct SettingsView: View {
                     }
                 }
             }
+            case .settingsTypeRoute(.null):
+                SettingsTypeFeature.Route.null
                 
             case .settingsTypeRoute(.helpView):
-                Text("Hi")
+                SettingsTypeFeature.Route.helpView
+                
             case .settingsTypeRoute(.walletView):
-                Text("Hi")
+                SettingsTypeFeature.Route.walletView
+                
             case .settingsTypeRoute(.historyView):
-                Text("Hi")
+                SettingsTypeFeature.Route.historyView
+                
             case .settingsTypeRoute(.messagesView):
-                Text("Hi")
+                SettingsTypeFeature.Route.messagesView
+                
             case .settingsTypeRoute(.evidenceView):
-                Text("Hi")
+                SettingsTypeFeature.Route.evidenceView
+                
             case .settingsTypeRoute(.accountView):
-                Text("Hi")
+                SettingsTypeFeature.Route.accountView
+                
             case .settingsTypeRoute(.legalView):
-                Text("Hi")
-            
+                SettingsTypeFeature.Route.legalView
+        
             }
         }
     }
