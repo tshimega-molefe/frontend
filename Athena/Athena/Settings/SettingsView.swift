@@ -69,19 +69,19 @@ struct SettingsView: View {
                 }
             }
                 
-            case .helpView:
+            case .settingsTypeRoute(.helpView):
                 Text("Hi")
-            case .walletView:
+            case .settingsTypeRoute(.walletView):
                 Text("Hi")
-            case .historyView:
+            case .settingsTypeRoute(.historyView):
                 Text("Hi")
-            case .messagesView:
+            case .settingsTypeRoute(.messagesView):
                 Text("Hi")
-            case .evidenceView:
+            case .settingsTypeRoute(.evidenceView):
                 Text("Hi")
-            case .accountView:
+            case .settingsTypeRoute(.accountView):
                 Text("Hi")
-            case .legalView:
+            case .settingsTypeRoute(.legalView):
                 Text("Hi")
             
             }

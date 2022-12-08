@@ -11,18 +11,22 @@ import ComposableArchitecture
 struct SettingsTypeFeature: ReducerProtocol {
     
     struct State: Equatable {
-        var isPresented = true
-        var route: SettingsFeature.Route?
-        var settingsFeature: SettingsFeature.State?
+        var isPresented = false
     }
     
     enum Route: Equatable {
-        case settingsFeatureRoute(SettingsFeature.Route)
+        case helpView
+        case walletView
+        case historyView
+        case messagesView
+        case evidenceView
+        case accountView
+        case legalView
     }
     
     enum Action: Equatable {
         case settingsFeatureAction(SettingsFeature.Action)
-        case dismissView
+        case closeView
         case onAppear
     }
     
@@ -31,35 +35,34 @@ struct SettingsTypeFeature: ReducerProtocol {
             switch action {
                 
             case .settingsFeatureAction(.openHelp):
-                state.route = .helpView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openWallet):
-                state.route = .walletView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openHistory):
-                state.route = .historyView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openMessages):
-                state.route = .messagesView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openEvidence):
-                state.route = .evidenceView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openAccount):
-                state.route = .accountView
+                state.isPresented = true
                 return .none
                 
             case .settingsFeatureAction(.openLegal):
-                state.route = .legalView
+                state.isPresented = true
                 return .none
                 
-            case .dismissView:
-                state.route = .idle
+            case .closeView:
                 state.isPresented = false
                 return .none
                 

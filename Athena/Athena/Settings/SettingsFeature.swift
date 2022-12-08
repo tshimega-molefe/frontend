@@ -16,13 +16,7 @@ struct SettingsFeature: ReducerProtocol {
     
     enum Route: Equatable {
         case idle
-        case helpView
-        case walletView
-        case historyView
-        case messagesView
-        case evidenceView
-        case accountView
-        case legalView
+        case settingsTypeRoute(SettingsTypeFeature.Route)
     }
     
     enum Action: Equatable {
@@ -40,31 +34,31 @@ struct SettingsFeature: ReducerProtocol {
             switch action {
                 
             case .openHelp:
-                state.route = .helpView
+                state.route = .settingsTypeRoute(.helpView)
                 return .none
                 
             case .openWallet:
-                state.route = .walletView
+                state.route = .settingsTypeRoute(.walletView)
                 return .none
                 
             case .openHistory:
-                state.route = .historyView
+                state.route = .settingsTypeRoute(.historyView)
                 return .none
                 
             case .openMessages:
-                state.route = .messagesView
+                state.route = .settingsTypeRoute(.messagesView)
                 return .none
                 
             case .openEvidence:
-                state.route = .evidenceView
+                state.route = .settingsTypeRoute(.evidenceView)
                 return .none
                 
             case .openAccount:
-                state.route = .accountView
+                state.route = .settingsTypeRoute(.accountView)
                 return .none
                 
             case .openLegal:
-                state.route = .legalView
+                state.route = .settingsTypeRoute(.legalView)
                 return .none
             }
         }
