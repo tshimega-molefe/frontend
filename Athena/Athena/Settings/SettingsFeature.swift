@@ -6,60 +6,44 @@
 //
 
 import Foundation
+import SwiftUI
 import ComposableArchitecture
 
 struct SettingsFeature: ReducerProtocol {
+    @EnvironmentObject var userAuth: AuthViewModel
+    
     
     struct State: Equatable {
         var route: Route = .idle
+        var isPresented = true
     }
     
     enum Route: Equatable {
         case idle
-        case settingsTypeRoute(SettingsTypeFeature.Route)
     }
     
     enum Action: Equatable {
-        case openHelp
-        case openWallet
-        case openHistory
-        case openMessages
-        case openEvidence
-        case openAccount
-        case openLegal
+        case onAppear
+        case accountAction(AccountFeature.Action)
     }
     
     var body: some ReducerProtocol<State, Action>{
         Reduce { state, action in
+            
             switch action {
                 
-            case .openHelp:
-                state.route = .settingsTypeRoute(.helpView)
+            case .onAppear:
+                state.isPresented = true
                 return .none
                 
-            case .openWallet:
-                state.route = .settingsTypeRoute(.walletView)
+            case .accountAction(.signOut):
+                userAuth.logoutCitizen()
+                print("DEBUG: Are you working ??")
                 return .none
                 
-            case .openHistory:
-                state.route = .settingsTypeRoute(.historyView)
+            case .accountAction(_):
                 return .none
-                
-            case .openMessages:
-                state.route = .settingsTypeRoute(.messagesView)
-                return .none
-                
-            case .openEvidence:
-                state.route = .settingsTypeRoute(.evidenceView)
-                return .none
-                
-            case .openAccount:
-                state.route = .settingsTypeRoute(.accountView)
-                return .none
-                
-            case .openLegal:
-                state.route = .settingsTypeRoute(.legalView)
-                return .none
+
             }
         }
     }

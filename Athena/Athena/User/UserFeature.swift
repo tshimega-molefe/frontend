@@ -17,7 +17,7 @@ enum UserAction: Equatable {
   case dataLoaded(Result<User, APIError>)
 }
 
-struct UserEnvironment {
+struct UsersEnvironment {
   var userRequest: (JSONDecoder) -> Effect<User, APIError>
 }
 

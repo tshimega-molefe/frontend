@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct SettingsTab: View {
-    
-    
-    
+    @State private var showingSheet = false
+
     enum TabType {
         case help
         case wallet
@@ -18,14 +18,15 @@ struct SettingsTab: View {
     }
     
     let tabType: TabType
-    let action: (() -> Void)
     
     var body: some View {
         
         switch tabType {
             
         case .help:
-            Button(action: action, label: {
+            Button {
+                showingSheet.toggle()
+            } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 109, height: 70)
@@ -39,10 +40,21 @@ struct SettingsTab: View {
                             .foregroundColor(Color.theme.primaryText)
                     }
                 }
-            })
+            }
+            .sheet(isPresented: $showingSheet) {
+                HelpView()
+            }
+
+
+            
+            
+            
+                
             
         case .wallet:
-            Button(action: action, label: {
+            Button {
+                showingSheet.toggle()
+            } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 109, height: 70)
@@ -56,10 +68,15 @@ struct SettingsTab: View {
                             .foregroundColor(Color.theme.primaryText)
                     }
                 }
-            })
+            }
+            .sheet(isPresented: $showingSheet) {
+                WalletView()
+            }
             
         case .history:
-            Button(action: action, label: {
+                Button {
+                    showingSheet.toggle()
+                } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 109, height: 70)
@@ -73,14 +90,15 @@ struct SettingsTab: View {
                             .foregroundColor(Color.theme.primaryText)
                     }
                 }
-            })
+                }
+                .sheet(isPresented: $showingSheet) {
+                    HistoryView()
+                }
         }
     }
 }
 struct SettingsTab_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsTab(tabType: .history) {
-            print("DEBUG: Checking Settings Tab")
-        }
+        SettingsTab(tabType: .history)
     }
 }

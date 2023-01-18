@@ -7,15 +7,12 @@
 
 import Foundation
 import SwiftUI
+import ComposableArchitecture
 
-struct User: Codable, Equatable {
-    let email: String?
+
+struct User: Equatable, Codable {
     let username: String
-    let first_name: String?
-    let last_name: String?
-    let phone_number: String?
+    let email: String
+    let password: String
 }
 
-extension User: Identifiable {
-    var id: String { username }
-}

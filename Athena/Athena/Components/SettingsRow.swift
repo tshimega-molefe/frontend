@@ -9,22 +9,20 @@ import SwiftUI
 
 struct SettingsRow: View {
     
+    // Account Row Types
     enum RowType {
         case messages
         case evidence
-        case settings
+        case account
         case legal
     }
     
     let rowType: RowType
-    let action: (() -> Void)
-    
-    
     var body: some View {
         
         switch rowType {
+            
         case .messages:
-            Button(action: action) {
                 HStack (alignment: .center, spacing: 15) {
                     Image(systemName: "message")
                         .font(.title2)
@@ -36,12 +34,8 @@ struct SettingsRow: View {
                     
                     Spacer()
                 }
-            }
-            .padding(.horizontal)
-            .padding(.top, 10)
             
         case .evidence:
-            Button(action: action) {
                 HStack (alignment: .center, spacing: 15) {
                     Image(systemName: "archivebox")
                         .font(.title2)
@@ -53,29 +47,21 @@ struct SettingsRow: View {
                     
                     Spacer()
                 }
-            }
-            .padding(.horizontal)
-            .padding(.top, 10)
             
-        case .settings:
-            Button(action: action) {
+        case .account:            
                 HStack (alignment: .center, spacing: 15) {
                     Image(systemName: "gearshape")
                         .font(.title2)
                         .foregroundColor(Color.theme.secondaryText)
                     
-                    Text("Settings")
+                    Text("Account")
                         .font(.custom(FontsManager.Poppins.regular, size: 16))
                         .foregroundColor(Color.theme.primaryText)
                     
                     Spacer()
                 }
-            }
-            .padding(.horizontal)
-            .padding(.top, 10)
             
         case .legal:
-            Button(action: action) {
                 HStack (alignment: .center, spacing: 15) {
                     Image(systemName: "exclamationmark.circle")
                         .font(.title2)
@@ -87,17 +73,12 @@ struct SettingsRow: View {
                     
                     Spacer()
                 }
-            }
-            .padding(.horizontal)
-            .padding(.top, 10)
         }
     }
 }
 
 struct SettingsRow_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsRow(rowType: .messages) {
-            print("DEBUG: Handle opening the messages view..")
-        }
+        SettingsRow(rowType: .messages)
     }
 }

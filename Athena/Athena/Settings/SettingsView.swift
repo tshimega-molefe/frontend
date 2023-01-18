@@ -12,105 +12,88 @@ import ComposableArchitecture
 struct SettingsView: View {
     @Environment(\.presentationMode) private var presentationMode
     
-    @ObservedObject var viewStore: ViewStore<SettingsFeature.State, SettingsFeature.Action>
     let store: Store<SettingsFeature.State, SettingsFeature.Action>
-    
-    init(store: Store<SettingsFeature.State, SettingsFeature.Action>) {
-      self.store = store
-      self.viewStore = ViewStore(self.store)
-    }
 
     var body: some View {
-            
-            switch viewStore.state.route {
-
-            case .idle:
-                // TODO: Extract this Idle View to an ExtractedView
-                VStack (alignment: .leading) {
-                    HStack {
-                        VStack (alignment: .leading, spacing: 20) {
-                            ProfileTab()
-                            
-                            HStack (alignment: .center, spacing: 20) {
-                                SettingsTab(tabType: .help) {
-                                    viewStore.send(.openHelp)
-                                }
-                                SettingsTab(tabType: .wallet) {
-                                    viewStore.send(.openWallet)
-                                }
-                                SettingsTab(tabType: .history) {
-                                    viewStore.send(.openHistory)
-                                }
-                                
-                            }
-                        }.padding(.horizontal)
-                    }
-                    
-                    Divider()
-                        .padding(.bottom)
-                        .shadow(color: Color.theme.shadow, radius: 7)
-                    
-                    ScrollView {
-                    VStack (alignment: .leading, spacing: 60) {
-                        
-                        SettingsRow(rowType: .messages) {
-                            viewStore.send(.openMessages)
-                        }
-                        SettingsRow(rowType: .evidence) {
-                            viewStore.send(.openEvidence)
-                        }
-                        SettingsRow(rowType: .settings) {
-                            viewStore.send(.openAccount)
-                        }
-                        SettingsRow(rowType: .legal) {
-                            viewStore.send(.openLegal)
-                        }
-                    }
-                }
-            }
-            case .settingsTypeRoute(.null):
-                SettingsTypeFeature.Route.null
-                
-            case .settingsTypeRoute(.helpView):
-                SettingsTypeFeature.Route.helpView
-                
-            case .settingsTypeRoute(.walletView):
-                SettingsTypeFeature.Route.walletView
-                
-            case .settingsTypeRoute(.historyView):
-                SettingsTypeFeature.Route.historyView
-                
-            case .settingsTypeRoute(.messagesView):
-                SettingsTypeFeature.Route.messagesView
-                
-            case .settingsTypeRoute(.evidenceView):
-                SettingsTypeFeature.Route.evidenceView
-                
-            case .settingsTypeRoute(.accountView):
-                SettingsTypeFeature.Route.accountView
-                
-            case .settingsTypeRoute(.legalView):
-                SettingsTypeFeature.Route.legalView
+        WithViewStore(self.store) { viewStore in
+            VStack (alignment: .leading) {
+                               HStack {
+                                   VStack (alignment: .leading, spacing: 20) {
+                                       
+                                       
+                                       NavigationLink {
+                                           AccountView(store: Store(initialState: AccountFeature.State(),
+                                                                    reducer: AnyReducer(AccountFeature()),
+                                                                   environment: ()))
+                                       } label: {
+                                           ProfileTab()
+                                       }
+                                       HStack (alignment: .center, spacing: 20) {
+                                           SettingsTab(tabType: .help)
+                                           SettingsTab(tabType: .wallet)
+                                           SettingsTab(tabType: .history)
+                                           
+                                       }
+                                   }.padding(.horizontal)
+                               }
+                               
+                               Divider()
+                                   .padding(.bottom)
+                                   .shadow(color: Color.theme.shadow, radius: 7)
+                               
+                               ScrollView {
+                               VStack (alignment: .leading, spacing: 60) {
+                                   
+                                   NavigationLink {
+                                       MessagesView()
+                                   } label: {
+                                       SettingsRow(rowType: .messages)
+                                   }
+                                   
+                                   NavigationLink {
+                                       EvidenceView()
+                                   } label: {
+                                       SettingsRow(rowType: .evidence)
+                                   }
         
-            }
+                                   
+                                   NavigationLink {
+                                       AccountView(store: Store(initialState: AccountFeature.State(),
+                                                                reducer: AnyReducer(AccountFeature()),
+                                                               environment: ()))
+                                   } label: {
+                                       SettingsRow(rowType: .account)
+                                   }
+                                   
+                                   NavigationLink {
+                                       LegalView()
+                                   } label: {
+                                       SettingsRow(rowType: .legal)
+                                   }
+
+                               }
+                               .padding(.leading)
+                           }
+                       }
+            .navigationTitle(Text("Settings"))
         }
     }
+}
 
 
 struct ProfileTab: View {
-    @EnvironmentObject var userAuth: AuthViewModel
-    
     var body: some View {
-        HStack (alignment: .top) {
+        HStack (alignment: .center) {
             Image("sabrina")
                 .resizable()
                 .frame(width: 58, height: 58)
                 .clipShape(Circle())
             
-            VStack (alignment: .leading) {
+            VStack (alignment: .leading, spacing: 5) {
                 Text("Sabrina Morreno")
                     .font(.custom(FontsManager.Poppins.regular, size: 18))
                     .foregroundColor(Color.theme.primaryText)
+                
                 
                 Text("Douglasdale, Fourways")
                     .font(.custom(FontsManager.Poppins.light, size: 14))

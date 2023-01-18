@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct EmergencyButtonState: Equatable {
-    var clicked: Bool
-}
-
 struct EmergencyButton: View {
-    //let clickHelp: (() -> Void)
     
     var body: some View {
         
@@ -26,6 +21,7 @@ struct EmergencyButton: View {
 }
 
 extension EmergencyButton {
+    
     struct HelpText: View {
         var body: some View {
             

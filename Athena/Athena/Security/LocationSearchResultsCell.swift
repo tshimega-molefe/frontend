@@ -13,19 +13,19 @@ struct LocationSearchResultsCell: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "mappin.circle.fill")
+            Image(systemName: "location.circle")
                 .resizable()
                 .foregroundColor(Color.theme.accent)
                 .accentColor(Color.theme.background)
-                .frame(width: 28, height: 28)
+                .frame(width: 24, height: 24)
             
-            VStack (alignment: .leading, spacing: 4) {
+            VStack (alignment: .leading, spacing: 1) {
                 Text(title)
                     .font(.custom("Poppins-Regular", size: 16))
                     .foregroundColor(Color.theme.primaryText)
                 
                 Text(subtitle)
-                    .font(.custom("Poppins-Light", size: 15))
+                    .font(.custom("Poppins-Light", size: 14))
                     .foregroundColor(.gray)
                 
                 Divider()

@@ -57,7 +57,9 @@ extension HomeTabView {
                     Text("Status")
                 }.tag(Tab.status)
             
-            SecurityView(locationService: LocationSearchService())
+            NavigationView {
+                SecurityView(locationService: LocationSearchService())
+            }
                 .tabItem {
                     Image(systemName: "waveform.path.ecg")
                     Text("Security")
