@@ -9,15 +9,23 @@ import SwiftUI
 import ComposableArchitecture
 
 struct EditProfileView: View {
-    let store:Store<EditProfileFeature.State, EditProfileFeature.Action>
+    @ObservedObject var viewStore: ViewStore<EditProfileFeature.State, EditProfileFeature.Action>
+    let store: Store<EditProfileFeature.State, EditProfileFeature.Action>
     
+    init(store: Store<EditProfileFeature.State, EditProfileFeature.Action>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store)
+    }
+
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var profileImage: Image?
     
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            Form {
+        
+        switch viewStore.state.route {
+        case .notEditing:
+            List {
                 Section(header: Text("Name")) {
                     TextField("Enter your name", text :$name)
                 }
@@ -41,13 +49,16 @@ struct EditProfileView: View {
                 Section {
                     Button(action: {
                         // Save PROFILE  INFORMATION
-                        viewStore.send(.save)
+                        viewStore.send(.saveChanges)
                     }) {
                         Text("Save")
                     }
                 }
             }
             .navigationTitle("Edit Profile")
+            
+        case .editing:
+            Text("Editing Profile Page")
         }
     }
 }
@@ -57,6 +68,6 @@ struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView(store: Store(initialState: EditProfileFeature.State(),
                                      reducer: AnyReducer(EditProfileFeature()),
-                                    environment: ()))
+                                     environment: ()))
     }
 }

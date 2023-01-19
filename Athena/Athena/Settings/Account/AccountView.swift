@@ -21,7 +21,9 @@ struct AccountView: View {
                 // Edit Profile Section
                 Section {
                     NavigationLink {
-                        EditProfileView()
+                        EditProfileView(store: Store(initialState: EditProfileFeature.State(),
+                                                     reducer: AnyReducer(EditProfileFeature()),
+                                                     environment: ()))
                     } label: {
                         HStack (alignment: .center) {
                             

@@ -23,21 +23,37 @@ struct EditProfileFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
+        case editProfile
         case selectProfileImage
-        case save
+        case cancelChanges
+        case saveChanges
     }
     
     var body: some ReducerProtocol<State, Action>{
         Reduce { state, action in
             
             switch action {
+                
+            case .editProfile:
+                // An action that changes the Route of the EditProfileFeature to Editing
+                print("DEBUG: Change the route of this view to 'editing'...")
+                state.route = .editing
+                return .none
+                
             case .selectProfileImage:
                 // Open an alert that prompts the user to either take a new photo using their camera, or to select an image from their gallery.
-                print("DEBUG: Handle update profile image..")
+                print("DEBUG: Handle select/take profile image...")
                 return .none
-            case .save:
-                print("DEBUG: Handle Update and save user information...")
+                
+            case .saveChanges:
+                print("DEBUG: Handle update and save user information...")
                 return .none
+                
+            case .cancelChanges:
+                print("DEBUG: Handle cancel changes to profile information...")
+                state.route = .notEditing
+                return .none
+                
             }
         }
     }
