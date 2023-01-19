@@ -35,7 +35,7 @@ struct EditProfileView: View {
                         }
                         
                         NavigationLink {
-                            ProfilePhotoView()
+                            ProfilePhotoView(image: Image("sabrina"))
                         } label: {
                             Text("Edit").foregroundColor(.blue)
                                 .font(.custom(FontsManager.Poppins.semiBold, size: 14))
@@ -45,7 +45,7 @@ struct EditProfileView: View {
                     
                     TextField("Your name", text: $name, onEditingChanged: { editing in
                         self.showSaveButton = editing
-                    }).navigationBarBackButtonHidden(true)
+                    })
                     .navigationBarItems(leading: showCancelButton ? Button(action: {
                         viewStore.send(.cancelChanges)
                     }, label: {

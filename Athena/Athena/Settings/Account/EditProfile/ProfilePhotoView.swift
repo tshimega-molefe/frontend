@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct ProfilePhotoView: View {
+    var image: Image
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            GeometryReader { geometry in
+                
+                self.image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geometry.size.width)
+                    .clipped()
+            }
+        }
+        
     }
 }
 
 struct ProfilePhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilePhotoView()
+        ProfilePhotoView(image: Image("sabrina"))
     }
 }
