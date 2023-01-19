@@ -17,7 +17,7 @@ struct ProfilePhotoView: View {
                 self.image
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                     .clipped()
             }
         }
