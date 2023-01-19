@@ -10,6 +10,10 @@ import Foundation
 
     // MARK: - Login
 
+struct HTTPService {
+    
+}
+
 enum AuthenticationError: Error {
     case invalidCredentials
     case custom(errorMessage: String)
