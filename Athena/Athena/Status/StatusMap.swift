@@ -12,6 +12,7 @@ import CoreLocation
 struct StatusMap: UIViewControllerRepresentable {
  
     func makeUIViewController(context: Context) -> MapViewController {
+        
         return MapViewController()
     }
     

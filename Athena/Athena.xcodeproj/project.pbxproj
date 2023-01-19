@@ -29,6 +29,8 @@
 		9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53928EDB47C00DC1557 /* LocationSearchView.swift */; };
 		9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */; };
 		958AFF7F29794A640083553C /* StatusFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF7E29794A640083553C /* StatusFeature.swift */; };
+		958AFF8229794C480083553C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF8129794C480083553C /* EditProfileView.swift */; };
+		958AFF8429794C5D0083553C /* EditProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF8329794C5D0083553C /* EditProfileFeature.swift */; };
 		958CE6CB28FEEA3F000EEEF4 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */; };
 		958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830028EEEEA0000C0219 /* LocationSearchService.swift */; };
 		958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830228EF1776000C0219 /* SecurityMapViewState.swift */; };
@@ -120,6 +122,8 @@
 		9588D53928EDB47C00DC1557 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
 		958AFF7E29794A640083553C /* StatusFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusFeature.swift; sourceTree = "<group>"; };
+		958AFF8129794C480083553C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		958AFF8329794C5D0083553C /* EditProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFeature.swift; sourceTree = "<group>"; };
 		958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		958F830028EEEEA0000C0219 /* LocationSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchService.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 			children = (
 				955CD5DA29473FCA005A215A /* AccountView.swift */,
 				955CD5DD29473FFF005A215A /* AccountFeature.swift */,
+				958AFF8029794C080083553C /* EditProfile */,
 				95F4CE40295096DA0042C397 /* Family */,
 				95900A6929718346001A6D3C /* Notifications */,
 			);
@@ -409,6 +414,15 @@
 				B376FEAC2912622A00CA6AFD /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		958AFF8029794C080083553C /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				958AFF8129794C480083553C /* EditProfileView.swift */,
+				958AFF8329794C5D0083553C /* EditProfileFeature.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		95900A6929718346001A6D3C /* Notifications */ = {
@@ -677,6 +691,7 @@
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				95F4CE442950970B0042C397 /* FamilyFeature.swift in Sources */,
 				95F4CE2F295096120042C397 /* EvidenceFeature.swift in Sources */,
+				958AFF8429794C5D0083553C /* EditProfileFeature.swift in Sources */,
 				95B7A854295B8E3800A4D1B8 /* SearchBar.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */,
@@ -711,6 +726,7 @@
 				959FDCBB28F5A45B00F141CA /* Webservice.swift in Sources */,
 				95078FAA28FDDAD6001A8B1E /* CancelButton.swift in Sources */,
 				9576895828E068A6009FDCE2 /* Color.swift in Sources */,
+				958AFF8229794C480083553C /* EditProfileView.swift in Sources */,
 				B317C03129212FCA00CD924B /* EmergencyFeature.swift in Sources */,
 				95DA294A2936441600E5F54D /* SecurityFeature.swift in Sources */,
 				9576895628E06608009FDCE2 /* RegistrationView.swift in Sources */,

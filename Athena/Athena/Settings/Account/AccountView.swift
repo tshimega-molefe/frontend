@@ -21,7 +21,7 @@ struct AccountView: View {
                 // Edit Profile Section
                 Section {
                     NavigationLink {
-                        Text("Edit Profile")
+                        EditProfileView()
                     } label: {
                         HStack (alignment: .center) {
                             
