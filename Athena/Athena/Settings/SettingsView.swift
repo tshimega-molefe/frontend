@@ -10,8 +10,6 @@ import ComposableArchitecture
 
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) private var presentationMode
-    
     let store: Store<SettingsFeature.State, SettingsFeature.Action>
 
     var body: some View {

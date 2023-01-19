@@ -6,49 +6,57 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct EditProfileView: View {
+    let store:Store<EditProfileFeature.State, EditProfileFeature.Action>
     
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var profileImage: Image?
     
     var body: some View {
-        Form {
-            Section(header: Text("Name")) {
-                TextField("Enter your name", text :$name)
-            }
-            Section(header: Text("Email")) {
-                TextField("Enter your email", text: $email)
-            }
-            Section(header: Text("Profile Picture")) {
-                if profileImage != nil {
-                    profileImage?
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                } else {
+        WithViewStore(self.store) { viewStore in
+            Form {
+                Section(header: Text("Name")) {
+                    TextField("Enter your name", text :$name)
+                }
+                Section(header: Text("Email")) {
+                    TextField("Enter your email", text: $email)
+                }
+                Section(header: Text("Profile Picture")) {
+                    if profileImage != nil {
+                        profileImage?
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                    } else {
+                        Button(action: {
+                            // Select image from libarary or take photo
+                            viewStore.send(.selectProfileImage)
+                        }) {
+                            Text("Select Profile Image")
+                        }
+                    }
+                }
+                Section {
                     Button(action: {
-                        // Select image from libarary or take photo
+                        // Save PROFILE  INFORMATION
+                        viewStore.send(.save)
                     }) {
-                        Text("Select Profile Image")
+                        Text("Save")
                     }
                 }
             }
-            Section {
-                Button(action: {
-                    // Save PROFILE  INFORMATION
-                }) {
-                    Text("Save")
-                }
-            }
+            .navigationTitle("Edit Profile")
         }
-        .navigationTitle("Edit Profile")
     }
 }
 
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(store: Store(initialState: EditProfileFeature.State(),
+                                     reducer: AnyReducer(EditProfileFeature()),
+                                    environment: ()))
     }
 }
