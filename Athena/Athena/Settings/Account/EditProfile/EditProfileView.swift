@@ -56,10 +56,17 @@ struct EditProfileView: View {
                 }
             }
             .navigationTitle("Edit Profile")
+            .navigationBarItems(trailing: Button(action: editProfile) {
+                Text("Edit")
+            })
             
         case .editing:
             Text("Editing Profile Page")
         }
+    }
+    
+    func editProfile() {
+        viewStore.send(.editProfile)
     }
 }
 
