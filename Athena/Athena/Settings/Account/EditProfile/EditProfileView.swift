@@ -70,7 +70,24 @@ struct EditProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
+    func selectImage() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+//        picker.delegate = self
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(picker,animated: true)
+    }
 }
+
+//extension EditProfileView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            profileImage = Image(uiImage: pickedImage)
+//        }
+//        picker.dismiss(animated: true)
+//    }
+//}
 
 
 
