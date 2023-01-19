@@ -14,12 +14,11 @@ struct EditProfileFeature: ReducerProtocol {
     
     
     struct State: Equatable {
-        var route: Route = .notEditing
+        var route: Route = .idle
     }
     
     enum Route: Equatable {
-        case notEditing
-        case editing
+        case idle
     }
     
     enum Action: Equatable {
@@ -37,7 +36,6 @@ struct EditProfileFeature: ReducerProtocol {
             case .editProfile:
                 // An action that changes the Route of the EditProfileFeature to Editing
                 print("DEBUG: Change the route of this view to 'editing'...")
-                state.route = .editing
                 return .none
                 
             case .selectProfileImage:
@@ -51,7 +49,6 @@ struct EditProfileFeature: ReducerProtocol {
                 
             case .cancelChanges:
                 print("DEBUG: Handle cancel changes to profile information...")
-                state.route = .notEditing
                 return .none
                 
             }

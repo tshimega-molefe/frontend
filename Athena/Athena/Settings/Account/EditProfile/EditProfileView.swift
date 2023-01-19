@@ -9,66 +9,69 @@ import SwiftUI
 import ComposableArchitecture
 
 struct EditProfileView: View {
-    @ObservedObject var viewStore: ViewStore<EditProfileFeature.State, EditProfileFeature.Action>
     let store: Store<EditProfileFeature.State, EditProfileFeature.Action>
     
-    init(store: Store<EditProfileFeature.State, EditProfileFeature.Action>) {
-        self.store = store
-        self.viewStore = ViewStore(self.store)
-    }
-
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var profileImage: Image?
+    @State private var showSaveButton: Bool = false
+    @State private var showCancelButton: Bool = false
     
     var body: some View {
-        
-        switch viewStore.state.route {
-        case .notEditing:
+        WithViewStore(self.store) { viewStore in
             List {
-                Section(header: Text("Name")) {
-                    TextField("Enter your name", text :$name)
-                }
-                Section(header: Text("Email")) {
-                    TextField("Enter your email", text: $email)
-                }
-                Section(header: Text("Profile Picture")) {
-                    if profileImage != nil {
-                        profileImage?
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                    } else {
-                        Button(action: {
-                            // Select image from libarary or take photo
-                            viewStore.send(.selectProfileImage)
-                        }) {
-                            Text("Select Profile Image")
+                Section() {
+                    VStack(alignment: .leading) {
+                        HStack (alignment: .center){
+                            Image("sabrina")
+                                .resizable()
+                                .frame(width: 58, height: 58)
+                                .clipShape(Circle())
+                            
+                            Text("Enter your name and add an optional profile picture")
+                                .foregroundColor(Color.theme.secondaryText)
+                                .font(.custom(FontsManager.Poppins.light, size: 12))
+                            
+                        }
+                        
+                        NavigationLink {
+                            ProfilePhotoView()
+                        } label: {
+                            Text("Edit").foregroundColor(.blue)
+                                .font(.custom(FontsManager.Poppins.semiBold, size: 14))
+                                .padding(.leading)
                         }
                     }
-                }
-                Section {
-                    Button(action: {
-                        // Save PROFILE  INFORMATION
+                    
+                    TextField("Your name", text: $name, onEditingChanged: { editing in
+                        self.showSaveButton = editing
+                    }).navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: showCancelButton ? Button(action: {
+                        viewStore.send(.cancelChanges)
+                    }, label: {
+                        Text("Cancel")
+                    }): nil, trailing: showSaveButton ? Button(action: {
                         viewStore.send(.saveChanges)
-                    }) {
+                    }, label: {
                         Text("Save")
-                    }
+                    }): nil
+                    )
                 }
+                
+                Section {
+                    Text("sabrinamorreno@gmail.com")
+                } header: {
+                    Text("Email")
+                }
+                
             }
+            .listStyle(.inset)
             .navigationTitle("Edit Profile")
-            .navigationBarItems(trailing: Button(action: editProfile) {
-                Text("Edit")
-            })
-            
-        case .editing:
-            Text("Editing Profile Page")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
-    func editProfile() {
-        viewStore.send(.editProfile)
-    }
 }
+
 
 
 struct EditProfileView_Previews: PreviewProvider {
