@@ -34,9 +34,9 @@ struct NotificationsView: View {
             } header: {}
             
             Section {
-                Text("Show Preview")
+                Text("Push Notifications")
             } footer: {
-                Text("Preview message text inside new message notifications.")
+                Text("")
             }
             
             Section {

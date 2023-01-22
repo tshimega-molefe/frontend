@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var userAuth: AuthViewModel
+//    @EnvironmentObject var userAuth: AuthViewModel
     @State private var isEmptyField = false
     
     //  MARK: - Properties
@@ -29,8 +29,8 @@ struct LoginView: View {
                 //                Authentication TextField VStack
                 
                 VStack (spacing: 10) {
-                    CustomInputField(inputType: .text, placeholderText: "Username", text: $userAuth.username)
-                    CustomInputField(inputType: .secure, placeholderText: "Password", text: $userAuth.password)
+//                    CustomInputField(inputType: .text, placeholderText: "Username", text: $userAuth.username)
+//                    CustomInputField(inputType: .secure, placeholderText: "Password", text: $userAuth.password)
                     
                 }
                 .padding(.horizontal, 30)
@@ -57,7 +57,7 @@ struct LoginView: View {
                 
                 // Incomplete Log In Button
                 
-                if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
+//                if(self.userAuth.username.isEmpty || self.userAuth.password.isEmpty){
                     Button(action: {
                         print("DEBUG: There is missing information in either of the log in fields..")
                     }, label: {
@@ -70,18 +70,18 @@ struct LoginView: View {
                     })
                     .padding(.top, 40)
                     .padding(.horizontal, 30)
-                } else {
-                    AuthButtonView(buttonLabel: "Log In") {
-                        userAuth.loginCitizen()
-                    }
-                    
-//                    .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
-//                        Button("Dismiss") {
-//                            print("DEBUG: You've entered incorrect details..")
-//                        }
-//                    })
-                    .padding(.top, 40)
-                }
+//                } else {
+//                    AuthButtonView(buttonLabel: "Log In") {
+////                        userAuth.loginCitizen()
+//                    }
+//                    
+////                    .alert("Failed to log in", isPresented: $userAuth.invalid, actions: {
+////                        Button("Dismiss") {
+////                            print("DEBUG: You've entered incorrect details..")
+////                        }
+////                    })
+//                    .padding(.top, 40)
+//                }
                 
                 
                 Spacer()

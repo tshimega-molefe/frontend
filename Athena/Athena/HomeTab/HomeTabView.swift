@@ -21,26 +21,25 @@ struct HomeTabView: View {
         case settings
     }
     
-    @EnvironmentObject var userAuth: AuthViewModel
+//    @EnvironmentObject var userAuth: AuthViewModel
     
     @State private var selectedTab: Tab = .emergency
     
     // Presentation logic
     var body: some View {
         Group {
-            if !userAuth.isAuthenticated {
-                LoginView()
-            } else {
+//            if  {
+//                authenticationView
+//            } else {
                 // Open WebSocket with Access Token
                 //let _ = wsViewModel.subscribeToService()
-                
                 mainInterfaceView
-            }
+//            }
         }
     }
     
     func callLogin() {
-        print(userAuth.isAuthenticated)
+//        print(userAuth.isAuthenticated)
     }
 }
 
@@ -95,4 +94,14 @@ extension HomeTabView {
             }.tag(Tab.settings)
         }
     }
+    
+    
+    var authenticationView: some View {
+        NavigationView {
+            LoginView()
+        }
+    }
+    
 }
+
+

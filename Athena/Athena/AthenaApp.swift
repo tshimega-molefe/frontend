@@ -11,12 +11,12 @@ import ComposableArchitecture
 @main
 struct AthenaApp: App {
     
-    @StateObject var userAuth = AuthViewModel()
+//    @StateObject var userAuth = AuthViewModel()
     
     var body: some Scene {
         WindowGroup {
             HomeTabView()
-            .environmentObject(userAuth)
+//            .environmentObject(userAuth)
         }
     }
 }

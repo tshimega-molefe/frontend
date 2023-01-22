@@ -29,8 +29,6 @@ struct AccountFeature: ReducerProtocol {
         case signOut
         case dismissView
     }
-    
-    @EnvironmentObject var userAuth: AuthViewModel
 
     
     var body: some ReducerProtocol<State, Action>{

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @EnvironmentObject var userAuth: AuthViewModel
+//    @EnvironmentObject var userAuth: AuthViewModel
     
     @State private var checked = false
     @State private var isEmptyField = false
@@ -32,9 +32,9 @@ struct RegistrationView: View {
                     
                     
                     VStack (spacing: 10) {
-                        CustomInputField(inputType: .text, placeholderText: "Username", text: $userAuth.username)
-                        CustomInputField(inputType: .email, placeholderText: "Email",  text: $userAuth.email)
-                        CustomInputField(inputType: .secure, placeholderText: "Password", text: $userAuth.password)
+//                        CustomInputField(inputType: .text, placeholderText: "Username", text: $userAuth.username)
+//                        CustomInputField(inputType: .email, placeholderText: "Email",  text: $userAuth.email)
+//                        CustomInputField(inputType: .secure, placeholderText: "Password", text: $userAuth.password)
                     }
                     .padding(.horizontal, 30)
                     
@@ -62,7 +62,7 @@ struct RegistrationView: View {
                     
                     // New Create Account Button
                     
-                    if(self.userAuth.username.isEmpty || self.userAuth.email.isEmpty || self.userAuth.password.isEmpty || !self.checked){
+//                    if(s){
                         Button(action: {
                             print("DEBUG: There is missing information in either of the log in fields..")
                             self.isEmptyField = true
@@ -76,17 +76,17 @@ struct RegistrationView: View {
                         })
                         .padding(.top, 40)
                         .padding(.horizontal, 30)
-                    } else {
-                        AuthButtonView(buttonLabel: "Create Account") {
-                            userAuth.registerCitizen()
-                        }
-//                        .alert("Username or Email already exists. Try again.", isPresented: $userAuth.alreadyExists, actions: {
-//                            Button("Dismiss") {
-//                                print("DEBUG: Couldn't create account, try again...")
-//                            }
-//                        })
-                        .padding(.top, 40)
-                    }
+//                    } else {
+//                        AuthButtonView(buttonLabel: "Create Account") {
+////                            userAuth.registerCitizen()
+//                        }
+////                        .alert("Username or Email already exists. Try again.", isPresented: $userAuth.alreadyExists, actions: {
+////                            Button("Dismiss") {
+////                                print("DEBUG: Couldn't create account, try again...")
+////                            }
+////                        })
+//                        .padding(.top, 40)
+//                    }
         
                     Spacer()
                     
