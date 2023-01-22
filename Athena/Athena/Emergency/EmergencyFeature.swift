@@ -165,7 +165,6 @@ struct EmergencyFeature: ReducerProtocol {
                 }
                 
             case .sendResponse(didSucceed: let didSucceed):
-                print(didSucceed)
                 return .none
                 
             case .webSocket(.didOpen):
