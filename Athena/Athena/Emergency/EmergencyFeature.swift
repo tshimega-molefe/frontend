@@ -54,22 +54,6 @@ struct EmergencyFeature: ReducerProtocol {
             
             switch action {
                 
-            case .serviceRequestAction(.confirm):
-                let messageToSend = "{\"type\": \"create.emergency\"}"
-                return .task {
-                    print("DEBUG: SENDING CREATION: \(messageToSend)")
-                    try await websocket.send(WebSocketID.self, .string(messageToSend))
-                    return .sendResponse(didSucceed: true)
-                } catch: { _ in
-                        .sendResponse(didSucceed: false)
-                }
-                .cancellable(id: WebSocketID.self)
-                
-                
-            case .serviceRequestAction(_):
-                return .none
-                
-                
             case .onAppear:
                 state.isPresented = true
                 state.mapFeature = MapFeature.State(mapMode: .citizen)
@@ -97,7 +81,11 @@ struct EmergencyFeature: ReducerProtocol {
                     }
                 }
                 
-                
+            /*
+             -------------------
+              Websocket actions
+             -------------------
+            */
             case .connectOrDisconnect:
                 switch state.connectivityState {
                     
@@ -164,7 +152,7 @@ struct EmergencyFeature: ReducerProtocol {
                     .cancellable(id: WebSocketID.self)
                 }
                 
-            case .sendResponse(didSucceed: let didSucceed):
+            case .sendResponse(didSucceed: _):
                 return .none
                 
             case .webSocket(.didOpen):
@@ -203,9 +191,7 @@ struct EmergencyFeature: ReducerProtocol {
                             
                         default:
                             return .none
-                            
                         }
-                        
                         
                     case "cancel.emergency":
                         state.mapFeature?.securityLocation = nil
@@ -225,7 +211,6 @@ struct EmergencyFeature: ReducerProtocol {
                         }
                         
                     case "update.emergency":
-                        
                         if let security = state.emergency.security {
                             return .task { [securityCoordinate = security.coordinate] in
                                 
@@ -238,7 +223,6 @@ struct EmergencyFeature: ReducerProtocol {
                         }
                         
                     case "complete.emergency":
-                        
                         state.mapFeature?.securityLocation = nil
                         
                         return .task {
@@ -252,14 +236,36 @@ struct EmergencyFeature: ReducerProtocol {
                 
                 return .none
                 
-                
             case .receivedSocketMessage(.failure):
                 return .none
-                
             
+            /*
+             -------------------------
+              Service request actions
+             -------------------------
+             */
                 
+            case .serviceRequestAction(.confirm):
+                let messageToSend = "{\"type\": \"create.emergency\"}"
+                return .task {
+                    print("DEBUG: SENDING CREATION: \(messageToSend)")
+                    try await websocket.send(WebSocketID.self, .string(messageToSend))
+                    return .sendResponse(didSucceed: true)
+                } catch: { _ in
+                        .sendResponse(didSucceed: false)
+                }
+                .cancellable(id: WebSocketID.self)
+                
+                
+            case .serviceRequestAction(_):
+                return .none
+                
+            /*
+             -------------
+              Map Actions
+             -------------
+            */
             case let .mapAction(.updateCitizenLocation(newCoordinate)):
-                
                 
                 let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
                 

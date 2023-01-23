@@ -9,9 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AccountView: View {
-    
-    @EnvironmentObject var userAuth: AuthViewModel
-    
+        
     let store: Store<AccountFeature.State, AccountFeature.Action>
     
     var body: some View {
@@ -119,7 +117,7 @@ struct AccountView: View {
                 // SignOut Section
                 Section {
                     Button {
-                        userAuth.logoutCitizen()
+                        //userAuth.logoutCitizen()
                     } label: {
                         Text("Sign Out")
                             .font(.custom(FontsManager.Poppins.medium, size: 14))

@@ -38,7 +38,7 @@ struct CustomInputField: View {
             }
             .font(.custom(FontsManager.Poppins.regular, size: 15))
             .foregroundColor(Color.theme.primaryText)
-//            .textInputAutocapitalization(.never)
+            .autocapitalization(.none)
             .autocorrectionDisabled()
             .accentColor(Color.theme.accent)
             .padding(.leading)

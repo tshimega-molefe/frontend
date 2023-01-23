@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 import ComposableArchitecture
 
-struct EditProfileFeature: ReducerProtocol {
-    @EnvironmentObject var userAuth: AuthViewModel
-    
+struct EditProfileFeature: ReducerProtocol {    
     
     struct State: Equatable {
         var route: Route = .notEditing

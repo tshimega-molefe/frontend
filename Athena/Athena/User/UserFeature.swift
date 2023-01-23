@@ -105,10 +105,10 @@ import SwiftUI
 //    }
 //    
 //}
-
-enum UserAction: Equatable {
-  case onAppear
-  case dataLoaded(Result<User, APIError>)
-}
-
+//
+//enum UserAction: Equatable {
+//  case onAppear
+//  case dataLoaded(Result<User, APIError>)
+//}
+//
 

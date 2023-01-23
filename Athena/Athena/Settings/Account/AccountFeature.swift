@@ -30,9 +30,6 @@ struct AccountFeature: ReducerProtocol {
         case dismissView
     }
     
-    @EnvironmentObject var userAuth: AuthViewModel
-
-    
     var body: some ReducerProtocol<State, Action>{
         
         

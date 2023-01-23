@@ -29,8 +29,6 @@ struct EmergencyView: View {
                     
                 }
                 
-                
-                
                 IfLetStore(
                     self.store.scope(
                         state: \.serviceRequestFeature,

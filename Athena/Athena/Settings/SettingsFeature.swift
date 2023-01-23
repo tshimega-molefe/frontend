@@ -10,7 +10,6 @@ import SwiftUI
 import ComposableArchitecture
 
 struct SettingsFeature: ReducerProtocol {
-    @EnvironmentObject var userAuth: AuthViewModel
     
     
     struct State: Equatable {
@@ -37,8 +36,7 @@ struct SettingsFeature: ReducerProtocol {
                 return .none
                 
             case .accountAction(.signOut):
-                userAuth.logoutCitizen()
-                print("DEBUG: Are you working ??")
+                //userAuth.logoutCitizen()
                 return .none
                 
             case .accountAction(_):
