@@ -125,7 +125,7 @@ extension UserClient {
     },
     
     getUserProfile: {
-        return UserProfile(id: "", user: User(username: "", email: "", first_name: "", last_name: ""), home_address: "", contact_number: "", birth_date: "", profile_image: "", sex: "", race: "")
+        return UserProfile(id: 0, user: User(username: "", email: "", first_name: "", last_name: ""), home_address: "", contact_number: "", birth_date: "", profile_image: "", sex: "", race: "")
     }
   )
 }
