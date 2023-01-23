@@ -59,6 +59,23 @@ struct EditProfileView: View {
                 }
                 
                 Section {
+                    NavigationLink {
+                        Text("LocationSearchVIew")
+                    } label: {
+                        Text("11 Spring Road, Douglasdale")
+                    }
+                } header: {
+                    Text("Home Address")
+                }
+                
+                Section {
+                    Text("+27 86 758 6250")
+                } header: {
+                    Text("Phone Number")
+                }
+
+                
+                Section {
                     Text("sabrinamorreno@gmail.com")
                 } header: {
                     Text("Email")
