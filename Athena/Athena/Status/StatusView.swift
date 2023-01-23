@@ -93,11 +93,9 @@ struct StatusView_Previews: PreviewProvider {
     }
 }
 
-struct CameraRepresentable: UIViewControllerRepresentable {
+struct CameraRepresentable: UIViewRepresentable {
     
-    func makeUIViewController(context:
-                              UIViewControllerRepresentableContext<CameraRepresentable>) ->
-    AVCaptureVideoPreviewLayer {
+    func makeUIView(context: Context) -> UIView {
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
         
@@ -120,11 +118,9 @@ struct CameraRepresentable: UIViewControllerRepresentable {
         return cameraView
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController,
-                                context: UIViewControllerRepresentableContext<CameraRepresentable>) {
+    func updateUIView(_ uiView: UIView,
+                                context: Context) {
         //Update
-        
     }
-    
 }
 
