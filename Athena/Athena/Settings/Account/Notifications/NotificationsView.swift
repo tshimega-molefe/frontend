@@ -8,39 +8,68 @@
 import SwiftUI
 
 struct NotificationsView: View {
+    
+    @State private var messageNotifications : Bool = true
+    @State private var watchMeNotifications: Bool = true
+    @State private var statusNotifications: Bool = true
+    
+    
     var body: some View {
         List {
             Section {
-                Text("Show Notifications")
-                Text("Sound")
-                Text("Family Notifications")
+                Toggle(isOn: $messageNotifications) {
+                    Text("Push Notifications")
+                }
+                NavigationLink {
+                    Text("Notitification Sound List")
+                } label: {
+                    Text("Sound")
+                }
+                
             } header: {
                 Text("Message Notifications")
             }
             
             Section {
-                Text("Show Notifications")
-                Text("Sound")
-                Text("Family Notifications")
-            } header: {
-                Text("Group Notifications")
-            }
-            
-            Section {
-                VStack(alignment: .leading) {
-                    Text("In-App Notifications")
-                    Text("Banners, Sounds, Vibrate")
+                Toggle(isOn: $watchMeNotifications) {
+                    Text("Push Notifications")
                 }
-            } header: {}
-            
-            Section {
-                Text("Show Preview")
-            } footer: {
-                Text("Preview message text inside new message notifications.")
+                NavigationLink {
+                    Text("Notification Sound List")
+                } label: {
+                    Text("Sound")
+                }
+                Toggle(isOn: $statusNotifications) {
+                    Text("Status Notifications")
+                }
+            } header: {
+                Text("Watch-Me Notifications")
             }
             
             Section {
-                Text("Reset Notification Settings")
+                
+                NavigationLink {
+                    Text("In-App Notifications Page")
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text("In-App Notifications")
+                        Text("Banners, Sounds, Vibrate")
+                            .font(.caption)
+                    }
+                }
+                
+                
+            } header: {}
+            Section {
+                Button {
+                    print("DEBUG: Bring up a call-to-action, which resets notification settings...")
+                } label: {
+                    Text("Reset Notification Settings")
+                        .foregroundColor(.red)
+                }
+
+                
+               
             } footer: {
                 Text("Reset all notification settings, including custom notification settings for your chats.")
             }

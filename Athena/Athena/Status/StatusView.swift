@@ -7,8 +7,12 @@
 
 import SwiftUI
 import MapboxMaps
+import AVFoundation
 
 struct StatusView: View {
+    @State private var isCameraOpen = false
+    
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             StatusMap().edgesIgnoringSafeArea(.top)
@@ -62,7 +66,7 @@ struct StatusView: View {
                     
                 }
                 Button {
-                    print("DEBUG: Handle Watch Me")
+                    self.isCameraOpen.toggle()
                 } label: {
                     HStack {
                         Image(systemName: "eye.trianglebadge.exclamationmark")
@@ -72,6 +76,8 @@ struct StatusView: View {
                             .foregroundColor(.white)
                             .font(.custom(FontsManager.Poppins.regular, size: 16))
                     }
+                }.sheet(isPresented: $isCameraOpen) {
+                    CameraRepresentable()
                 }
             }
             .padding(.leading)
@@ -84,6 +90,37 @@ struct StatusView: View {
 struct StatusView_Previews: PreviewProvider {
     static var previews: some View {
         StatusView()
+    }
+}
+
+struct CameraRepresentable: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UIView {
+        let captureSession = AVCaptureSession()
+        captureSession.sessionPreset = .medium
+        
+        guard let backCamera = AVCaptureDevice.default(for: .video) else {
+            fatalError("Unable to access back camera!")
+        }
+        do {
+            let input = try AVCaptureDeviceInput(device: backCamera)
+            captureSession.addInput(input)
+        } catch {
+            fatalError("Error configuring capture session \(error)")
+        }
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.videoGravity = .resizeAspect
+        captureSession.startRunning()
+        
+        let cameraView = UIView()
+        cameraView.layer.addSublayer(previewLayer)
+        return cameraView
+    }
+    
+    func updateUIView(_ uiView: UIView,
+                                context: Context) {
+        //Update
     }
 }
 

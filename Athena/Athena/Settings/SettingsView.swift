@@ -20,9 +20,9 @@ struct SettingsView: View {
                                        
                                        
                                        NavigationLink {
-                                           AccountView(store: Store(initialState: AccountFeature.State(userProfile: viewStore.userProfile),
-                                                                    reducer: AnyReducer(AccountFeature()),
-                                                                   environment: ()))
+                                           EditProfileView(store: Store(initialState: EditProfileFeature.State(),
+                                                                        reducer: AnyReducer(EditProfileFeature()),
+                                                                        environment: ()))
                                        } label: {
                                            HStack (alignment: .center) {
                                                Image("sabrina")

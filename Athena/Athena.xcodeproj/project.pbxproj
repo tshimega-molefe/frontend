@@ -38,6 +38,7 @@
 		95A56A9129421B2E00F43FE1 /* ServiceMap in Frameworks */ = {isa = PBXBuildFile; productRef = 95A56A9029421B2E00F43FE1 /* ServiceMap */; };
 		95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A56BC528EC512200BC1C2E /* LocationManager.swift */; };
 		95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC2B4290ADF24000FE158 /* HelpViewState.swift */; };
+		95B658FC2979843E0090A485 /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B658FB2979843E0090A485 /* ProfilePhotoView.swift */; };
 		95B7A854295B8E3800A4D1B8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7A853295B8E3800A4D1B8 /* SearchBar.swift */; };
 		95B8F047290AF7F900D07171 /* EmergencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8F046290AF7F900D07171 /* EmergencyButton.swift */; };
 		95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA2947293643F000E5F54D /* SettingsFeature.swift */; };
@@ -131,6 +132,7 @@
 		959FDCBA28F5A45B00F141CA /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		95A56BC528EC512200BC1C2E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		95ACC2B4290ADF24000FE158 /* HelpViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewState.swift; sourceTree = "<group>"; };
+		95B658FB2979843E0090A485 /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
 		95B7A853295B8E3800A4D1B8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		95B8F046290AF7F900D07171 /* EmergencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyButton.swift; sourceTree = "<group>"; };
 		95DA2947293643F000E5F54D /* SettingsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeature.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				958AFF8329794C5D0083553C /* EditProfileFeature.swift */,
+				95B658FB2979843E0090A485 /* ProfilePhotoView.swift */,
 				958AFF8129794C480083553C /* EditProfileView.swift */,
 			);
 			path = EditProfile;
@@ -720,6 +723,7 @@
 				95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */,
 				955CD5DE29473FFF005A215A /* AccountFeature.swift in Sources */,
 				9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */,
+				95B658FC2979843E0090A485 /* ProfilePhotoView.swift in Sources */,
 				95FCEC5528E1DFA700ABE5CA /* StatusView.swift in Sources */,
 				B328B25F2921A859007AE687 /* ServiceRequestFeature.swift in Sources */,
 				95FCEC5B28E1DFD000ABE5CA /* SettingsView.swift in Sources */,
