@@ -12,7 +12,12 @@ import ComposableArchitecture
 struct EditProfileFeature: ReducerProtocol {    
     
     struct State: Equatable {
+        var name: String = ""
+        var email: String = ""
+        var profileImage: Image?
+        
         var route: Route = .notEditing
+        var userProfile: UserProfile?
     }
     
     enum Route: Equatable {
@@ -22,6 +27,8 @@ struct EditProfileFeature: ReducerProtocol {
     
     enum Action: Equatable {
         case editProfile
+        case nameChanged
+        case emailChanged
         case selectProfileImage
         case cancelChanges
         case saveChanges
@@ -33,8 +40,6 @@ struct EditProfileFeature: ReducerProtocol {
             switch action {
                 
             case .editProfile:
-                // An action that changes the Route of the EditProfileFeature to Editing
-                print("DEBUG: Change the route of this view to 'editing'...")
                 state.route = .editing
                 return .none
                 
@@ -52,6 +57,11 @@ struct EditProfileFeature: ReducerProtocol {
                 state.route = .notEditing
                 return .none
                 
+            case .nameChanged:
+                return .none
+                
+            case .emailChanged:
+                return .none
             }
         }
     }

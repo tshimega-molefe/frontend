@@ -15,6 +15,8 @@ struct SettingsFeature: ReducerProtocol {
     struct State: Equatable {
         var route: Route = .idle
         var isPresented = true
+        //TODO: Convert all the user profile states into a shared state
+        var userProfile: UserProfile?
     }
     
     enum Route: Equatable {
@@ -41,7 +43,7 @@ struct SettingsFeature: ReducerProtocol {
                 
             case .accountAction(_):
                 return .none
-
+                
             }
         }
     }

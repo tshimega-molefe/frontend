@@ -13,6 +13,7 @@ struct AccountFeature: ReducerProtocol {
         
     struct State: Equatable {
         var route: Route = .idle
+        var userProfile: UserProfile?
     }
     
     enum Route: Equatable {

@@ -81,11 +81,11 @@ struct EmergencyFeature: ReducerProtocol {
                     }
                 }
                 
-            /*
-             -------------------
-              Websocket actions
-             -------------------
-            */
+                /*
+                 -------------------
+                 Websocket actions
+                 -------------------
+                 */
             case .connectOrDisconnect:
                 switch state.connectivityState {
                     
@@ -110,25 +110,20 @@ struct EmergencyFeature: ReducerProtocol {
                                 switch action {
                                 case .didOpen:
                                     taskGroup.addTask {
+                                        //TODO: ensure that errors are checked and handled with respect to the access token
+                                        let accessToken: UserToken
                                         
-                                        let accessToken: String
-                                        
-                                        if let data = KeychainHelper.standard.read(service: "access-token"){
-                                            if let token = String(data: data, encoding: .utf8){
-                                                print("DEBUG: GOT AN ACCESS TOKEN")
-                                                accessToken = token
-                                            }
-                                            else {
-                                                accessToken = ""
-                                                print("DEBUG: Something went wrong setting access token string value")
-                                            }
+                                        if let tokenData = KeychainHelper.standard.read(service: "user-token"){
+                                            print("DEBUG: GOT AN ACCESS TOKEN")
+                                            accessToken = try! JSONDecoder().decode(UserToken.self, from: tokenData)
+                                            
                                         }
                                         else {
-                                            accessToken = ""
+                                            accessToken = UserToken(access: "", refresh: "")
                                             print("DEBUG: No webSocket access token found in keychain")
                                         }
                                         
-                                        let messageToSend = "{\"token\": \" \(accessToken)\"}"
+                                        let messageToSend = "{\"token\": \" \(accessToken.access)\"}"
                                         try await websocket.send(WebSocketID.self, .string(messageToSend))
                                         
                                         while true {
@@ -238,12 +233,12 @@ struct EmergencyFeature: ReducerProtocol {
                 
             case .receivedSocketMessage(.failure):
                 return .none
-            
-            /*
-             -------------------------
-              Service request actions
-             -------------------------
-             */
+                
+                /*
+                 -------------------------
+                 Service request actions
+                 -------------------------
+                 */
                 
             case .serviceRequestAction(.confirm):
                 let messageToSend = "{\"type\": \"create.emergency\"}"
@@ -260,11 +255,11 @@ struct EmergencyFeature: ReducerProtocol {
             case .serviceRequestAction(_):
                 return .none
                 
-            /*
-             -------------
-              Map Actions
-             -------------
-            */
+                /*
+                 -------------
+                 Map Actions
+                 -------------
+                 */
             case let .mapAction(.updateCitizenLocation(newCoordinate)):
                 
                 let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
@@ -279,7 +274,7 @@ struct EmergencyFeature: ReducerProtocol {
                 
             case .mapAction(_):
                 return .none
-            
+                
             }
         }
         .ifLet(\.mapFeature, action: /Action.mapAction) {

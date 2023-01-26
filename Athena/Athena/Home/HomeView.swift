@@ -9,7 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 
 struct HomeView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let store: Store<HomeFeature.State, HomeFeature.Action>
     
     var body: some View {
@@ -61,7 +60,7 @@ struct HomeView: View {
                                 }.tag(HomeFeature.Route.search)
                             
                             NavigationView {
-                                SettingsView(store: Store(initialState: SettingsFeature.State(),
+                                SettingsView(store: Store(initialState: SettingsFeature.State(userProfile: viewStore.profile.userProfile),
                                                           reducer: AnyReducer(SettingsFeature()),
                                                           environment: ()))
                             }

@@ -94,6 +94,8 @@
 		B376FEB92914316700CA6AFD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEB82914316700CA6AFD /* SettingsRow.swift */; };
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
 		B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */; };
+		B37C999A29814A74004BB9F9 /* ProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C999929814A74004BB9F9 /* ProfileFeature.swift */; };
+		B37C999C2981566E004BB9F9 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C999B2981566E004BB9F9 /* AppFeature.swift */; };
 		B38CDEC9293558B90005BC9D /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */; };
 		B38CDECB293558B90005BC9D /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDECA293558B90005BC9D /* MapboxNavigation */; };
 		B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3F158AC2925279D0067DC28 /* MapboxMaps */; };
@@ -187,6 +189,8 @@
 		B376FEB82914316700CA6AFD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		B376FEBA291479DA00CA6AFD /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
 		B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
+		B37C999929814A74004BB9F9 /* ProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeature.swift; sourceTree = "<group>"; };
+		B37C999B2981566E004BB9F9 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		B38CDEE029364BDC0005BC9D /* ServiceMap */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ServiceMap; path = ../../ServiceMap; sourceTree = "<group>"; };
 		B38CDEEC2936596D0005BC9D /* ServiceMap */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ServiceMap; path = ../../ServiceMap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,8 +295,8 @@
 		955CD5DC29473FE3005A215A /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				955CD5DA29473FCA005A215A /* AccountView.swift */,
 				955CD5DD29473FFF005A215A /* AccountFeature.swift */,
+				955CD5DA29473FCA005A215A /* AccountView.swift */,
 				958AFF8029794C080083553C /* EditProfile */,
 				95F4CE40295096DA0042C397 /* Family */,
 				95900A6929718346001A6D3C /* Notifications */,
@@ -332,6 +336,7 @@
 		9576893A28E0644F009FDCE2 /* Athena */ = {
 			isa = PBXGroup;
 			children = (
+				B37C999B2981566E004BB9F9 /* AppFeature.swift */,
 				9576893B28E0644F009FDCE2 /* AthenaApp.swift */,
 				9522ABB828E09A1B00437D38 /* Components */,
 				95FCEC4D28E1DDCC00ABE5CA /* Home */,
@@ -341,6 +346,7 @@
 				95FCEC5028E1DEC500ABE5CA /* Security */,
 				B328B25D2921A7CB007AE687 /* Service Request */,
 				95FCEC4828E1DBB000ABE5CA /* Emergency */,
+				B37C999829814A62004BB9F9 /* Profile */,
 				95FCEC5328E1DF4000ABE5CA /* Search */,
 				95FCEC5228E1DF1A00ABE5CA /* Settings */,
 				9576894B28E0651A009FDCE2 /* Extensions */,
@@ -403,8 +409,8 @@
 		958AFF8029794C080083553C /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
-				958AFF8129794C480083553C /* EditProfileView.swift */,
 				958AFF8329794C5D0083553C /* EditProfileFeature.swift */,
+				958AFF8129794C480083553C /* EditProfileView.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -509,12 +515,12 @@
 			children = (
 				95DA2947293643F000E5F54D /* SettingsFeature.swift */,
 				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
+				955CD5DC29473FE3005A215A /* Account */,
 				9528DAF9294C900B00F5AEC8 /* Help */,
 				9528DAFA294C901700F5AEC8 /* Wallet */,
 				9528DAFB294C902000F5AEC8 /* History */,
 				9528DAFC294C902900F5AEC8 /* Messages */,
 				9528DAFD294C903000F5AEC8 /* Evidence */,
-				955CD5DC29473FE3005A215A /* Account */,
 				9528DAFE294C903800F5AEC8 /* Legal */,
 			);
 			path = Settings;
@@ -543,6 +549,14 @@
 				959FDCB328F5873700F141CA /* ServiceRequestView.swift */,
 			);
 			path = "Service Request";
+			sourceTree = "<group>";
+		};
+		B37C999829814A62004BB9F9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B37C999929814A74004BB9F9 /* ProfileFeature.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B38CDED42936459F0005BC9D /* Frameworks */ = {
@@ -688,6 +702,7 @@
 				95B7A854295B8E3800A4D1B8 /* SearchBar.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */,
+				B37C999C2981566E004BB9F9 /* AppFeature.swift in Sources */,
 				95F4CE462950ABAA0042C397 /* MessagesView.swift in Sources */,
 				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
@@ -699,6 +714,7 @@
 				95F4CE3F2950968A0042C397 /* LegalFeature.swift in Sources */,
 				95F4CE3D2950967E0042C397 /* LegalView.swift in Sources */,
 				958AFF7F29794A640083553C /* StatusFeature.swift in Sources */,
+				B37C999A29814A74004BB9F9 /* ProfileFeature.swift in Sources */,
 				95ACC2B5290ADF24000FE158 /* HelpViewState.swift in Sources */,
 				95F4CE3B2950966E0042C397 /* HistoryFeature.swift in Sources */,
 				95DA2948293643F000E5F54D /* SettingsFeature.swift in Sources */,

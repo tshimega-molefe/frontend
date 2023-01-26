@@ -16,10 +16,7 @@ struct EditProfileView: View {
         self.store = store
         self.viewStore = ViewStore(self.store)
     }
-
-    @State private var name: String = ""
-    @State private var email: String = ""
-    @State private var profileImage: Image?
+    
     
     var body: some View {
         
@@ -27,23 +24,17 @@ struct EditProfileView: View {
         case .notEditing:
             List {
                 Section(header: Text("Name")) {
-                    TextField("Enter your name", text :$name)
+                    TextField("Enter your name", text : viewStore.binding(get: \.name, send: .nameChanged))
                 }
                 Section(header: Text("Email")) {
-                    TextField("Enter your email", text: $email)
+                    TextField("Enter your email", text: viewStore.binding(get: \.email, send: .emailChanged))
                 }
                 Section(header: Text("Profile Picture")) {
-                    if profileImage != nil {
-                        profileImage?
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                    } else {
-                        Button(action: {
-                            // Select image from libarary or take photo
-                            viewStore.send(.selectProfileImage)
-                        }) {
-                            Text("Select Profile Image")
-                        }
+                    Button(action: {
+                        // Select image from libarary or take photo
+                        viewStore.send(.selectProfileImage)
+                    }) {
+                        Text("Select Profile Image")
                     }
                 }
                 Section {

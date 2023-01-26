@@ -9,17 +9,21 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AccountView: View {
-        
+    @ObservedObject var viewStore: ViewStore<AccountFeature.State, AccountFeature.Action>
     let store: Store<AccountFeature.State, AccountFeature.Action>
     
+    init(store: Store<AccountFeature.State, AccountFeature.Action>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store)
+    }
+    
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            
+                
             List {
                 // Edit Profile Section
                 Section {
                     NavigationLink {
-                        EditProfileView(store: Store(initialState: EditProfileFeature.State(),
+                        EditProfileView(store: Store(initialState: EditProfileFeature.State(userProfile: viewStore.userProfile),
                                                      reducer: AnyReducer(EditProfileFeature()),
                                                      environment: ()))
                     } label: {
@@ -32,15 +36,25 @@ struct AccountView: View {
                             
                             VStack (alignment: .leading) {
                                 
-                                Text("Sabrina Morreno")
+                                Text(viewStore.userProfile?.user.first_name ?? "User Legal Name")
                                     .font(.custom(FontsManager.Poppins.light, size: 14))
                                     .foregroundColor(Color.theme.secondaryText)
                                 
-                                Text("+27 84 758 6250")
-                                    .font(.custom(FontsManager.Poppins.light, size: 14))
-                                    .foregroundColor(Color.theme.secondaryText)
+                                if viewStore.userProfile?.contact_number == "" {
+                                    Text("+27 82 888 9999")
+                                        .font(.custom(FontsManager.Poppins.light, size: 14))
+                                        .foregroundColor(Color.theme.secondaryText)
+                                }
+                                else {
+                                    Text(viewStore.userProfile?.contact_number ?? "+27 82 888 9999")
+                                        .font(.custom(FontsManager.Poppins.light, size: 14))
+                                        .foregroundColor(Color.theme.secondaryText)
+                                }
                                 
-                                Text("sabrinamo*****@gmail.com")
+                                
+                                    
+                                
+                                Text(viewStore.userProfile?.user.email ?? "test@gmail.com")
                                     .font(.custom(FontsManager.Poppins.light, size: 14))
                                     .foregroundColor(Color.theme.secondaryText)
                             }
@@ -131,7 +145,7 @@ struct AccountView: View {
             .navigationBarTitleDisplayMode(.large)
             .listStyle(.automatic)
             .navigationTitle("Account")
-        }
+        
     }
 }
 

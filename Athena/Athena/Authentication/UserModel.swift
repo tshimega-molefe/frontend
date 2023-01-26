@@ -10,24 +10,24 @@ import SwiftUI
 import ComposableArchitecture
 
 struct User: Equatable, Codable {
-    let username: String
-    let email: String
-    let first_name: String?
-    let last_name: String?
+    var username: String
+    var email: String
+    var first_name: String?
+    var last_name: String?
 }
 
 struct UserProfile: Equatable, Codable {
-    let id: Int
-    let user: User
-    let home_address: String?
-    let contact_number: String?
-    let birth_date: String?
-    let profile_image: String?
-    let sex: String?
-    let race: String?
+    var id: Int
+    var user: User
+    var home_address: String?
+    var contact_number: String?
+    var birth_date: String?
+    var profile_image: String?
+    var sex: String?
+    var race: String?
 }
 
 struct UserToken: Equatable, Codable {
-    let access: String
-    let refresh: String
+    var access: String
+    var refresh: String
 }

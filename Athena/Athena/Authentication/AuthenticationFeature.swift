@@ -66,6 +66,7 @@ struct AuthenticationFeature: ReducerProtocol {
                 
             case let .usernameChanged(username):
                 state.username = username
+                
                 print("DEBUG username change: \(state.username)")
                 return .none
                 

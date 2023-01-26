@@ -13,9 +13,13 @@ struct AthenaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(store: Store(initialState: HomeFeature.State(),
-                                     reducer: AnyReducer(HomeFeature()),
-                                    environment: ()))
+            HomeView(
+                store: Store(
+                    initialState: HomeFeature.State(),
+                    reducer: AnyReducer(HomeFeature()),
+                    environment: ()
+                )
+            )
         }
     }
 }

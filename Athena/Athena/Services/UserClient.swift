@@ -34,100 +34,137 @@ struct UserClient {
         case registrationError
     }
     
+    enum ProfileError: Error {
+        case getError
+    }
+    
     var login: @Sendable (String, String) async throws -> UserToken
     var register: @Sendable (String, String, String) async throws -> UserToken
-    var getUserProfile: @Sendable () async throws -> UserProfile
-
+    var getUserProfile: @Sendable (String) async throws -> UserProfile
+    
 }
 
 extension UserClient {
-  static let live = Self(
-    login: { username, password in
-        try await Task.sleep(nanoseconds: NSEC_PER_SEC)
-        return try await withCheckedThrowingContinuation { continuation in
-            
-            guard let url = URL(string: "http://localhost:8000/api/users/login/") else {
-                continuation.resume(throwing: LoginError.loginError)
-                return
-            }
-            
-            let body = LoginRequest(username: username, password: password)
-            
-            guard let finalBody = try? JSONEncoder().encode(body) else {
-                return
-            }
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = finalBody
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+    static let live = Self(
+        login: { username, password in
+            try await Task.sleep(nanoseconds: NSEC_PER_SEC)
+            return try await withCheckedThrowingContinuation { continuation in
                 
-                guard let data = data, error == nil else {
+                guard let url = URL(string: "http://localhost:8000/api/users/login/") else {
                     continuation.resume(throwing: LoginError.loginError)
                     return
                 }
                 
-                if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 200 {
-                        
-                        let user = try? JSONDecoder().decode(UserToken.self, from: data)
-                        continuation.resume(returning: user!)
-                    }
-                    else {
+                let body = LoginRequest(username: username, password: password)
+                
+                guard let finalBody = try? JSONEncoder().encode(body) else {
+                    return
+                }
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = finalBody
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    
+                    guard let data = data, error == nil else {
                         continuation.resume(throwing: LoginError.loginError)
+                        return
+                    }
+                    
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            
+                            let user = try? JSONDecoder().decode(UserToken.self, from: data)
+                            continuation.resume(returning: user!)
+                        }
+                        else {
+                            continuation.resume(throwing: LoginError.loginError)
+                        }
                     }
                 }
+                task.resume()
             }
-            task.resume()
-        }
-    },
-    
-    register: { username, email, password in
-        try await Task.sleep(nanoseconds: NSEC_PER_SEC)
-        return try await withCheckedThrowingContinuation { continuation in
-            
-            guard let url = URL(string: "http://localhost:8000/api/users/citizen/register/") else {
-                continuation.resume(throwing: RegistrationError.registrationError)
-                return
-            }
-            
-            let body = RegistrationRequest(username: username, email: email, password: password)
-            
-            guard let finalBody = try? JSONEncoder().encode(body) else {
-                return
-            }
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = finalBody
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        },
+        
+        register: { username, email, password in
+            try await Task.sleep(nanoseconds: NSEC_PER_SEC)
+            return try await withCheckedThrowingContinuation { continuation in
                 
-                guard let data = data, error == nil else {
+                guard let url = URL(string: "http://localhost:8000/api/users/citizen/register/") else {
                     continuation.resume(throwing: RegistrationError.registrationError)
                     return
                 }
                 
-                if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 201 {
-                        
-                        let user = try? JSONDecoder().decode(UserToken.self, from: data)
-                        continuation.resume(returning: user!)
-                    }
-                    else {
+                let body = RegistrationRequest(username: username, email: email, password: password)
+                
+                guard let finalBody = try? JSONEncoder().encode(body) else {
+                    return
+                }
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = finalBody
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    
+                    guard let data = data, error == nil else {
                         continuation.resume(throwing: RegistrationError.registrationError)
+                        return
+                    }
+                    
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 201 {
+                            
+                            let user = try? JSONDecoder().decode(UserToken.self, from: data)
+                            //TODO: Look into how to fix this forced unwrap
+                            continuation.resume(returning: user!)
+                        }
+                        else {
+                            continuation.resume(throwing: RegistrationError.registrationError)
+                        }
                     }
                 }
+                task.resume()
             }
-            task.resume()
+        },
+        
+        getUserProfile: { accessToken in
+            try await Task.sleep(nanoseconds: NSEC_PER_SEC)
+            return try await withCheckedThrowingContinuation { continuation in
+                
+                guard let url = URL(string: "http://localhost:8000/api/users/profile/") else {
+                    continuation.resume(throwing: ProfileError.getError)
+                    return
+                }
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue( "Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    
+                    guard let data = data, error == nil else {
+                        continuation.resume(throwing: ProfileError.getError)
+                        return
+                    }
+                    
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            
+                            let profileData = try? JSONDecoder().decode(UserProfile.self, from: data)
+                            continuation.resume(returning: profileData!)
+                        }
+                        else {
+                            continuation.resume(throwing: ProfileError.getError)
+                        }
+                    }
+                }
+                task.resume()
+            }
         }
-    },
-    
-    getUserProfile: {
-        return UserProfile(id: 0, user: User(username: "", email: "", first_name: "", last_name: ""), home_address: "", contact_number: "", birth_date: "", profile_image: "", sex: "", race: "")
-    }
-  )
+    )
 }
 
 private enum UserClientKey: DependencyKey {
