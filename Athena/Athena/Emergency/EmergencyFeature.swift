@@ -12,13 +12,16 @@ import ServiceMap
 
 struct EmergencyFeature: ReducerProtocol {
     
+    @Dependency(\.websocket) private var websocket
+    @Dependency(\.mainQueue) private var mainQueue
+        
     struct State: Equatable {
-        var isPresented = true
+        var shouldDismiss = true
+        var emergency = EmergencyModel()
         var route: Route = .confirming
         var connectivityState = ConnectivityState.disconnected
-        var serviceRequestFeature: ServiceRequestFeature.State?
-        var mapFeature: MapFeature.State?
-        var emergency: EmergencyModel = EmergencyModel()
+        var serviceRequest = ServiceRequestFeature.State()
+        var map = MapFeature.State(mapMode: .citizen)
     }
     
     enum Route: Equatable {
@@ -34,36 +37,38 @@ struct EmergencyFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case serviceRequestAction(ServiceRequestFeature.Action)
-        case mapAction(MapFeature.Action)
-        case onAppear
         case cancel
+        case map(MapFeature.Action)
+        case serviceRequest(ServiceRequestFeature.Action)
         case connectOrDisconnect
         case sendResponse(didSucceed: Bool)
-        case webSocket(WebSocketClient.Action)
+        case websocket(WebSocketClient.Action)
         case receivedSocketMessage(TaskResult<WebSocketClient.Message>)
     }
     
-    @Dependency(\.websocket) private var websocket
-    @Dependency(\.mainQueue) private var mainQueue
-    
     var body: some ReducerProtocol<State, Action> {
+        
+        Scope(state: \.map, action: /Action.map) {
+            MapFeature()
+        }
+        
+        Scope(state: \.serviceRequest, action: /Action.serviceRequest) {
+            ServiceRequestFeature()
+        }
+      
+        
         Reduce { state, action in
             
             enum WebSocketID {}
             
             switch action {
                 
-            case .onAppear:
-                state.isPresented = true
-                state.mapFeature = MapFeature.State(mapMode: .citizen)
-                state.serviceRequestFeature = ServiceRequestFeature.State()
-                return .none
-                
             case .cancel:
-                //state.serviceRequestFeature = nil
+                state.shouldDismiss = true
                 
-                if state.serviceRequestFeature?.route != .idle {
+                if state.serviceRequest.route != .idle {
+                    state.serviceRequest.route = .idle
+                    
                     let messageToSend = "{\"type\": \"cancel.emergency\", \"id\": \"\(state.emergency.id ?? "")\"}"
                     return .task {
                         print("DEBUG: SENDING CANCELLATION: \(messageToSend)")
@@ -75,10 +80,7 @@ struct EmergencyFeature: ReducerProtocol {
                         .cancellable(id: WebSocketID.self)
                 }
                 else {
-                    state.isPresented = false
-                    return .task {
-                        return .connectOrDisconnect
-                    }
+                    return .none
                 }
                 
                 /*
@@ -88,26 +90,24 @@ struct EmergencyFeature: ReducerProtocol {
                  */
             case .connectOrDisconnect:
                 switch state.connectivityState {
-                    
+
                 case .connected, .connecting:
-                    
                     state.connectivityState = .disconnected
-                    state.isPresented = false
-                    
                     return .cancel(id: WebSocketID.self)
-                    
+
                 case .disconnected:
-                    
+
                     state.connectivityState = .connecting
-                    
+
                     return .run { send in
                         let actions = await websocket.open(WebSocketID.self, URL(string: "ws://localhost:8000")!, [])
-                        
+
                         await withThrowingTaskGroup(of: Void.self) { taskGroup in
                             for await action in actions {
-                                await send(.webSocket(action))
-                                
+                                await send(.websocket(action))
+
                                 switch action {
+
                                 case .didOpen:
                                     taskGroup.addTask {
                                         //TODO: ensure that errors are checked and handled with respect to the access token
@@ -136,7 +136,7 @@ struct EmergencyFeature: ReducerProtocol {
                                             await send(.receivedSocketMessage(result))
                                         }
                                     }
-                                    
+
                                 case .didClose:
                                     return
                                 }
@@ -146,102 +146,115 @@ struct EmergencyFeature: ReducerProtocol {
                     }
                     .cancellable(id: WebSocketID.self)
                 }
-                
-            case .sendResponse(didSucceed: _):
+
+            case .sendResponse(didSucceed: true):
+              return .none
+
+            case .sendResponse(didSucceed: false):
                 return .none
-                
-            case .webSocket(.didOpen):
-                
+
+            case .websocket(.didOpen):
                 state.connectivityState = .connected
                 return .none
-                
-            case .webSocket(.didClose):
-                
+
+            case .websocket(.didClose):
                 state.connectivityState = .disconnected
                 return .cancel(id: WebSocketID.self)
-                
-                
+
             case let .receivedSocketMessage(.success(message)):
                 if case let .string(string) = message {
-                    
+
                     let decoder = JSONDecoder()
+                    //TODO: Add a do catch block here for when it fails (shouldnt but still)
                     state.emergency = try! decoder.decode(EmergencyModel.self, from: string.data(using: .utf8)!)
-                    
                     let type = state.emergency.type ?? ""
-                    
+
                     switch type {
-                        
+
                     case "renew.emergency":
                         switch state.emergency.status {
                         case "ACCEPTED":
-                            
-                            state.serviceRequestFeature?.route = .accepted
+                            state.serviceRequest.route = .accepted
                             return .none
-                            
                         case "IN PROGRESS":
-                            state.serviceRequestFeature?.route = .started
-                            
+                            state.serviceRequest.route = .started
                         case "REQUESTED":
-                            state.serviceRequestFeature?.route = .confirmed
-                            
+                            state.serviceRequest.route = .confirmed
                         default:
                             return .none
                         }
-                        
+
                     case "cancel.emergency":
-                        state.mapFeature?.securityLocation = nil
-                        
-                        return .task {
-                            return .connectOrDisconnect
-                        }
+                        state.map.securityLocation = nil
                         
                     case "start.emergency":
                         return .task {
-                            return .serviceRequestAction(.start)
+                            return .serviceRequest(.start)
                         }
-                        
+
                     case "accept.emergency":
                         return .task {
-                            return .serviceRequestAction(.accept)
+                            .serviceRequest(.accept)
                         }
-                        
+
                     case "update.emergency":
                         if let security = state.emergency.security {
                             return .task { [securityCoordinate = security.coordinate] in
-                                
+
                                 let lat = securityCoordinate.latitude
                                 let long = securityCoordinate.longitude
                                 let coordinate = CLLocationCoordinate2DMake(lat, long)
-                                
-                                return .mapAction(.updateSecurityLocation(coordinate))
+
+                                return .map(.updateSecurityLocation(coordinate))
                             }
                         }
-                        
+
                     case "complete.emergency":
-                        state.mapFeature?.securityLocation = nil
-                        
-                        return .task {
-                            return .serviceRequestAction(.complete)
+                        state.map.securityLocation = nil
+
+                        return .run { send in
+                            await send(.serviceRequest(.complete))
                         }
-                        
                     default:
                         return .none
                     }
                 }
-                
+
                 return .none
-                
+
             case .receivedSocketMessage(.failure):
                 return .none
+
+//                /*
+//                 -------------
+//                 Map Actions
+//                 -------------
+//                 */
+            case let .map(.updateCitizenLocation(newCoordinate)):
+
+                let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
+                //
+                return .task {
+                    try await websocket.send(WebSocketID.self, .string(messageToSend))
+                    return .sendResponse(didSucceed: true)
+                } catch: { _ in
+                        .sendResponse(didSucceed: false)
+                }
+                .cancellable(id: WebSocketID.self)
+            case .map:
+                return .none
+//
+            /*
+             -------------------------
+             Service request actions
+             -------------------------
+             */
                 
-                /*
-                 -------------------------
-                 Service request actions
-                 -------------------------
-                 */
-                
-            case .serviceRequestAction(.confirm):
+            case .serviceRequest(.confirm):
+                state.shouldDismiss = false
+
                 let messageToSend = "{\"type\": \"create.emergency\"}"
+
                 return .task {
                     print("DEBUG: SENDING CREATION: \(messageToSend)")
                     try await websocket.send(WebSocketID.self, .string(messageToSend))
@@ -251,37 +264,16 @@ struct EmergencyFeature: ReducerProtocol {
                 }
                 .cancellable(id: WebSocketID.self)
                 
-                
-            case .serviceRequestAction(_):
+            case .serviceRequest(.complete):
+                state.shouldDismiss = true
                 return .none
                 
-                /*
-                 -------------
-                 Map Actions
-                 -------------
-                 */
-            case let .mapAction(.updateCitizenLocation(newCoordinate)):
-                
-                let messageToSend = "{\"type\": \"update.location\", \"citizen\": { \"coordinate\": { \"latitude\": \(newCoordinate.latitude), \"longitude\": \(newCoordinate.longitude) } } }"
-                
-                return .task {
-                    try await websocket.send(WebSocketID.self, .string(messageToSend))
-                    return .sendResponse(didSucceed: true)
-                } catch: { _ in
-                        .sendResponse(didSucceed: false)
-                }
-                .cancellable(id: WebSocketID.self)
-                
-            case .mapAction(_):
+            case .serviceRequest:
                 return .none
+
+
                 
             }
-        }
-        .ifLet(\.mapFeature, action: /Action.mapAction) {
-            MapFeature()
-        }
-        .ifLet(\.serviceRequestFeature, action: /Action.serviceRequestAction) {
-            ServiceRequestFeature()
         }
     }
 }

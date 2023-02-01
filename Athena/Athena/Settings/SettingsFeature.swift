@@ -11,37 +11,35 @@ import ComposableArchitecture
 
 struct SettingsFeature: ReducerProtocol {
     
-    
     struct State: Equatable {
-        var route: Route = .idle
-        var isPresented = true
-        //TODO: Convert all the user profile states into a shared state
-        var userProfile: UserProfile?
+        var profile: ProfileFeature.State
     }
-    
-    enum Route: Equatable {
-        case idle
-    }
-    
-    enum Action: Equatable {
+
+    enum Action: BindableAction, Equatable {
         case onAppear
-        case accountAction(AccountFeature.Action)
+        case binding(BindingAction<State>)
+        case profile(ProfileFeature.Action)
     }
     
-    var body: some ReducerProtocol<State, Action>{
+    var body: some ReducerProtocol<State, Action> {
+        
+        BindingReducer()
+
+        Scope(state: \.profile, action: /Action.profile) {
+            ProfileFeature()
+        }
+        
         Reduce { state, action in
             
             switch action {
                 
             case .onAppear:
-                state.isPresented = true
+                return .none
+
+            case .binding:
                 return .none
                 
-            case .accountAction(.signOut):
-                //userAuth.logoutCitizen()
-                return .none
-                
-            case .accountAction(_):
+            case .profile:
                 return .none
                 
             }

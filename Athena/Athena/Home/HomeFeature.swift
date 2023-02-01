@@ -7,13 +7,24 @@
 
 import Foundation
 import ComposableArchitecture
+import ServiceMap
 
 struct HomeFeature: ReducerProtocol {
     
     struct State: Equatable {
-        var route: Route = .emergency
-        var profile = ProfileFeature.State()
+        @BindableState var route: Route = .emergency
         var authFeature: AuthenticationFeature.State?
+        var profile: ProfileFeature.State = ProfileFeature.State()
+        
+        var settings: SettingsFeature.State {
+            get {
+                SettingsFeature.State(profile: profile)
+            }
+            set {
+                self.profile = newValue.profile
+            }
+        }
+        var emergency = EmergencyFeature.State()
     }
     
     enum Route: Equatable {
@@ -24,29 +35,42 @@ struct HomeFeature: ReducerProtocol {
         case settings
     }
     
-    enum Action: Equatable {
+    
+    enum Action: BindableAction, Equatable {
         case onAppear
+        case binding(BindingAction<State>)
         case authAction(AuthenticationFeature.Action)
-        case getProfileResponse(TaskResult<UserProfile>)
-        case profileAction(ProfileFeature.Action)
+        case profile(ProfileFeature.Action)
+        case settings(SettingsFeature.Action)
+        case emergency(EmergencyFeature.Action)
+        case serviceMap(MapFeature.Action)
+        case serviceRequest(ServiceRequestFeature.Action)
     }
     
     @Dependency(\.userClient) private var userClient
     @Dependency(\.mainQueue) private var mainQueue
     
     var body: some ReducerProtocol<State, Action> {
+        BindingReducer()
         
-        Scope(state: \.profile, action: /Action.profileAction) {
+        Scope(state: \.settings, action: /Action.settings) {
+            SettingsFeature()
+        }
+        
+        Scope(state: \.emergency, action: /Action.emergency) {
+            EmergencyFeature()
+        }
+        
+        Scope(state: \.profile, action: /Action.profile) {
             ProfileFeature()
         }
+        
         
         Reduce { state, action in
             
             switch action {
                 
             case .onAppear:
-                print("DEBUG: APPEARING")
-                
                 if let tokenData = KeychainHelper.standard.read(service: "user-token"){
                     print("DEBUG: Current access token is \(String(describing: tokenData))")
                     
@@ -60,7 +84,7 @@ struct HomeFeature: ReducerProtocol {
                     state.authFeature = nil
                     
                     return .task {
-                        await .getProfileResponse(TaskResult { try await userClient.getUserProfile(userToken.access) })
+                        return .profile(.getUserProfile(userToken))
                     }
                 }
                 else {
@@ -71,40 +95,28 @@ struct HomeFeature: ReducerProtocol {
                 
                 return .none
                 
-            case let .getProfileResponse(.success(userProfile)):
-                print("DEBUG: PROFILE RESPONSE \(userProfile)")
-                
-                state.profile.userProfile = userProfile
-                if let encodedProfile = try? JSONEncoder().encode(userProfile) {
-                    UserDefaults.standard.set(encodedProfile, forKey: "UserProfile")
-                }
-                
+            case .binding:
                 return .none
                 
-            case let .getProfileResponse(.failure(err)):
-                print("DEBUG: PROFILE FAILURE \(err)")
-                return .none
-                
-                /*
-                 --------------
-                 auth actions
-                 --------------
-                 */
-            case .authAction(.loginResponse(.success(_))):
+            case .authAction(.loginResponse(.success)):
                 state.authFeature = nil
                 return .none
                 
-            case .authAction(.registerResponse(.success(_))):
+            case .authAction(.registerResponse(.success)):
                 state.authFeature = nil
                 return .none
                 
-            case .authAction(_):
+            case .authAction:
                 return .none
-            
-            case let .profileAction(.getUserProfileResponse(userProfile)):
+            case .settings:
                 return .none
-            
-            case .profileAction(_):
+            case .profile:
+                return .none
+            case .emergency:
+                return .none
+            case .serviceMap:
+                return .none
+            case .serviceRequest:
                 return .none
             }
         }

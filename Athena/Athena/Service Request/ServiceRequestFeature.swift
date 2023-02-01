@@ -11,9 +11,6 @@ import ComposableArchitecture
 struct ServiceRequestFeature: ReducerProtocol {
     
     struct State: Equatable {
-        // TODO: Create service provider model so data can be pulled into top block
-        //var serviceProviders: [ServiceProviders] = []
-        
         var route: Route = .idle
     }
     
@@ -32,28 +29,33 @@ struct ServiceRequestFeature: ReducerProtocol {
         case updatePaymentMethod
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-            
-        case .confirm:
-            state.route = .confirmed
-            return .none
-            
-        case .accept:
-            state.route = .accepted
-            return .none
-            
-        case .start:
-            state.route = .started
-            return .none
-            
-        case .complete:
-            state.route = .idle
-            return .none
-            
-        case .updatePaymentMethod:
-            return .none
-            
+    var body: some ReducerProtocol<State, Action> {
+
+        Reduce { state, action in
+            switch action {
+                
+            case .confirm:
+                state.route = .confirmed
+                return .none
+                
+            case .accept:
+                state.route = .accepted
+                return .none
+                
+            case .start:
+                state.route = .started
+                return .none
+                
+            case .complete:
+                state.route = .idle
+                return .none
+                
+            case .updatePaymentMethod:
+                return .none
+                
+            }
         }
+        
+        
     }
 }

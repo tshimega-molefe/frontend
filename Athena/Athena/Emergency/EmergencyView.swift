@@ -12,58 +12,32 @@ import ServiceMap
 
 struct EmergencyView: View {
     @Environment(\.presentationMode) private var presentationMode
-    
-    let store: Store<EmergencyFeature.State, EmergencyFeature.Action>
-    
+    let store: StoreOf<EmergencyFeature>
+
     var body: some View {
-        WithViewStore(self.store) { viewStore in
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            
             
             VStack(alignment: .center) {
-                
-                IfLetStore(
-                    self.store.scope(
-                        state: \.mapFeature,
-                        action: EmergencyFeature.Action.mapAction)
-                ) { mapStore in
-                    ServiceMapView(store: mapStore)
-                    
-                }
-                
-                IfLetStore(
-                    self.store.scope(
-                        state: \.serviceRequestFeature,
-                        action: EmergencyFeature.Action.serviceRequestAction)
-                ) { requestStore in
-                    ServiceRequestView(store: requestStore)
-                }
+                ServiceMapView(store: store.scope(state: \.map, action: EmergencyFeature.Action.map))
+                ServiceRequestView(store: store.scope(state: \.serviceRequest, action: EmergencyFeature.Action.serviceRequest))
             }
             .edgesIgnoringSafeArea(.top)
-            .onAppear {
-                viewStore.send(.onAppear)
-                viewStore.send(.connectOrDisconnect)
-            }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(
-                leading:
-                    PillButton(text: "Cancel") { viewStore.send(.cancel) }
-            )
-            .onChange(of: viewStore.isPresented) { presented in
-                if !presented {
-                    self.presentationMode.wrappedValue.dismiss()
-                    
+                .onAppear {
+                    viewStore.send(.connectOrDisconnect)
                 }
-            }
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(
+                    leading:
+                        PillButton(text: "Cancel") {
+                            if(viewStore.shouldDismiss){
+//                                viewStore.send(.connectOrDisconnect)
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                            
+                            viewStore.send(.cancel)
+                        }
+                )
         }
     }
 }
-
-struct EmergencyView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmergencyView(store: Store(
-            initialState: EmergencyFeature.State(),
-            reducer: AnyReducer(EmergencyFeature()),
-            environment: ()))
-    }
-}
-
-

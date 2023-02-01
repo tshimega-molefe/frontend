@@ -24,6 +24,16 @@ struct UserClient {
         let password: String
     }
     
+    struct UpdateRequest: Encodable {
+        let sex: String?
+        let race: String?
+        let contact_number = ""
+        let birth_date: String?
+        let profile_image: String?
+        let home_address: String?
+        let full_name: String
+    }
+    
     enum LoginError: Error {
         //TODO: Add custom error messages / codes to responses to allow for more granular error messages on frontend
         case loginError
@@ -36,11 +46,13 @@ struct UserClient {
     
     enum ProfileError: Error {
         case getError
+        case updateError
     }
     
     var login: @Sendable (String, String) async throws -> UserToken
     var register: @Sendable (String, String, String) async throws -> UserToken
     var getUserProfile: @Sendable (String) async throws -> UserProfile
+    var updateUserProfile: @Sendable (UserProfile, String) async throws -> UserProfile
     
 }
 
@@ -130,6 +142,7 @@ extension UserClient {
         },
         
         getUserProfile: { accessToken in
+            
             try await Task.sleep(nanoseconds: NSEC_PER_SEC)
             return try await withCheckedThrowingContinuation { continuation in
                 
@@ -144,7 +157,7 @@ extension UserClient {
                 request.setValue( "Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
                 
                 let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                    
+                                        
                     guard let data = data, error == nil else {
                         continuation.resume(throwing: ProfileError.getError)
                         return
@@ -152,14 +165,84 @@ extension UserClient {
                     
                     if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 200 {
+                            do {
+                                let profileData = try JSONDecoder().decode(UserProfile.self, from: data)
+                                continuation.resume(returning: profileData)
+
+                            }
                             
-                            let profileData = try? JSONDecoder().decode(UserProfile.self, from: data)
-                            continuation.resume(returning: profileData!)
+                            catch let jsonError as NSError {
+                                let str = String(decoding: data, as: UTF8.self)
+                                print(str)
+                                continuation.resume(throwing: ProfileError.getError)
+                                print("JSON decode failed: \(jsonError)")
+                                return
+                              }
+
                         }
                         else {
                             continuation.resume(throwing: ProfileError.getError)
                         }
                     }
+                    
+
+                }
+                task.resume()
+            }
+        },
+        updateUserProfile: { userProfile, accessToken in
+            try await Task.sleep(nanoseconds: NSEC_PER_SEC)
+            return try await withCheckedThrowingContinuation { continuation in
+                
+                guard let url = URL(string: "http://localhost:8000/api/users/citizen/update/") else {
+                    continuation.resume(throwing: ProfileError.updateError)
+                    return
+                }
+                
+                print("DEBUG: USERPROFILE UPDATE: \(userProfile)")
+                
+                let body = UpdateRequest(sex: userProfile.sex, race: userProfile.race, birth_date: userProfile.birth_date, profile_image: userProfile.profile_image, home_address: userProfile.home_address, full_name: userProfile.full_name)
+                
+                guard let finalBody = try? JSONEncoder().encode(body) else {
+                    return
+                }
+                                
+                var request = URLRequest(url: url)
+                request.httpMethod = "PATCH"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue( "Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                request.httpBody = finalBody
+                
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                                        
+                    guard let data = data, error == nil else {
+                        continuation.resume(throwing: ProfileError.updateError)
+                        return
+                    }
+                    
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            do {
+                                let profileData = try JSONDecoder().decode(UserProfile.self, from: data)
+                                print("DEBUG: USERPROFILE UPDATE: \(profileData)")
+                                continuation.resume(returning: profileData)
+                            }
+                            
+                            catch let jsonError as NSError {
+                                let str = String(decoding: data, as: UTF8.self)
+                                print(str)
+                                continuation.resume(throwing: ProfileError.updateError)
+                                print("JSON decode failed: \(jsonError)")
+                                return
+                              }
+
+                        }
+                        else {
+                            continuation.resume(throwing: ProfileError.getError)
+                        }
+                    }
+                    
+
                 }
                 task.resume()
             }

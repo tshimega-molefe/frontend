@@ -9,10 +9,10 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AccountView: View {
-    @ObservedObject var viewStore: ViewStore<AccountFeature.State, AccountFeature.Action>
-    let store: Store<AccountFeature.State, AccountFeature.Action>
+    @ObservedObject var viewStore: ViewStoreOf<SettingsFeature>
+    let store: StoreOf<SettingsFeature>
     
-    init(store: Store<AccountFeature.State, AccountFeature.Action>) {
+    init(store: StoreOf<SettingsFeature>) {
         self.store = store
         self.viewStore = ViewStore(self.store)
     }
@@ -20,12 +20,10 @@ struct AccountView: View {
     var body: some View {
                 
             List {
-                // Edit Profile Section
                 Section {
                     NavigationLink {
-                        EditProfileView(store: Store(initialState: EditProfileFeature.State(userProfile: viewStore.userProfile),
-                                                     reducer: AnyReducer(EditProfileFeature()),
-                                                     environment: ()))
+                        EditProfileView(store: self.store)
+                        
                     } label: {
                         HStack (alignment: .center) {
                             
@@ -34,27 +32,23 @@ struct AccountView: View {
                                 .frame(width: 58, height: 58)
                                 .clipShape(Circle())
                             
-                            VStack (alignment: .leading) {
-                                
-                                Text(viewStore.userProfile?.user.first_name ?? "User Legal Name")
+                            VStack (alignment: .leading) {                                
+                                Text(viewStore.profile.userProfile.full_name)
                                     .font(.custom(FontsManager.Poppins.light, size: 14))
                                     .foregroundColor(Color.theme.secondaryText)
                                 
-                                if viewStore.userProfile?.contact_number == "" {
+                                if viewStore.profile.userProfile.contact_number == "" {
                                     Text("+27 82 888 9999")
                                         .font(.custom(FontsManager.Poppins.light, size: 14))
                                         .foregroundColor(Color.theme.secondaryText)
                                 }
                                 else {
-                                    Text(viewStore.userProfile?.contact_number ?? "+27 82 888 9999")
+                                    Text(viewStore.profile.userProfile.contact_number ?? "+27 82 888 9999")
                                         .font(.custom(FontsManager.Poppins.light, size: 14))
                                         .foregroundColor(Color.theme.secondaryText)
                                 }
                                 
-                                
-                                    
-                                
-                                Text(viewStore.userProfile?.user.email ?? "test@gmail.com")
+                                Text(viewStore.profile.userProfile.user.email)
                                     .font(.custom(FontsManager.Poppins.light, size: 14))
                                     .foregroundColor(Color.theme.secondaryText)
                             }
@@ -151,8 +145,10 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(store: Store(initialState: AccountFeature.State(),
-                          reducer: AnyReducer(AccountFeature()),
-                         environment: ()))
+        AccountView(store: Store(
+            initialState: SettingsFeature.State(profile: ProfileFeature.State()),
+            reducer: AnyReducer(SettingsFeature()),
+            environment: ()
+        ))
     }
 }

@@ -31,7 +31,5 @@
 	</array>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>&quot;Athena needs access to the camera to live-stream your viewpoint to ARES.&quot;</string>
 </dict>
 </plist>

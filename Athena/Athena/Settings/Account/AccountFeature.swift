@@ -13,7 +13,6 @@ struct AccountFeature: ReducerProtocol {
         
     struct State: Equatable {
         var route: Route = .idle
-        var userProfile: UserProfile?
     }
     
     enum Route: Equatable {
@@ -29,6 +28,7 @@ struct AccountFeature: ReducerProtocol {
         case updateAccount
         case signOut
         case dismissView
+//        case editProfile(EditProfileFeature.Action)
     }
     
     var body: some ReducerProtocol<State, Action>{
@@ -61,8 +61,10 @@ struct AccountFeature: ReducerProtocol {
                 
             case .dismissView:
                 return .none
+                
+//            case .editProfile(_):
+//                return .none
             }
-            
         }
     }
 }

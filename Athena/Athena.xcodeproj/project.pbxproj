@@ -17,7 +17,6 @@
 		955CD5DE29473FFF005A215A /* AccountFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955CD5DD29473FFF005A215A /* AccountFeature.swift */; };
 		956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D7291E5E9200607CA9 /* ComposableArchitecture */; };
 		956273DA291E5E9200607CA9 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 956273D9291E5E9200607CA9 /* Dependencies */; };
-		956273E0291E603A00607CA9 /* UserFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956273DF291E603A00607CA9 /* UserFeature.swift */; };
 		9576893C28E0644F009FDCE2 /* AthenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576893B28E0644F009FDCE2 /* AthenaApp.swift */; };
 		9576894028E06450009FDCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576893F28E06450009FDCE2 /* Assets.xcassets */; };
 		9576894328E06450009FDCE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576894228E06450009FDCE2 /* Preview Assets.xcassets */; };
@@ -27,7 +26,6 @@
 		9588D53C28EDC36F00DC1557 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */; };
 		958AFF7F29794A640083553C /* StatusFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF7E29794A640083553C /* StatusFeature.swift */; };
 		958AFF8229794C480083553C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF8129794C480083553C /* EditProfileView.swift */; };
-		958AFF8429794C5D0083553C /* EditProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFF8329794C5D0083553C /* EditProfileFeature.swift */; };
 		958CE6CB28FEEA3F000EEEF4 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */; };
 		958F830128EEEEA0000C0219 /* LocationSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830028EEEEA0000C0219 /* LocationSearchService.swift */; };
 		958F830328EF1776000C0219 /* SecurityMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F830228EF1776000C0219 /* SecurityMapViewState.swift */; };
@@ -96,10 +94,7 @@
 		B376FEBB291479DA00CA6AFD /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FEBA291479DA00CA6AFD /* EmergencyView.swift */; };
 		B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */; };
 		B37C999A29814A74004BB9F9 /* ProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C999929814A74004BB9F9 /* ProfileFeature.swift */; };
-		B37C999C2981566E004BB9F9 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C999B2981566E004BB9F9 /* AppFeature.swift */; };
-		B38CDEC9293558B90005BC9D /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */; };
-		B38CDECB293558B90005BC9D /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = B38CDECA293558B90005BC9D /* MapboxNavigation */; };
-		B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3F158AC2925279D0067DC28 /* MapboxMaps */; };
+		B3DA686B29827E6500154043 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = B3DA686A29827E6500154043 /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +106,6 @@
 		9530E3BA28F6E418000F395A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		955CD5DA29473FCA005A215A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		955CD5DD29473FFF005A215A /* AccountFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFeature.swift; sourceTree = "<group>"; };
-		956273DF291E603A00607CA9 /* UserFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeature.swift; sourceTree = "<group>"; };
 		9576893828E0644F009FDCE2 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576893B28E0644F009FDCE2 /* AthenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaApp.swift; sourceTree = "<group>"; };
 		9576893F28E06450009FDCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,7 +116,6 @@
 		9588D53B28EDC36F00DC1557 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
 		958AFF7E29794A640083553C /* StatusFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusFeature.swift; sourceTree = "<group>"; };
 		958AFF8129794C480083553C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		958AFF8329794C5D0083553C /* EditProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFeature.swift; sourceTree = "<group>"; };
 		958CE6CA28FEEA3F000EEEF4 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		958F830028EEEEA0000C0219 /* LocationSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchService.swift; sourceTree = "<group>"; };
 		958F830228EF1776000C0219 /* SecurityMapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityMapViewState.swift; sourceTree = "<group>"; };
@@ -192,7 +185,6 @@
 		B376FEBA291479DA00CA6AFD /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
 		B376FECD2915CE5300CA6AFD /* EmergencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyModel.swift; sourceTree = "<group>"; };
 		B37C999929814A74004BB9F9 /* ProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeature.swift; sourceTree = "<group>"; };
-		B37C999B2981566E004BB9F9 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		B38CDEE029364BDC0005BC9D /* ServiceMap */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ServiceMap; path = ../../ServiceMap; sourceTree = "<group>"; };
 		B38CDEEC2936596D0005BC9D /* ServiceMap */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ServiceMap; path = ../../ServiceMap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,11 +194,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38CDECB293558B90005BC9D /* MapboxNavigation in Frameworks */,
 				95A56A9129421B2E00F43FE1 /* ServiceMap in Frameworks */,
-				B38CDEC9293558B90005BC9D /* MapboxCoreNavigation in Frameworks */,
-				B3F158AD2925279D0067DC28 /* MapboxMaps in Frameworks */,
 				956273D8291E5E9200607CA9 /* ComposableArchitecture in Frameworks */,
+				B3DA686B29827E6500154043 /* MapboxMaps in Frameworks */,
 				956273DA291E5E9200607CA9 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +299,6 @@
 		956273DE291E602500607CA9 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				956273DF291E603A00607CA9 /* UserFeature.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -338,7 +327,6 @@
 		9576893A28E0644F009FDCE2 /* Athena */ = {
 			isa = PBXGroup;
 			children = (
-				B37C999B2981566E004BB9F9 /* AppFeature.swift */,
 				9576893B28E0644F009FDCE2 /* AthenaApp.swift */,
 				9522ABB828E09A1B00437D38 /* Components */,
 				95FCEC4D28E1DDCC00ABE5CA /* Home */,
@@ -348,7 +336,6 @@
 				95FCEC5028E1DEC500ABE5CA /* Security */,
 				B328B25D2921A7CB007AE687 /* Service Request */,
 				95FCEC4828E1DBB000ABE5CA /* Emergency */,
-				B37C999829814A62004BB9F9 /* Profile */,
 				95FCEC5328E1DF4000ABE5CA /* Search */,
 				95FCEC5228E1DF1A00ABE5CA /* Settings */,
 				9576894B28E0651A009FDCE2 /* Extensions */,
@@ -411,9 +398,8 @@
 		958AFF8029794C080083553C /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
-				958AFF8329794C5D0083553C /* EditProfileFeature.swift */,
-				95B658FB2979843E0090A485 /* ProfilePhotoView.swift */,
 				958AFF8129794C480083553C /* EditProfileView.swift */,
+				95B658FB2979843E0090A485 /* ProfilePhotoView.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -516,6 +502,7 @@
 		95FCEC5228E1DF1A00ABE5CA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B37C999929814A74004BB9F9 /* ProfileFeature.swift */,
 				95DA2947293643F000E5F54D /* SettingsFeature.swift */,
 				95FCEC5A28E1DFD000ABE5CA /* SettingsView.swift */,
 				955CD5DC29473FE3005A215A /* Account */,
@@ -554,14 +541,6 @@
 			path = "Service Request";
 			sourceTree = "<group>";
 		};
-		B37C999829814A62004BB9F9 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B37C999929814A74004BB9F9 /* ProfileFeature.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		B38CDED42936459F0005BC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,10 +576,8 @@
 			packageProductDependencies = (
 				956273D7291E5E9200607CA9 /* ComposableArchitecture */,
 				956273D9291E5E9200607CA9 /* Dependencies */,
-				B3F158AC2925279D0067DC28 /* MapboxMaps */,
-				B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */,
-				B38CDECA293558B90005BC9D /* MapboxNavigation */,
 				95A56A9029421B2E00F43FE1 /* ServiceMap */,
+				B3DA686A29827E6500154043 /* MapboxMaps */,
 			);
 			productName = Athena;
 			productReference = 9576893828E0644F009FDCE2 /* Athena.app */;
@@ -632,8 +609,8 @@
 			mainGroup = 9576892F28E0644F009FDCE2;
 			packageReferences = (
 				956273D6291E5E9200607CA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 				B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
+				B3DA686929827E6500154043 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = 9576893928E0644F009FDCE2 /* Products */;
 			projectDirPath = "";
@@ -685,7 +662,6 @@
 				B30AB2C2297EC98100A4A6BC /* HomeFeature.swift in Sources */,
 				95E6AEE628E07D24002DC84A /* FontsManager.swift in Sources */,
 				B30AB2BC297E946500A4A6BC /* AuthenticationFeature.swift in Sources */,
-				956273E0291E603A00607CA9 /* UserFeature.swift in Sources */,
 				B30AB2C0297E95CE00A4A6BC /* AuthenticationView.swift in Sources */,
 				95FCEC4228E1C56900ABE5CA /* dismissKeyboard.swift in Sources */,
 				955CD5DB29473FCA005A215A /* AccountView.swift in Sources */,
@@ -701,11 +677,9 @@
 				9588D53A28EDB47C00DC1557 /* LocationSearchView.swift in Sources */,
 				95F4CE442950970B0042C397 /* FamilyFeature.swift in Sources */,
 				95F4CE2F295096120042C397 /* EvidenceFeature.swift in Sources */,
-				958AFF8429794C5D0083553C /* EditProfileFeature.swift in Sources */,
 				95B7A854295B8E3800A4D1B8 /* SearchBar.swift in Sources */,
 				9522ABBF28E0E11200437D38 /* AuthButtonView.swift in Sources */,
 				B376FECE2915CE5300CA6AFD /* EmergencyModel.swift in Sources */,
-				B37C999C2981566E004BB9F9 /* AppFeature.swift in Sources */,
 				95F4CE462950ABAA0042C397 /* MessagesView.swift in Sources */,
 				95A56BC628EC512200BC1C2E /* LocationManager.swift in Sources */,
 				9522ABC328E0EB8300437D38 /* CheckBoxView.swift in Sources */,
@@ -875,12 +849,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = 75KLTK97UQ;
+				DEVELOPMENT_TEAM = L5F36B6L4T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Athena;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Athena needs access to the camera to live-stream your viewpoint to ARES.\"";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you when you need our help";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -893,7 +868,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.athena-io.Athen";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.athena-io.Athe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -913,12 +888,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Athena/Preview Content\"";
-				DEVELOPMENT_TEAM = 75KLTK97UQ;
+				DEVELOPMENT_TEAM = L5F36B6L4T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Athena/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Athena;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Athena needs access to the camera to live-stream your viewpoint to ARES.\"";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you when you need our help";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -931,7 +907,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.athena-io.Athen";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.athena-io.Athe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -982,7 +958,7 @@
 				kind = branch;
 			};
 		};
-		B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+		B3DA686929827E6500154043 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
 			requirement = {
@@ -1007,19 +983,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ServiceMap;
 		};
-		B38CDEC8293558B90005BC9D /* MapboxCoreNavigation */ = {
+		B3DA686A29827E6500154043 /* MapboxMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxCoreNavigation;
-		};
-		B38CDECA293558B90005BC9D /* MapboxNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B38CDEC7293558B90005BC9D /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxNavigation;
-		};
-		B3F158AC2925279D0067DC28 /* MapboxMaps */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B3F158AB2925279D0067DC28 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			package = B3DA686929827E6500154043 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
 			productName = MapboxMaps;
 		};
 /* End XCSwiftPackageProductDependency section */

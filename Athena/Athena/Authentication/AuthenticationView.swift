@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct AuthenticationView: View {
     @ObservedObject var viewStore: ViewStore<AuthenticationFeature.State, AuthenticationFeature.Action>
-    let store: Store<AuthenticationFeature.State, AuthenticationFeature.Action>
+    let store: StoreOf<AuthenticationFeature>
     
     init(store: Store<AuthenticationFeature.State, AuthenticationFeature.Action>) {
         self.store = store
@@ -21,7 +21,7 @@ struct AuthenticationView: View {
         
         VStack {
             switch viewStore.state.route {
-            
+           
             /*
              ------------
               login view

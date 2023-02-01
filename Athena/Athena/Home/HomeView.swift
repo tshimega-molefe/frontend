@@ -25,7 +25,8 @@ struct HomeView: View {
                         AuthenticationView(store: authStore)
                     },
                     else: {
-                        TabView(selection: viewStore.binding(get: \.route, send: HomeFeature.Action.onAppear)) {
+
+                        TabView(selection: viewStore.binding(\.$route)) {
                             StatusView()
                                 .tabItem {
                                     Image(systemName: "location.circle")
@@ -41,10 +42,8 @@ struct HomeView: View {
                             }.tag(HomeFeature.Route.security)
                             
                             NavigationView {
-                                NavigationLink(destination: EmergencyView(store: Store(
-                                    initialState: EmergencyFeature.State(),
-                                    reducer: AnyReducer(EmergencyFeature()),
-                                    environment: ()))) {
+                                NavigationLink(destination:
+                                                EmergencyView(store: self.store.scope(state: \.emergency, action: HomeFeature.Action.emergency))) {
                                         EmergencyButton()
                                     }
                             }
@@ -60,9 +59,7 @@ struct HomeView: View {
                                 }.tag(HomeFeature.Route.search)
                             
                             NavigationView {
-                                SettingsView(store: Store(initialState: SettingsFeature.State(userProfile: viewStore.profile.userProfile),
-                                                          reducer: AnyReducer(SettingsFeature()),
-                                                          environment: ()))
+                                SettingsView(store: self.store.scope(state: \.settings, action: HomeFeature.Action.settings))
                             }
                             .tabItem {
                                 Image(systemName: "gear")

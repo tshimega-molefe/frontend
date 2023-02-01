@@ -12,13 +12,12 @@ import ComposableArchitecture
 struct User: Equatable, Codable {
     var username: String
     var email: String
-    var first_name: String?
-    var last_name: String?
 }
 
 struct UserProfile: Equatable, Codable {
-    var id: Int
-    var user: User
+    var id: Int = 0
+    var user: User = User(username: "", email: "")
+    var full_name: String = ""
     var home_address: String?
     var contact_number: String?
     var birth_date: String?
